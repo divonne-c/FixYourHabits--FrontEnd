@@ -13,12 +13,20 @@ const HomeNavigation = () => {
       <NavLinkFifth>
         <Nav>
           <NavLink
-            to={auth.isAuth ? `/home/${auth.user.username}/habits` : "*"}
+            to={
+              auth.isAuth && auth.user.role === "ROLE_USER"
+                ? `/home/${auth.user.username}/habits`
+                : `/admin/home/${auth.user.username}/habits`
+            }
           >
             <p>Habits</p>
           </NavLink>
           <NavLink
-            to={auth.isAuth ? `/home/${auth.user.username}/scores` : "*"}
+            to={
+              auth.isAuth && auth.user.role === "ROLE_USER"
+                ? `/home/${auth.user.username}/scores`
+                : `/admin/home/${auth.user.username}/scores`
+            }
           >
             <p>Scores</p>
           </NavLink>

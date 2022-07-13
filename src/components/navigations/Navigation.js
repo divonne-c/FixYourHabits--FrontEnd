@@ -93,8 +93,8 @@ const Navigation = () => {
           <NavLink
             to={
               auth.isAuth && auth.user.role === "ROLE_USER"
-                ? `/home/${auth.user.username}`
-                : auth.isAuth && `/admin/home/${auth.user.username}`
+                ? `/home/${auth.user.username}/habits`
+                : auth.isAuth && `/admin/home/${auth.user.username}/habits`
             }
           >
             <span className="material-symbols-outlined">home</span>

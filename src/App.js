@@ -3,7 +3,7 @@ import Navigation from "./components/navigations/Navigation";
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import GlobalStyles from "./styles - global/global/GlobalStyles";
 import { GlobalLayout } from "./styles - global/global/LayoutStyles";
-import Home from "./pages/home/home - user/desktop/Home";
+import Home from "./pages/home/home - user/Home";
 import PageNotFound from "./pages/errorpage/PageNotFound";
 import SignIn from "./pages/login/SignIn";
 import DiscoverAll from "./pages/discover/DiscoverAll";
@@ -19,6 +19,9 @@ import { AuthContext } from "./context/AuthContext";
 import HomeHabits from "./pages/home/home - user/mobile/HomeHabits";
 import HomeScores from "./pages/home/home - user/mobile/HomeScores";
 import HomeAdmin from "./pages/home/home-admin/HomeAdmin";
+import HomeAdminHabits from "./pages/home/home-admin/mobile/HomeAdminHabits";
+import HomeAdminScores from "./pages/home/home-admin/mobile/HomeAdminScores";
+import CreateUserReward from "./components/rewards/reward - create/CreateUserReward";
 
 function App() {
   const { auth } = useContext(AuthContext);
@@ -26,12 +29,15 @@ function App() {
 
   return (
     <>
-      {/*Global discover - styles - global*/}
+      {/*Global discover*/}
       <GlobalStyles />
 
       <GlobalLayout>
         {/*Navigation*/}
         <Navigation />
+
+        {/*Rewards*/}
+        {auth.isAuth && <CreateUserReward />}
 
         {/*Routes*/}
         <Routes>
@@ -44,7 +50,16 @@ function App() {
             <Route path="scores" element={<HomeScores />} />
           </Route>
 
-          <Route path="/admin/home/:userId" element={<HomeAdmin />} />
+          <Route path="/admin/home/:userId">
+            <Route
+              path=""
+              element={
+                auth.isAuth ? <HomeAdmin /> : <Navigate to="/auth/sign-in" />
+              }
+            />
+            <Route path="habits" element={<HomeAdminHabits />} />
+            <Route path="scores" element={<HomeAdminScores />} />
+          </Route>
 
           {/*Discover*/}
           <Route path="/discover">

@@ -106,17 +106,27 @@ function AuthProvider({ children }) {
   useEffect(() => {
     if (
       auth.isAuth === true &&
-      isMobile === true &&
-      auth.user.role === "ROLE_USER"
+      auth.user.role === "ROLE_USER" &&
+      isMobile === true
     ) {
       navigate(`/home/${auth.user.username}/habits`);
     } else if (
       auth.isAuth === true &&
-      isMobile === false &&
-      auth.user.role === "ROLE_USER"
+      auth.user.role === "ROLE_USER" &&
+      isMobile === false
     ) {
       navigate(`/home/${auth.user.username}`);
-    } else if (auth.isAuth === true && auth.user.role === "ROLE_ADMIN") {
+    } else if (
+      auth.isAuth === true &&
+      auth.user.role === "ROLE_ADMIN" &&
+      isMobile === true
+    ) {
+      navigate(`/admin/home/${auth.user.username}/habits`);
+    } else if (
+      auth.isAuth === true &&
+      auth.user.role === "ROLE_ADMIN" &&
+      isMobile === false
+    ) {
       navigate(`/admin/home/${auth.user.username}`);
     } else {
       navigate("/auth/sign-in");
