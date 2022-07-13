@@ -4,17 +4,20 @@ import axios from "axios";
 import Modal from "../../modals/modal - normal/Modal";
 import { Form } from "../../habits/habit - form/FormHabit.styles";
 import RewardForm from "../reward - form/RewardForm";
-import { ButtonContainer } from "../../../pages/home/Home.styles";
 import { ButtonSecondary } from "../../../styles - global/global/ButtonStyles";
-import { Mobile } from "../../../styles - global/media/MediaQueryDisplay";
-import { HabitMenuContainer } from "../../habits/habit - delete/DeleteHabit.styles";
+import { MobileWHeight } from "../../../styles - global/global/MediaQueryDisplay";
+import {
+  MenuButtonContainer,
+  ModalButtons,
+} from "../../../styles - global/utilities/HabitAndReward.styles";
 
 const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
   const [number, setNumber] = useState(reward.name);
   const [type, setType] = useState(reward.type);
   const [description, setDescription] = useState(reward.description);
   const [showModal, toggleShowModal] = useState(false);
-  const { auth, renderData, setRenderData } = useContext(AuthContext);
+  const { auth, renderData, setRenderData, setNotifications, notifications } =
+    useContext(AuthContext);
 
   const showModalHandler = () => {
     toggleShowModal(!showModal);
@@ -47,18 +50,21 @@ const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
     const token = localStorage.getItem("token");
 
     try {
-      await axios
-        .put(`http://localhost:8080/adminrewards/${reward.id}`, data, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((renspons) => console.log(renspons));
+      await axios.put(`http://localhost:8080/adminrewards/${reward.id}`, data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       setRenderData(!renderData);
+      setNotifications([
+        ...notifications,
+        { type: "success", message: "You successfully updated the habit" },
+      ]);
     } catch (error) {
       console.log(error);
+      setNotifications([...notifications, { type: "error", message: error }]);
     }
 
     toggleShowModal(!showModal);
@@ -67,16 +73,16 @@ const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
 
   return (
     <div>
-      <HabitMenuContainer>
+      <MenuButtonContainer>
         <button onClick={showModalHandler}>
           <span className="container">
             <span className="material-symbols-outlined edit">edit</span>
-            <Mobile>
-              <p>Edit habit</p>
-            </Mobile>
+            <MobileWHeight>
+              <p>Edit</p>
+            </MobileWHeight>
           </span>
         </button>
-      </HabitMenuContainer>
+      </MenuButtonContainer>
 
       {showModal && (
         <Modal title="Update Reward">
@@ -90,12 +96,12 @@ const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
             />
 
             {/* ----- buttons -----*/}
-            <ButtonContainer>
+            <ModalButtons>
               <ButtonSecondary type="button" onClick={show}>
                 Cancel
               </ButtonSecondary>
               <button type="submit">Save</button>
-            </ButtonContainer>
+            </ModalButtons>
           </Form>
         </Modal>
       )}

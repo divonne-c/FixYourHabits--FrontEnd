@@ -4,7 +4,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 2em;
+  gap: var(--gap-m);
 
   input[type="text"] {
     width: var(--width-100);
@@ -24,6 +24,10 @@ export const Form = styled.form`
     position: relative;
     cursor: pointer;
   }
+
+  @media (max-width: 1024px) {
+    gap: var(--gap-s);
+  }
 `;
 
 export const Container = styled.div`
@@ -40,21 +44,5 @@ export const Container = styled.div`
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
-  }
-`;
-
-export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: var(--gap-m);
-  margin-top: var(--margin-s);
-
-  button {
-    padding: var(--padding-s) var(--padding-m);
-    border-radius: var(--border-radius-l);
-  }
-
-  button:hover {
-    opacity: 0.8;
   }
 `;

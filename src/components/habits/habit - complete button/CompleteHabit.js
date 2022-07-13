@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
+import { AuthContext } from "../../../context/AuthContext";
 import {
-  Desktop,
-  Mobile,
-} from "../../../styles - global/media/MediaQueryDisplay";
+  DesktopWHeight,
+  MobileWHeight,
+} from "../../../styles - global/global/MediaQueryDisplay";
 import { CompleteButton } from "./CompleteHabit.styles";
 
 const CompleteHabit = ({ habit }) => {
@@ -37,16 +37,17 @@ const CompleteHabit = ({ habit }) => {
   }, [habitCompleted]);
 
   return (
-    <div>
-      <CompleteButton type="submit" onClick={completeHandler}>
-        <Desktop>{!habitCompleted ? "Complete" : "Undo"}</Desktop>
-        <Mobile>
-          <div className={habitCompleted ? "checked" : ""}>
-            <input type="checkbox" />
-          </div>
-        </Mobile>
-      </CompleteButton>
-    </div>
+    <CompleteButton type="submit" onClick={completeHandler}>
+      {/*----- DESKTOP -----*/}
+      <DesktopWHeight>{!habitCompleted ? "Complete" : "Undo"}</DesktopWHeight>
+
+      {/*----- MOBILE -----*/}
+      <MobileWHeight>
+        <div className={habitCompleted ? "checked" : ""}>
+          <input type="checkbox" />
+        </div>
+      </MobileWHeight>
+    </CompleteButton>
   );
 };
 

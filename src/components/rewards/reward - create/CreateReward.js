@@ -1,8 +1,7 @@
 import React, { useContext, useState } from "react";
-import { ButtonAddHabit } from "../../habits/habit - create/CreateHabit.styles";
+import { CreateAdminHabitButton } from "../../habits/habit - create/CreateHabit.styles";
 import Modal from "../../modals/modal - normal/Modal";
 import { Form } from "../../habits/habit - form/FormHabit.styles";
-import FormHabit from "../../habits/habit - form/FormHabit";
 import { ButtonContainer } from "../../../pages/home/Home.styles";
 import { ButtonSecondary } from "../../../styles - global/global/ButtonStyles";
 import axios from "axios";
@@ -14,7 +13,8 @@ const CreateReward = () => {
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
   const [showMenu, toggleShowMenu] = useState(false);
-  const { auth, renderData, setRenderData } = useContext(AuthContext);
+  const { auth, renderData, setRenderData, setNotifications, notifications } =
+    useContext(AuthContext);
 
   const show = () => {
     toggleShowMenu(!showMenu);
@@ -47,21 +47,22 @@ const CreateReward = () => {
     const token = localStorage.getItem("token");
 
     try {
-      await axios
-        .post(`http://localhost:8080/adminrewards/`, data, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => console.log(response));
+      await axios.post(`http://localhost:8080/adminrewards/`, data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       setRenderData(!renderData);
+      setNotifications([
+        ...notifications,
+        { type: "success", message: "You successfully created a new reward" },
+      ]);
     } catch (error) {
       console.log(error);
+      setNotifications([...notifications, { type: "error", message: error }]);
     }
-
-    console.log(data);
 
     toggleShowMenu(!showMenu);
     setNumber(0);
@@ -69,11 +70,16 @@ const CreateReward = () => {
   };
 
   return (
-    <div>
-      <h1>Create Reward</h1>
-      <ButtonAddHabit onClick={show}>
-        <span>+</span>
-      </ButtonAddHabit>
+    <>
+      {/*----- BUTTON -----*/}
+      <CreateAdminHabitButton onClick={show}>
+        <div className="container">
+          <span className="material-symbols-outlined">add</span>
+          <p>Create Reward</p>
+        </div>
+      </CreateAdminHabitButton>
+
+      {/*----- MODAL -----*/}
       {showMenu && (
         <Modal title="Create Habit">
           <Form onSubmit={createRewardHandler}>
@@ -95,7 +101,7 @@ const CreateReward = () => {
           </Form>
         </Modal>
       )}
-    </div>
+    </>
   );
 };
 

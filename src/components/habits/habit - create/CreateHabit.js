@@ -3,43 +3,57 @@ import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
 import Modal from "../../modals/modal - normal/Modal";
 import FormHabit from "../habit - form/FormHabit";
+import TotalUserHabitsButton from "../habit - total habits user/TotalUserHabitsButton";
 import { Form } from "../habit - form/FormHabit.styles";
-import { ButtonContainer } from "../../../pages/home/Home.styles";
-import { ButtonSecondary } from "../../../styles - global/global/ButtonStyles";
-import { ButtonAddHabit } from "./CreateHabit.styles";
-import TotalUserHabits from "../habit - total habits user/TotalUserHabits";
+import {
+  ButtonFourth,
+  ButtonThird,
+} from "../../../styles - global/global/ButtonStyles";
+import {
+  CreateAdminHabitButton,
+  CreateHabitButton,
+} from "./CreateHabit.styles";
+import { ModalButtons } from "../../../styles - global/utilities/HabitAndReward.styles";
+import {
+  DesktopWHeight,
+  Desktop,
+  MobileWHeight,
+} from "../../../styles - global/global/MediaQueryDisplay";
 
 const CreateHabit = ({ role, profile }) => {
-  const [nameHabit, setNameHabit] = useState("");
-  const [typehabit, setTypehabit] = useState("");
-  const [description, setDescription] = useState("");
-  const { auth, renderData, setRenderData } = useContext(AuthContext);
+  const [habit, setHabit] = useState({
+    name: "",
+    type: "",
+    description: "",
+  });
   const [showMenu, toggleShowMenu] = useState(false);
+  const { auth, renderData, setRenderData, setNotifications, notifications } =
+    useContext(AuthContext);
 
   const show = () => {
     toggleShowMenu(!showMenu);
   };
 
   const nameChangeHandler = (event) => {
-    setNameHabit(event.target.value);
+    setHabit({ ...habit, name: event.target.value });
   };
 
   const typeChangeHandler = (event) => {
-    setTypehabit(event.target.value);
+    setHabit({ ...habit, type: event.target.value });
   };
 
   const descriptionChangeHandler = (event) => {
-    setDescription(event.target.value);
+    setHabit({ ...habit, description: event.target.value });
   };
 
-  const updateHabitHandler = async (e) => {
+  const createHabitHandler = async (e) => {
     e.preventDefault();
 
     const data = {
-      name: nameHabit,
-      type: typehabit,
+      name: habit.name,
+      type: habit.type,
       completed: false,
-      description: description,
+      description: habit.description,
       [profile]: {
         id: auth.user.id,
       },
@@ -48,56 +62,85 @@ const CreateHabit = ({ role, profile }) => {
     const token = localStorage.getItem("token");
 
     try {
-      await axios
-        .post(`http://localhost:8080/${role}habits/`, data, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => console.log(response));
+      await axios.post(`http://localhost:8080/${role}habits/`, data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       setRenderData(!renderData);
+      setNotifications([
+        ...notifications,
+        { type: "success", message: "You successfully created a new habit" },
+      ]);
     } catch (error) {
       console.log(error);
+      setNotifications([...notifications, { type: "error", message: error }]);
     }
 
     toggleShowMenu(!showMenu);
-    setNameHabit("");
-    setTypehabit("");
-    setDescription("");
+    setHabit({
+      name: "",
+      type: "",
+      description: "",
+    });
   };
 
   return (
-    <div>
-      <ButtonAddHabit onClick={show}>
-        <span>+</span>
-      </ButtonAddHabit>
+    <>
+      {/*----- BUTTON -----*/}
+      <Desktop>
+        {auth.isAuth && auth.user.role === "ROLE_USER" && (
+          <CreateHabitButton onClick={show}>
+            <span>+</span>
+          </CreateHabitButton>
+        )}
+
+        {auth.isAuth && auth.user.role === "ROLE_ADMIN" && (
+          <CreateAdminHabitButton onClick={show}>
+            <div className="container">
+              <span className="material-symbols-outlined">add</span>
+              <p>Create Habit</p>
+            </div>
+          </CreateAdminHabitButton>
+        )}
+      </Desktop>
+
+      <MobileWHeight>
+        <CreateHabitButton onClick={show}>
+          <span>+</span>
+        </CreateHabitButton>
+      </MobileWHeight>
+
+      {/*----- MODAL -----*/}
       {showMenu && (
         <Modal title="Create Habit">
-          <Form onSubmit={updateHabitHandler}>
+          <Form onSubmit={createHabitHandler}>
+            {/*FORM*/}
             <FormHabit
-              nameHabit={nameHabit}
+              nameHabit={habit.name}
               typeChangeHandler={typeChangeHandler}
               nameChangeHandler={nameChangeHandler}
               descriptionChangeHandler={descriptionChangeHandler}
-              description={description}
+              description={habit.description}
             />
-            {/* ----- buttons -----*/}
-            <ButtonContainer>
-              <ButtonSecondary type="button" onClick={show}>
+
+            {/*MODAL BUTTONS*/}
+            <ModalButtons>
+              <ButtonFourth type="button" onClick={show}>
                 Cancel
-              </ButtonSecondary>
+              </ButtonFourth>
               {auth.user.role === "ROLE_USER" ? (
-                <TotalUserHabits />
+                <TotalUserHabitsButton />
               ) : (
-                <button type="submit">Save</button>
+                <ButtonThird type="submit">Save</ButtonThird>
               )}
-            </ButtonContainer>
+            </ModalButtons>
           </Form>
         </Modal>
       )}
-    </div>
+    </>
   );
 };
 

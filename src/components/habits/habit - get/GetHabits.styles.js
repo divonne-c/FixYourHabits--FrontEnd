@@ -11,6 +11,7 @@ export const Container = styled.div`
     justify-content: center;
     background-color: var(--color-white-background);
     border-radius: var(--border-radius-s);
+    padding-left: var(--padding-s);
 
     .habit-container-mobile {
       display: flex;

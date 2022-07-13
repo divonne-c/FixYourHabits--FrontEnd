@@ -5,7 +5,7 @@ import habitColorFunction from "../../../helpers/habitcolors";
 import habitLogoFunction from "../../../helpers/habitlogos";
 import { Container } from "./GetHabits.styles";
 import GetHabitsTemplate from "./GetHabitsTemplate";
-import { Desktop } from "../../../styles - global/media/MediaQueryDisplay";
+import { DesktopWHeight } from "../../../styles - global/global/MediaQueryDisplay";
 import CreateHabit from "../habit - create/CreateHabit";
 import MenuHabit from "../habit - menu/MenuHabit";
 
@@ -36,11 +36,15 @@ const GetHabits = ({ role, sortHabits }) => {
 
   return (
     <Container>
+      {/*----- GET HABITS ------*/}
       {habits &&
         habits.map((habit) => {
           const habitColor = habitColorFunction(habit.type);
           const habitLogo = habitLogoFunction(habit.type);
 
+          {
+            /*----- TO DO------*/
+          }
           if (
             auth.user.role === "ROLE_USER" &&
             sortHabits.todo === true &&
@@ -58,6 +62,9 @@ const GetHabits = ({ role, sortHabits }) => {
             );
           }
 
+          {
+            /*----- COMPLETED-----*/
+          }
           if (
             auth.user.role === "ROLE_USER" &&
             sortHabits.completed === true &&
@@ -75,6 +82,9 @@ const GetHabits = ({ role, sortHabits }) => {
             );
           }
 
+          {
+            /*----- ADMIN ------*/
+          }
           if (auth.user.role === "ROLE_ADMIN") {
             return (
               <div key={habit.id} className="habit-container-mobile">
@@ -88,11 +98,13 @@ const GetHabits = ({ role, sortHabits }) => {
             );
           }
         })}
-      <Desktop>
+
+      {/*----- CREATE HABIT BUTTON -----*/}
+      <DesktopWHeight>
         {auth.user.role === "ROLE_USER" && sortHabits.todo && (
           <CreateHabit role={role} profile="userProfile" />
         )}
-      </Desktop>
+      </DesktopWHeight>
     </Container>
   );
 };

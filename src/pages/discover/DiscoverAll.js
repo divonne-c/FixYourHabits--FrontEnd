@@ -6,7 +6,10 @@ import {
 } from "../../styles - global/global/LayoutStyles";
 import DiscoverNavigation from "../../components/navigations/DiscoverNavigation";
 import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
-import { Desktop, Mobile } from "../../styles - global/media/MediaQueryDisplay";
+import {
+  DesktopWHeight,
+  MobileWHeight,
+} from "../../styles - global/global/MediaQueryDisplay";
 import { DiscoverStyles, DiscoverStylesMobile } from "./Discover.styles";
 
 const DiscoverAll = () => {
@@ -15,23 +18,23 @@ const DiscoverAll = () => {
       <InnerContentLayout2>
         <DiscoverNavigation />
 
-        {/*------- Desktop --------*/}
-        <Desktop>
+        {/*------- DesktopWHeight --------*/}
+        <DesktopWHeight>
           <DiscoverStyles>
             <InnerContentLayout3>
               <p>Discover all</p>
             </InnerContentLayout3>
           </DiscoverStyles>
-        </Desktop>
+        </DesktopWHeight>
 
-        {/*------- Mobile --------*/}
-        <Mobile>
+        {/*------- MobileWHeight --------*/}
+        <MobileWHeight>
           <DiscoverStylesMobile>
             <CardContentMobile>
               <p>Discover all</p>
             </CardContentMobile>
           </DiscoverStylesMobile>
-        </Mobile>
+        </MobileWHeight>
       </InnerContentLayout2>
     </ContentLayout>
   );

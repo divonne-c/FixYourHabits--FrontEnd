@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ButtonPrimary } from "../../../styles - global/global/ButtonStyles";
 
 export const CompleteButton = styled(ButtonPrimary)`
-  border-radius: 5px;
+  border-radius: var(--border-radius-s);
   padding: var(--padding-s);
 
   @media (max-width: 1024px) {
@@ -17,8 +17,8 @@ export const CompleteButton = styled(ButtonPrimary)`
     input[type="checkbox"]:before {
       content: "";
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: var(--width-100);
+      height: var(--height-100);
       background-color: var(--color-white-background);
       z-index: 1;
     }

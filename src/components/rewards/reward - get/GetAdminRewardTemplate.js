@@ -1,16 +1,16 @@
 import React from "react";
 import { Container, Reward } from "./GetReward.styles";
 import {
-  Desktop,
-  Mobile,
-} from "../../../styles - global/media/MediaQueryDisplay";
+  DesktopWHeight,
+  MobileWHeight,
+} from "../../../styles - global/global/MediaQueryDisplay";
 import { ContainerMobile } from "../../habits/habit - get/GetHabits.styles";
 
 const GetAdminRewardTemplate = ({ reward }) => {
   return (
     <>
       <Container>
-        <Desktop>
+        <DesktopWHeight>
           <div className={`${reward.name}`}>
             <Reward>
               <span className="material-symbols-outlined reward-icon">
@@ -20,9 +20,9 @@ const GetAdminRewardTemplate = ({ reward }) => {
               <p>{reward.description}</p>
             </Reward>
           </div>
-        </Desktop>
+        </DesktopWHeight>
 
-        <Mobile>
+        <MobileWHeight>
           <ContainerMobile>
             <div className={`${reward.name}`}>
               <Reward>
@@ -34,7 +34,7 @@ const GetAdminRewardTemplate = ({ reward }) => {
               </Reward>
             </div>
           </ContainerMobile>
-        </Mobile>
+        </MobileWHeight>
       </Container>
     </>
   );

@@ -120,6 +120,7 @@ const GlobalStyles = createGlobalStyle`
     --height-70vh: 70vh;
     --height-100vh: 100vh;
     --height-100: 100%;
+    --height-habit: 120px;
 
     //////////////// Widths /////////////////
     --width-35vw: 35vw;
@@ -127,6 +128,7 @@ const GlobalStyles = createGlobalStyle`
     --width-80vw: 80vw;
     --width-100vw: 100vw;
     --width-100: 100%;
+    --width-habit: 120px;
 
     //////////////// Layout /////////////////
     --layout-width-navigation-m: 100px;

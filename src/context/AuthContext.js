@@ -13,6 +13,9 @@ function AuthProvider({ children }) {
   });
   const [isMobile, setIsMobile] = useState(false);
   const [renderData, setRenderData] = useState(false);
+  const [notifications, setNotifications] = useState([
+    { type: "", message: "" },
+  ]);
 
   const navigate = useNavigate();
 
@@ -138,6 +141,8 @@ function AuthProvider({ children }) {
     toggleAuth,
     renderData,
     setRenderData,
+    setNotifications,
+    notifications,
     login: login,
     logout: logout,
   };

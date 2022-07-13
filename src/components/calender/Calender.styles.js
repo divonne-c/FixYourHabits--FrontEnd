@@ -19,6 +19,10 @@ export const Container = styled.div`
     border-radius: var(--border-radius-s);
   }
 
+  .week-dates {
+    font-size: var(--font-xs);
+  }
+
   .date-container {
     display: flex;
     justify-content: space-evenly;
@@ -41,6 +45,12 @@ export const Container = styled.div`
   .current {
     background-color: var(--color-pink);
     color: var(--color-white);
+  }
+
+  @media (min-width: 1025px) and (max-width: 1055px) {
+    .week-dates {
+      display: none;
+    }
   }
 
   @media (max-width: 1024px) {

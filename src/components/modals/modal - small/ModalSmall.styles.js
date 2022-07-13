@@ -7,7 +7,7 @@ export const Container = styled.div`
   left: 0;
   height: var(--height-100vh);
   width: var(--width-100vw);
-  z-index: 1;
+  z-index: 2;
 
   .modal {
     display: flex;

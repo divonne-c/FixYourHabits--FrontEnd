@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { MobileNav } from "../../styles - global/media/MediaQueryDisplay";
+import { Mobile } from "../../styles - global/global/MediaQueryDisplay";
 import { NavLink } from "react-router-dom";
 import { NavLinkFifth } from "../../styles - global/navlinks/NavLinkStyles";
 import { AuthContext } from "../../context/AuthContext";
@@ -9,7 +9,7 @@ const HomeNavigation = () => {
   const { auth } = useContext(AuthContext);
 
   return (
-    <MobileNav>
+    <Mobile>
       <NavLinkFifth>
         <Nav>
           <NavLink
@@ -19,7 +19,11 @@ const HomeNavigation = () => {
                 : `/admin/home/${auth.user.username}/habits`
             }
           >
-            <p>Habits</p>
+            <p>
+              {auth.isAuth && auth.user.role === "ROLE_USER"
+                ? "Habits"
+                : "Overview"}
+            </p>
           </NavLink>
           <NavLink
             to={
@@ -32,7 +36,7 @@ const HomeNavigation = () => {
           </NavLink>
         </Nav>
       </NavLinkFifth>
-    </MobileNav>
+    </Mobile>
   );
 };
 

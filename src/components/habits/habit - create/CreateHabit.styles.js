@@ -1,7 +1,13 @@
 import styled from "styled-components";
+import {
+  ButtonFourth,
+  ButtonPrimary,
+  ButtonSecondary,
+  ButtonThird,
+} from "../../../styles - global/global/ButtonStyles";
 
-export const ButtonAddHabit = styled.button`
-  height: 120px;
+export const CreateHabitButton = styled.button`
+  height: var(--height-habit);
 
   span {
     font-size: var(--font-xxxl);
@@ -21,6 +27,7 @@ export const ButtonAddHabit = styled.button`
     height: inherit;
 
     span {
+      color: var(--color-orange) !important;
       font-size: var(--font-m);
       padding: var(--padding-xs) var(--padding-s);
       background-color: var(--color-white);
@@ -33,5 +40,23 @@ export const ButtonAddHabit = styled.button`
       background-color: var(--color-white);
       border-radius: var(--border-radius-l);
     }
+  }
+`;
+
+export const CreateAdminHabitButton = styled(ButtonPrimary)`
+  width: 100%;
+  text-align: center;
+  padding: var(--padding-sm);
+  margin-top: var(--margin-m);
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-s);
+  }
+
+  @media (max-width: 1024px) {
+    background: var(--color-white-background);
   }
 `;

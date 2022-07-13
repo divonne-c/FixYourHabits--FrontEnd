@@ -8,16 +8,16 @@ import {
 import CompleteHabit from "../habit - complete button/CompleteHabit";
 import { AuthContext } from "../../../context/AuthContext";
 import {
-  Desktop,
-  Mobile,
-} from "../../../styles - global/media/MediaQueryDisplay";
+  DesktopWHeight,
+  MobileWHeight,
+} from "../../../styles - global/global/MediaQueryDisplay";
 
 const GetHabitsTemplate = ({ habitColor, habitLogo, habit }) => {
   const { auth } = useContext(AuthContext);
 
   return (
     <HabitColorStyle>
-      <Desktop>
+      <DesktopWHeight>
         <div className={habitColor}>
           <Habit>
             <span className={`material-symbols-outlined ${habitColor}`}>
@@ -32,9 +32,9 @@ const GetHabitsTemplate = ({ habitColor, habitLogo, habit }) => {
             )}
           </Habit>
         </div>
-      </Desktop>
+      </DesktopWHeight>
 
-      <Mobile>
+      <MobileWHeight>
         <ContainerMobile>
           <div className={habitColor}>
             <HabitMobile>
@@ -52,7 +52,7 @@ const GetHabitsTemplate = ({ habitColor, habitLogo, habit }) => {
             </HabitMobile>
           </div>
         </ContainerMobile>
-      </Mobile>
+      </MobileWHeight>
     </HabitColorStyle>
   );
 };

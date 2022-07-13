@@ -6,7 +6,7 @@ import {
 import { useParams } from "react-router-dom";
 import { Main, Sidebar } from "../Home.styles";
 import Welcome from "../../../components/welcome/Welcome";
-import Calender from "../../../components/calenders/calender - content/Calender";
+import Calender from "../../../components/calender/Calender";
 import GetHabits from "../../../components/habits/habit - get/GetHabits";
 import { Card } from "../../../styles - global/cards/CardHome";
 import CreateHabit from "../../../components/habits/habit - create/CreateHabit";
@@ -14,6 +14,7 @@ import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
 import GetAdminRewards from "../../../components/rewards/reward - get/GetAdminRewards";
 import CreateReward from "../../../components/rewards/reward - create/CreateReward";
+import StatsAdmin from "../../../components/stats/stats - admin /StatsAdmin";
 
 const HomeAdmin = () => {
   const [adminProfile, setAdminProfile] = useState({});
@@ -81,9 +82,7 @@ const HomeAdmin = () => {
 
         {/*--------------- SIDEBAR --------------*/}
         <Sidebar>
-          <h1>Create Habit</h1>
-          <CreateHabit role="admin" profile="adminProfile" />
-          <CreateReward />
+          <StatsAdmin />
         </Sidebar>
       </InnerContentLayout3>
     </ContentLayout>

@@ -8,10 +8,11 @@ import {
   NavigationMobile,
 } from "../../styles - global/global/NavigationStyles";
 import {
-  DesktopNav,
-  MobileNav,
-} from "../../styles - global/media/MediaQueryDisplay";
+  Desktop,
+  Mobile,
+} from "../../styles - global/global/MediaQueryDisplay";
 import { AuthContext } from "../../context/AuthContext";
+import CreateHabit from "../habits/habit - create/CreateHabit";
 
 const Navigation = () => {
   const [showMenu, toggleShowMenu] = useState(false);
@@ -22,8 +23,8 @@ const Navigation = () => {
   };
   return (
     <>
-      {/*------- Desktop --------*/}
-      <DesktopNav>
+      {/*------- DesktopWHeight --------*/}
+      <Desktop>
         <NavigationDesktop>
           <div>
             {/*Logo*/}
@@ -84,10 +85,10 @@ const Navigation = () => {
             )}
           </NavigationElement>
         </NavigationDesktop>
-      </DesktopNav>
+      </Desktop>
 
-      {/*------- Mobile --------*/}
-      <MobileNav>
+      {/*------- MobileWHeight --------*/}
+      <Mobile>
         <NavigationMobile>
           {/*Home*/}
           <NavLink
@@ -106,7 +107,16 @@ const Navigation = () => {
           </NavLink>
 
           {/*Add habit button*/}
-          <button>+</button>
+          <CreateHabit
+            role={
+              auth.isAuth && auth.user.role === "ROLE_USER" ? "user" : "admin"
+            }
+            profile={
+              auth.isAuth && auth.user.role === "ROLE_USER"
+                ? "userProfile"
+                : "adminProfile"
+            }
+          />
 
           {/*Settings*/}
           <NavLink to="/settings">
@@ -118,7 +128,7 @@ const Navigation = () => {
             <span className="material-symbols-outlined">help</span>
           </NavLink>
         </NavigationMobile>
-      </MobileNav>
+      </Mobile>
     </>
   );
 };

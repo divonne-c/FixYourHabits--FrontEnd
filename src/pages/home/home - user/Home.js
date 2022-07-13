@@ -5,12 +5,13 @@ import {
 } from "../../../styles - global/global/LayoutStyles";
 import { useParams } from "react-router-dom";
 import { ButtonContainer, Container, Main, Sidebar } from "../Home.styles";
-import { Desktop } from "../../../styles - global/media/MediaQueryDisplay";
+import { DesktopWHeight } from "../../../styles - global/global/MediaQueryDisplay";
 import Welcome from "../../../components/welcome/Welcome";
-import Calender from "../../../components/calenders/calender - content/Calender";
+import Calender from "../../../components/calender/Calender";
 import GetHabits from "../../../components/habits/habit - get/GetHabits";
 import { Card } from "../../../styles - global/cards/CardHome";
 import GetUserRewards from "../../../components/rewards/reward - get/GetUserRewards";
+import Stats from "../../../components/stats/Stats";
 
 const Home = () => {
   const [sortHabits, setSortHabits] = useState({
@@ -21,7 +22,7 @@ const Home = () => {
 
   return (
     <ContentLayout>
-      <Desktop>
+      <DesktopWHeight>
         <InnerContentLayout3>
           {/*--------------- MAIN --------------*/}
           <Main>
@@ -69,10 +70,11 @@ const Home = () => {
 
           {/*--------------- SIDEBAR --------------*/}
           <Sidebar>
+            <Stats />
             <GetUserRewards />
           </Sidebar>
         </InnerContentLayout3>
-      </Desktop>
+      </DesktopWHeight>
     </ContentLayout>
   );
 };

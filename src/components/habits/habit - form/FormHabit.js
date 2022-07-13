@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Container } from "./FormHabit.styles";
 import { AuthContext } from "../../../context/AuthContext";
+import FormHabitTypeTemplate from "./FormHabitTypeTemplate";
 
 const FormHabit = ({
   nameHabit,
@@ -12,8 +13,8 @@ const FormHabit = ({
   const { auth } = useContext(AuthContext);
 
   return (
-    <div>
-      {/* ----- name -----*/}
+    <>
+      {/* ----- NAME -----*/}
       <div>
         <h3>Name</h3>
         <input
@@ -25,6 +26,7 @@ const FormHabit = ({
         />
       </div>
 
+      {/* ----- DESCRIPTION -----*/}
       {auth.user.role === "ROLE_ADMIN" && (
         <div>
           <h3>Description</h3>
@@ -38,50 +40,17 @@ const FormHabit = ({
         </div>
       )}
 
-      {/* ----- type -----*/}
+      {/* ----- TYPE -----*/}
       <div>
         <h3>Type</h3>
         <Container>
-          <div>
-            <input
-              type="radio"
-              value="sport"
-              name="type"
-              onChange={typeChangeHandler}
-              required
-            />
-            <label htmlFor="sport">Sport</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              value="food"
-              name="type"
-              onChange={typeChangeHandler}
-            />
-            <label htmlFor="sport">Food</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              value="health"
-              name="type"
-              onChange={typeChangeHandler}
-            />
-            <label htmlFor="sport">Health</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              value="mind"
-              name="type"
-              onChange={typeChangeHandler}
-            />
-            <label htmlFor="sport">Mind</label>
-          </div>
+          <FormHabitTypeTemplate type="sport" handler={typeChangeHandler} />
+          <FormHabitTypeTemplate type="food" handler={typeChangeHandler} />
+          <FormHabitTypeTemplate type="health" handler={typeChangeHandler} />
+          <FormHabitTypeTemplate type="mind" handler={typeChangeHandler} />
         </Container>
       </div>
-    </div>
+    </>
   );
 };
 

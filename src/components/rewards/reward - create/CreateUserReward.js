@@ -28,8 +28,6 @@ const CreateUserReward = () => {
         }
       });
 
-    console.log(exist);
-
     adminRewards &&
       adminRewards.find((reward) => {
         if (reward.name === rewardName && exist === false) {
@@ -37,8 +35,6 @@ const CreateUserReward = () => {
           return (getReward = reward);
         }
       });
-
-    // console.log(getReward);
 
     if (getReward && Object.keys(getReward).length > 0) {
       const data = {

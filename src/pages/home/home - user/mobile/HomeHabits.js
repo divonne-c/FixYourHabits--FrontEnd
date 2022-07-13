@@ -3,15 +3,14 @@ import {
   ContentLayout,
   InnerContentLayout2,
 } from "../../../../styles - global/global/LayoutStyles";
-import { Mobile } from "../../../../styles - global/media/MediaQueryDisplay";
+import { MobileWHeight } from "../../../../styles - global/global/MediaQueryDisplay";
 import { useParams } from "react-router-dom";
 import Welcome from "../../../../components/welcome/Welcome";
 import { CardContentMobile } from "../../../../styles - global/cards/CardContentMobile";
 import HomeNavigation from "../../../../components/navigations/HomeNavigation";
-import Calender from "../../../../components/calenders/calender - content/Calender";
+import Calender from "../../../../components/calender/Calender";
 import { ButtonContainer, HabitsMobile } from "../../Home.styles";
 import GetHabits from "../../../../components/habits/habit - get/GetHabits";
-import { Card } from "../../../../styles - global/cards/CardHome";
 
 const HomeHabits = () => {
   const [sortHabits, setSortHabits] = useState({
@@ -22,7 +21,7 @@ const HomeHabits = () => {
 
   return (
     <ContentLayout>
-      <Mobile>
+      <MobileWHeight>
         <InnerContentLayout2>
           {/*Welcome*/}
           <Welcome />
@@ -64,11 +63,14 @@ const HomeHabits = () => {
                   </button>
                 </ButtonContainer>
               </div>
-              <GetHabits role="user" sortHabits={sortHabits} />
+
+              <div className="habit-container">
+                <GetHabits role="user" sortHabits={sortHabits} />
+              </div>
             </HabitsMobile>
           </CardContentMobile>
         </InnerContentLayout2>
-      </Mobile>
+      </MobileWHeight>
     </ContentLayout>
   );
 };

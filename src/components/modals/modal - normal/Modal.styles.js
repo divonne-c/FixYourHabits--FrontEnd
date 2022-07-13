@@ -31,7 +31,7 @@ export const ModalContainer = styled.div`
 
   @media (max-width: 1024px) {
     .element {
-      max-height: var(--height-70vh);
+      min-height: var(--height-50vh);
       width: var(--width-80vw);
       padding: var(--padding-m);
     }
