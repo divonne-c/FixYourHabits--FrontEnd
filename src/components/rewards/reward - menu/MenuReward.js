@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import DeleteReward from "../reward - delete/DeleteReward";
 import UpdateReward from "../reward - update/UpdateReward";
-import { MenuContainer } from "../../../styles - global/utilities/HabitAndReward.styles";
 import Menu from "../../habit - reward/menu/Menu";
 import DotsMenuButton from "../../habit - reward/menu buttons/DotsMenuButton";
+import { MenuContainer } from "../../habit - reward/menu/Menu.styles";
 
 const MenuReward = ({ reward }) => {
   const [showMenu, toggleShowMenu] = useState(false);

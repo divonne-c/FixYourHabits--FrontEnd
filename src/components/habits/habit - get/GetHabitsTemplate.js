@@ -10,7 +10,7 @@ import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../../styles - global/global/MediaQueryDisplay";
-import { Element } from "../../../styles - global/utilities/HabitAndReward.styles";
+import { Element } from "../../habit - reward/HabitAndReward.styles";
 
 const GetHabitsTemplate = ({ habitColor, habitLogo, habit }) => {
   const { auth } = useContext(AuthContext);

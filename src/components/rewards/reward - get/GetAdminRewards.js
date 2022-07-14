@@ -3,7 +3,7 @@ import GetAdminRewardTemplate from "./GetAdminRewardTemplate";
 import MenuReward from "../reward - menu/MenuReward";
 import { RewardColor } from "./GetReward.styles";
 import { ProfileContext } from "../../../context/ProfileContext";
-import { GetContainer } from "../../../styles - global/utilities/HabitAndReward.styles";
+import { GetContainer } from "../../habit - reward/HabitAndReward.styles";
 
 const GetAdminRewards = () => {
   const { adminRewards } = useContext(ProfileContext);

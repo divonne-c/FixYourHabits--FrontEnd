@@ -1,13 +1,5 @@
 import styled from "styled-components";
-import { ButtonPrimary } from "../global/ButtonStyles";
 
-//////////// Habit / Reward Menu Container //////////////
-export const MenuContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
-
-//////////// Habit / Reward Element //////////////
 export const Element = styled.div`
   display: flex;
   flex-direction: column;
@@ -62,7 +54,6 @@ export const Element = styled.div`
   }
 `;
 
-//////////// Habit / Reward - get habit / reward container //////////////
 export const GetContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -99,20 +90,3 @@ export const GetContainer = styled.div`
     }
   }
 `;
-//
-// export const CreateAdminElementButton = styled(ButtonPrimary)`
-//   width: 100%;
-//   padding: var(--padding-sm);
-//   margin-top: var(--margin-m);
-//
-//   .container {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     gap: var(--gap-s);
-//   }
-//
-//   @media (max-width: 1024px) {
-//     background: var(--color-white-background);
-//   }
-// `;

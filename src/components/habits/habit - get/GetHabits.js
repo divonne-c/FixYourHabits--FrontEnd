@@ -7,7 +7,7 @@ import GetHabitsTemplate from "./GetHabitsTemplate";
 import { DesktopWHeight } from "../../../styles - global/global/MediaQueryDisplay";
 import CreateHabit from "../habit - create/CreateHabit";
 import MenuHabit from "../habit - menu/MenuHabit";
-import { GetContainer } from "../../../styles - global/utilities/HabitAndReward.styles";
+import { GetContainer } from "../../habit - reward/HabitAndReward.styles";
 
 const GetHabits = ({ role, sortHabits }) => {
   const [habits, setHabits] = useState([]);

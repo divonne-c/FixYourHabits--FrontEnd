@@ -8,7 +8,7 @@ import { ContainerMobile } from "../../habits/habit - get/GetHabits.styles";
 import {
   Element,
   GetContainer,
-} from "../../../styles - global/utilities/HabitAndReward.styles";
+} from "../../habit - reward/HabitAndReward.styles";
 
 const GetAdminRewardTemplate = ({ reward }) => {
   return (

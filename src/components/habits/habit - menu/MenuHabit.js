@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import UpdateHabit from "../habit - update/UpdateHabit";
 import DeleteHabits from "../habit - delete/DeleteHabits";
-import { MenuContainer } from "../../../styles - global/utilities/HabitAndReward.styles";
 import Menu from "../../habit - reward/menu/Menu";
 import DotsMenuButton from "../../habit - reward/menu buttons/DotsMenuButton";
+import { MenuContainer } from "../../habit - reward/menu/Menu.styles";
 
 const MenuHabit = ({ habit, role }) => {
   const [showMenu, toggleShowMenu] = useState(false);
