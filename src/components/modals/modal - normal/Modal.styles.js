@@ -27,12 +27,13 @@ export const ModalContainer = styled.div`
     background: var(--color-white);
     padding: var(--padding-l);
     border-radius: var(--border-radius-m);
+    overflow: scroll;
   }
 
   @media (max-width: 1024px) {
     .element {
       min-height: var(--height-50vh);
-      width: var(--width-80vw);
+      width: var(--width-modal-mobile);
       padding: var(--padding-m);
     }
   }

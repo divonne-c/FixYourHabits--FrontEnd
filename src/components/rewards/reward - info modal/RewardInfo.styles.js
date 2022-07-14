@@ -13,41 +13,6 @@ export const Container = styled.div`
     border-radius: var(--border-radius-l);
   }
 
-  .pink {
-    span {
-      color: var(--color-white);
-      background-color: var(--color-pink);
-    }
-  }
-
-  .green {
-    span {
-      color: var(--color-white);
-      background-color: var(--color-habit-food);
-    }
-  }
-
-  .yellow {
-    span {
-      color: var(--color-white);
-      background-color: var(--color-habit-finance);
-    }
-  }
-
-  .blue {
-    span {
-      color: var(--color-white);
-      background-color: var(--color-habit-hobby);
-    }
-  }
-
-  .purple {
-    span {
-      color: var(--color-white);
-      background-color: var(--color-habit-mind);
-    }
-  }
-
   @media (max-width: 1024px) {
     h2 {
       font-size: var(--font-sm);

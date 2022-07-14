@@ -1,6 +1,6 @@
 import React from "react";
-import { Profile } from "../stats - admin /StatsAdmin.styles";
 import { Card } from "../../../styles - global/cards/CardHome";
+import { Profile } from "./StatsProfileInfo.styles";
 
 const StatsProfileInfo = ({ name, email, role }) => {
   return (

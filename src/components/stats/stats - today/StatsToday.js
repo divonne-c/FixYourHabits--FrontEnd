@@ -6,7 +6,7 @@ import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../../styles - global/global/MediaQueryDisplay";
-import StatsCircle from "../stats - circlediagram/StatsCircle";
+import StatsCircle from "./StatsCircle";
 import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
 
@@ -57,10 +57,11 @@ const StatsToday = () => {
   }, [renderData]);
 
   return (
-    <Div>
+    <Container>
       <h2 className="title">Today</h2>
       <Card>
-        <Container>
+        <div className="container">
+          {/*CIRCLE PROGRESS*/}
           <DesktopWHeight>
             <StatsCircle progress={daypercentage()} size={70} />
           </DesktopWHeight>
@@ -68,6 +69,7 @@ const StatsToday = () => {
             <StatsCircle progress={daypercentage()} size={70} />
           </MobileWHeight>
 
+          {/*CONTENT PROGRESS*/}
           <div className="today">
             <div className="today-content">
               <h2>{userHabits && userHabits.length}</h2>
@@ -82,9 +84,9 @@ const StatsToday = () => {
               <p>To Do</p>
             </div>
           </div>
-        </Container>
+        </div>
       </Card>
-    </Div>
+    </Container>
   );
 };
 

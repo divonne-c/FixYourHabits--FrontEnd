@@ -28,12 +28,13 @@ export const Container = styled.div`
     padding: var(--padding-m);
     border-radius: var(--border-radius-s);
     border-top: var(--color-white-background) solid 40px;
+    overflow: scroll;
   }
 
   @media (max-width: 1024px) {
     .element {
       max-height: var(--height-70vh);
-      width: var(--width-80vw);
+      width: var(--width-modal-mobile);
       padding: var(--padding-m);
     }
   }

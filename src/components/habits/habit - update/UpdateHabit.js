@@ -3,16 +3,14 @@ import axios from "axios";
 import { MobileWHeight } from "../../../styles - global/global/MediaQueryDisplay";
 import { AuthContext } from "../../../context/AuthContext";
 import Modal from "../../modals/modal - normal/Modal";
-import FormHabit from "../habit - form/FormHabit";
+import HabitForm from "../../forms/HabitForm";
 import {
   ButtonFourth,
   ButtonThird,
 } from "../../../styles - global/global/ButtonStyles";
-import { Form } from "../habit - form/FormHabit.styles";
-import {
-  MenuButtonContainer,
-  ModalButtons,
-} from "../../../styles - global/utilities/HabitAndReward.styles";
+import { Form } from "../../forms/Form.styles";
+import MenuButton from "../../habit - reward/menu buttons/MenuButton";
+import ModalButtons from "../../modals/modal - buttons/ModalButtons";
 
 const UpdateHabit = ({ habit, role, toggleShowMenu, showMenu, show }) => {
   const [updatedHabit, setUpdatedHabit] = useState({
@@ -78,23 +76,14 @@ const UpdateHabit = ({ habit, role, toggleShowMenu, showMenu, show }) => {
   return (
     <>
       {/*----- BUTTON -----*/}
-      <MenuButtonContainer>
-        <button onClick={showModalHandler}>
-          <span className="container">
-            <span className="material-symbols-outlined edit">edit</span>
-            <MobileWHeight>
-              <p>Edit</p>
-            </MobileWHeight>
-          </span>
-        </button>
-      </MenuButtonContainer>
+      <MenuButton handler={showModalHandler} name="edit" />
 
       {/*----- MODAL ------*/}
       {showModal && (
         <Modal title="Edit Habit">
           {/*FORM*/}
-          <Form onSubmit={updateHabitHandler}>
-            <FormHabit
+          <form onSubmit={updateHabitHandler}>
+            <HabitForm
               nameHabit={updatedHabit.name}
               typeChangeHandler={typeChangeHandler}
               nameChangeHandler={nameChangeHandler}
@@ -103,13 +92,8 @@ const UpdateHabit = ({ habit, role, toggleShowMenu, showMenu, show }) => {
             />
 
             {/*MODAL BUTTONS*/}
-            <ModalButtons>
-              <ButtonFourth type="button" onClick={show}>
-                Cancel
-              </ButtonFourth>
-              <ButtonThird type="submit">Save</ButtonThird>
-            </ModalButtons>
-          </Form>
+            <ModalButtons show={show} buttonText="Save" />
+          </form>
         </Modal>
       )}
     </>

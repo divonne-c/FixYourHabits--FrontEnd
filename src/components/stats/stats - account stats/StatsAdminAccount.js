@@ -2,11 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
 import { ProfileContext } from "../../../context/ProfileContext";
-import { Container } from "../stats - account stats/StatsAccount.styles";
-import StatsAccountTemplate from "../stats - account stats/StatsAccountTemplate";
+import { Container } from "./StatsAccount.styles";
+import StatsAccountTemplate from "./StatsAccountTemplate";
 
 const StatsAdminAccount = () => {
-  const [users, setUsers] = useState([]);
   const [totalAdmins, setTotalAdmins] = useState([]);
   const [totalUsers, setTotalUsers] = useState([]);
   const { renderData, auth } = useContext(AuthContext);
@@ -22,7 +21,18 @@ const StatsAdminAccount = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        setUsers(response.data);
+
+        setTotalAdmins([
+          response.data.filter(
+            (user) => user.authorities[0].authority === "ROLE_ADMIN"
+          ),
+        ]);
+
+        setTotalUsers([
+          response.data.filter(
+            (user) => user.authorities[0].authority === "ROLE_USER"
+          ),
+        ]);
       } catch (e) {
         console.error(e);
       }
@@ -30,16 +40,6 @@ const StatsAdminAccount = () => {
 
     auth.isAuth && auth.user.role !== "ROLE_USER" && getAdminData();
   }, [renderData]);
-
-  useEffect(() => {
-    setTotalAdmins([
-      users.filter((user) => user.authorities[0].authority === "ROLE_ADMIN"),
-    ]);
-
-    setTotalUsers([
-      users.filter((user) => user.authorities[0].authority === "ROLE_USER"),
-    ]);
-  }, [users, renderData]);
 
   return (
     <Container>

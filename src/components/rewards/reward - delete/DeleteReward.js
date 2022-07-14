@@ -1,23 +1,15 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
-import { MobileWHeight } from "../../../styles - global/global/MediaQueryDisplay";
-import ModalSmall from "../../modals/modal - small/ModalSmall";
-import {
-  ButtonFourth,
-  ButtonThird,
-} from "../../../styles - global/global/ButtonStyles";
-import {
-  MenuButtonContainer,
-  ModalButtons,
-} from "../../../styles - global/utilities/HabitAndReward.styles";
+import MenuButton from "../../habit - reward/menu buttons/MenuButton";
+import DeleteModal from "../../habit - reward/delete/DeleteModal";
 
-const DeleteReward = ({ reward }) => {
+const DeleteReward = ({ reward, toggleShowMenu, showMenu, show }) => {
   const [showModal, toggleShowModal] = useState(false);
   const { renderData, setRenderData, setNotifications, notifications } =
     useContext(AuthContext);
 
-  const show = () => {
+  const showModalHandler = () => {
     toggleShowModal(!showModal);
   };
 
@@ -40,32 +32,19 @@ const DeleteReward = ({ reward }) => {
       console.log(error);
       setNotifications([...notifications, { type: "error", message: error }]);
     }
+
+    toggleShowMenu(!showMenu);
   };
 
   return (
     <>
-      <MenuButtonContainer>
-        <button onClick={show}>
-          <span className="container">
-            <span className="material-symbols-outlined delete">delete</span>
-            <MobileWHeight>
-              <p>Delete</p>
-            </MobileWHeight>
-          </span>
-        </button>
+      {/*----- DELETE BUTTON -----*/}
+      <MenuButton handler={showModalHandler} name="delete" />
 
-        {showModal && (
-          <ModalSmall>
-            <p>Are you sure you want to delete this reward?</p>
-            <ModalButtons>
-              <ButtonFourth onClick={show}>Cancel</ButtonFourth>
-              <ButtonThird type="submit" onClick={deleteReward}>
-                Delete
-              </ButtonThird>
-            </ModalButtons>
-          </ModalSmall>
-        )}
-      </MenuButtonContainer>
+      {/*----- MODAL -----*/}
+      {showModal && (
+        <DeleteModal show={show} handler={deleteReward} type="reward" />
+      )}
     </>
   );
 };

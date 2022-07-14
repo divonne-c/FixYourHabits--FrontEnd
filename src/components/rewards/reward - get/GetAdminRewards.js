@@ -1,18 +1,19 @@
 import React, { useContext, useState } from "react";
 import GetAdminRewardTemplate from "./GetAdminRewardTemplate";
-import { Container, RewardColor } from "./GetReward.styles";
 import MenuReward from "../reward - menu/MenuReward";
+import { RewardColor } from "./GetReward.styles";
 import { ProfileContext } from "../../../context/ProfileContext";
+import { GetContainer } from "../../../styles - global/utilities/HabitAndReward.styles";
 
 const GetAdminRewards = () => {
   const { adminRewards } = useContext(ProfileContext);
 
   return (
-    <Container>
+    <GetContainer>
       {adminRewards &&
         adminRewards.map((reward) => {
           return (
-            <div key={reward.id} className="rewards-container-mobile">
+            <div key={reward.id} className="container-mobile">
               <MenuReward reward={reward} />
               <RewardColor>
                 <div
@@ -25,7 +26,7 @@ const GetAdminRewards = () => {
             </div>
           );
         })}
-    </Container>
+    </GetContainer>
   );
 };
 

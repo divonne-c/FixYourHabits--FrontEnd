@@ -1,105 +1,118 @@
 import styled from "styled-components";
+import { ButtonPrimary } from "../global/ButtonStyles";
 
-export const MenuButtonContainer = styled.div`
-  span {
-    font-size: var(--font-m);
-    padding: var(--padding-xxs);
-    border-radius: var(--border-radius-s);
-    color: var(--color-text-orange-dark);
-  }
-
-  @media (max-width: 1024px) {
-    p {
-      font-size: var(--font-s);
-    }
-
-    .container {
-      display: flex;
-      align-items: center;
-      gap: var(--gap-xxs);
-    }
-
-    .container:hover {
-      opacity: 0.8;
-    }
-  }
-`;
-
+//////////// Habit / Reward Menu Container //////////////
 export const MenuContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-
-  .test {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-    position: relative;
-  }
-
-  .button-container {
-    background: var(--color-white-background);
-    position: absolute;
-    top: 18px;
-    text-align: center;
-    padding: 20px 0;
-    height: var(--height-habit);
-    width: var(--width-habit);
-    border-radius: var(--border-radius-s);
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    gap: var(--gap-xs);
-    align-items: center;
-  }
-
-  .reward {
-    height: 150px;
-    width: 150px;
-  }
-
-  @media (max-width: 1024px) {
-    .button-container-mobile {
-      display: flex;
-      justify-content: space-evenly;
-    }
-
-    .buttons {
-      display: flex;
-      align-items: center;
-    }
-
-    .cancel-button-container {
-      text-align: center;
-    }
-  }
 `;
 
-export const MenuButtons = styled.button`
-  color: var(--color-orange);
-  height: 18px;
+//////////// Habit / Reward Element //////////////
+export const Element = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--gap-xs);
+  padding: var(--padding-s);
+  height: var(--height-habit);
+  width: var(--width-habit);
+  text-align: center;
+  font-size: var(--font-s);
+  position: relative;
+
+  p {
+    font-size: var(--font-xs);
+  }
+
+  h4 {
+    text-transform: capitalize;
+  }
+
+  .complete-btn {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    height: var(--height-100);
+    width: var(--width-100);
+    background: var(--color-background-modal);
+    border-radius: var(--border-radius-s);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   :hover {
     cursor: pointer;
   }
 
+  :hover .complete-btn {
+    opacity: 1;
+  }
+
   @media (max-width: 1024px) {
-    transform: rotate(90deg);
+    height: 50px;
+    width: var(--width-100);
+    flex-direction: row;
+    gap: var(--gap-s);
+
+    span {
+      transform: scale(0.8);
+    }
   }
 `;
 
-export const ModalButtons = styled.div`
+//////////// Habit / Reward - get habit / reward container //////////////
+export const GetContainer = styled.div`
   display: flex;
-  justify-content: center;
-  gap: var(--gap-m);
-  margin-top: var(--margin-s);
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--gap-s);
 
-  button {
-    padding: var(--padding-s) var(--padding-m);
-    border-radius: var(--border-radius-l);
+  .reward-icon {
+    border-radius: var(--border-radius-s);
+    background-color: var(--color-habit-food);
+
+    span {
+      font-size: var(--font-s);
+      padding: var(--padding-xs);
+      border-radius: var(--border-radius-l);
+      background-color: var(--color-white);
+    }
   }
 
-  button:hover {
-    opacity: 0.8;
+  .reward {
+    height: var(--height-reward);
+    width: var(--width-reward);
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 1024px) {
+    display: grid;
+    justify-content: center;
+
+    .container-mobile {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+    }
   }
 `;
+//
+// export const CreateAdminElementButton = styled(ButtonPrimary)`
+//   width: 100%;
+//   padding: var(--padding-sm);
+//   margin-top: var(--margin-m);
+//
+//   .container {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     gap: var(--gap-s);
+//   }
+//
+//   @media (max-width: 1024px) {
+//     background: var(--color-white-background);
+//   }
+// `;

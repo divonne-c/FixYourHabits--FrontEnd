@@ -40,11 +40,9 @@ const TotalUserHabitsButton = () => {
   };
 
   return (
-    <>
-      <ButtonThird type="submit" onClick={totalHabits}>
-        Save
-      </ButtonThird>
-    </>
+    <ButtonThird type="submit" onClick={totalHabits}>
+      Save
+    </ButtonThird>
   );
 };
 

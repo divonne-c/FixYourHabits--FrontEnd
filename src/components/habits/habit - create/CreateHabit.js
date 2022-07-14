@@ -2,23 +2,19 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
 import Modal from "../../modals/modal - normal/Modal";
-import FormHabit from "../habit - form/FormHabit";
+import HabitForm from "../../forms/HabitForm";
 import TotalUserHabitsButton from "../habit - total habits user/TotalUserHabitsButton";
-import { Form } from "../habit - form/FormHabit.styles";
 import {
   ButtonFourth,
   ButtonThird,
 } from "../../../styles - global/global/ButtonStyles";
+import { CreateHabitButton } from "./CreateHabit.styles";
 import {
-  CreateAdminHabitButton,
-  CreateHabitButton,
-} from "./CreateHabit.styles";
-import { ModalButtons } from "../../../styles - global/utilities/HabitAndReward.styles";
-import {
-  DesktopWHeight,
   Desktop,
   MobileWHeight,
 } from "../../../styles - global/global/MediaQueryDisplay";
+import CreateAdminElementButton from "../../habit - reward/create/CreateAdminElementButton";
+import { Container } from "../../modals/modal - buttons/ModalButtons.styles";
 
 const CreateHabit = ({ role, profile }) => {
   const [habit, setHabit] = useState({
@@ -89,7 +85,7 @@ const CreateHabit = ({ role, profile }) => {
 
   return (
     <>
-      {/*----- BUTTON -----*/}
+      {/*----- CREATE HABIT BUTTON -----*/}
       <Desktop>
         {auth.isAuth && auth.user.role === "ROLE_USER" && (
           <CreateHabitButton onClick={show}>
@@ -98,12 +94,7 @@ const CreateHabit = ({ role, profile }) => {
         )}
 
         {auth.isAuth && auth.user.role === "ROLE_ADMIN" && (
-          <CreateAdminHabitButton onClick={show}>
-            <div className="container">
-              <span className="material-symbols-outlined">add</span>
-              <p>Create Habit</p>
-            </div>
-          </CreateAdminHabitButton>
+          <CreateAdminElementButton show={show} name="Habit" />
         )}
       </Desktop>
 
@@ -116,9 +107,9 @@ const CreateHabit = ({ role, profile }) => {
       {/*----- MODAL -----*/}
       {showMenu && (
         <Modal title="Create Habit">
-          <Form onSubmit={createHabitHandler}>
-            {/*FORM*/}
-            <FormHabit
+          {/*FORM*/}
+          <form onSubmit={createHabitHandler}>
+            <HabitForm
               nameHabit={habit.name}
               typeChangeHandler={typeChangeHandler}
               nameChangeHandler={nameChangeHandler}
@@ -127,7 +118,7 @@ const CreateHabit = ({ role, profile }) => {
             />
 
             {/*MODAL BUTTONS*/}
-            <ModalButtons>
+            <Container>
               <ButtonFourth type="button" onClick={show}>
                 Cancel
               </ButtonFourth>
@@ -136,8 +127,8 @@ const CreateHabit = ({ role, profile }) => {
               ) : (
                 <ButtonThird type="submit">Save</ButtonThird>
               )}
-            </ModalButtons>
-          </Form>
+            </Container>
+          </form>
         </Modal>
       )}
     </>

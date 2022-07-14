@@ -1,10 +1,4 @@
 import styled from "styled-components";
-import {
-  ButtonFourth,
-  ButtonPrimary,
-  ButtonSecondary,
-  ButtonThird,
-} from "../../../styles - global/global/ButtonStyles";
 
 export const CreateHabitButton = styled.button`
   height: var(--height-habit);
@@ -40,23 +34,5 @@ export const CreateHabitButton = styled.button`
       background-color: var(--color-white);
       border-radius: var(--border-radius-l);
     }
-  }
-`;
-
-export const CreateAdminHabitButton = styled(ButtonPrimary)`
-  width: 100%;
-  text-align: center;
-  padding: var(--padding-sm);
-  margin-top: var(--margin-m);
-
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--gap-s);
-  }
-
-  @media (max-width: 1024px) {
-    background: var(--color-white-background);
   }
 `;

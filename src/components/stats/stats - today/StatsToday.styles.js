@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--gap-s);
-  padding: var(--padding-s) 0;
+  margin-top: var(--margin-m);
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-s);
+    padding: var(--padding-s) 0;
+  }
 
   .today {
     border-left: 1px solid var(--color-white-input);
@@ -36,6 +40,10 @@ export const Container = styled.div`
     flex-direction: row;
     gap: var(--gap-m);
 
+    .title {
+      font-size: var(--font-sm);
+    }
+
     .today {
       border: none;
     }
@@ -44,16 +52,6 @@ export const Container = styled.div`
       h2 {
         font-size: var(--font-s);
       }
-    }
-  }
-`;
-
-export const Div = styled.div`
-  margin-top: var(--margin-m);
-
-  @media (max-width: 1024px) {
-    .title {
-      font-size: var(--font-sm);
     }
   }
 `;

@@ -23,17 +23,17 @@ const HomeHabits = () => {
     <ContentLayout>
       <MobileWHeight>
         <InnerContentLayout2>
-          {/*Welcome*/}
+          {/*WELCOME*/}
           <Welcome />
 
           <CardContentMobile>
-            {/*Calender*/}
+            {/*CALENDER*/}
             <Calender />
 
-            {/*Navigation*/}
+            {/*NAVIGATION*/}
             <HomeNavigation />
 
-            {/*------ Habits ------*/}
+            {/*HABITS*/}
             <HabitsMobile>
               <div className="button-container">
                 <ButtonContainer>

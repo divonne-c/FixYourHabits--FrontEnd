@@ -2,14 +2,13 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
 import Modal from "../../modals/modal - normal/Modal";
-import { Form } from "../../habits/habit - form/FormHabit.styles";
-import RewardForm from "../reward - form/RewardForm";
-import { ButtonSecondary } from "../../../styles - global/global/ButtonStyles";
-import { MobileWHeight } from "../../../styles - global/global/MediaQueryDisplay";
+import RewardForm from "../../forms/RewardForm";
 import {
-  MenuButtonContainer,
-  ModalButtons,
-} from "../../../styles - global/utilities/HabitAndReward.styles";
+  ButtonFourth,
+  ButtonThird,
+} from "../../../styles - global/global/ButtonStyles";
+import MenuButton from "../../habit - reward/menu buttons/MenuButton";
+import ModalButtons from "../../modals/modal - buttons/ModalButtons";
 
 const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
   const [number, setNumber] = useState(reward.name);
@@ -73,20 +72,14 @@ const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
 
   return (
     <div>
-      <MenuButtonContainer>
-        <button onClick={showModalHandler}>
-          <span className="container">
-            <span className="material-symbols-outlined edit">edit</span>
-            <MobileWHeight>
-              <p>Edit</p>
-            </MobileWHeight>
-          </span>
-        </button>
-      </MenuButtonContainer>
+      {/*----- BUTTON -----*/}
+      <MenuButton handler={showModalHandler} name="edit" />
 
+      {/*----- MODAL ------*/}
       {showModal && (
         <Modal title="Update Reward">
-          <Form onSubmit={updateRewardHandler}>
+          {/*FORM*/}
+          <form onSubmit={updateRewardHandler}>
             <RewardForm
               typeChangeHandler={typeChangeHandler}
               numberChangeHandler={numberChangeHandler}
@@ -95,14 +88,9 @@ const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
               description={description}
             />
 
-            {/* ----- buttons -----*/}
-            <ModalButtons>
-              <ButtonSecondary type="button" onClick={show}>
-                Cancel
-              </ButtonSecondary>
-              <button type="submit">Save</button>
-            </ModalButtons>
-          </Form>
+            {/*MODAL BUTTONS*/}
+            <ModalButtons show={show} buttonText="Save" />
+          </form>
         </Modal>
       )}
     </div>

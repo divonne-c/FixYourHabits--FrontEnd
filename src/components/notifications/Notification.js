@@ -24,7 +24,7 @@ const Notification = () => {
   }, [notifications]);
 
   return (
-    <div>
+    <>
       {showError &&
         notifications &&
         notifications.map((error) => {
@@ -38,7 +38,7 @@ const Notification = () => {
             </div>
           );
         })}
-    </div>
+    </>
   );
 };
 

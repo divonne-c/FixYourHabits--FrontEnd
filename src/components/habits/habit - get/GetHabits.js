@@ -3,11 +3,11 @@ import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
 import habitColorFunction from "../../../helpers/habitcolors";
 import habitLogoFunction from "../../../helpers/habitlogos";
-import { Container } from "./GetHabits.styles";
 import GetHabitsTemplate from "./GetHabitsTemplate";
 import { DesktopWHeight } from "../../../styles - global/global/MediaQueryDisplay";
 import CreateHabit from "../habit - create/CreateHabit";
 import MenuHabit from "../habit - menu/MenuHabit";
+import { GetContainer } from "../../../styles - global/utilities/HabitAndReward.styles";
 
 const GetHabits = ({ role, sortHabits }) => {
   const [habits, setHabits] = useState([]);
@@ -35,7 +35,7 @@ const GetHabits = ({ role, sortHabits }) => {
   }, [renderData]);
 
   return (
-    <Container>
+    <GetContainer>
       {/*----- GET HABITS ------*/}
       {habits &&
         habits.map((habit) => {
@@ -51,7 +51,7 @@ const GetHabits = ({ role, sortHabits }) => {
             habit.completed === false
           ) {
             return (
-              <div key={habit.id} className="habit-container-mobile">
+              <div key={habit.id} className="container-mobile">
                 <MenuHabit habit={habit} role={role} />
                 <GetHabitsTemplate
                   habit={habit}
@@ -71,7 +71,7 @@ const GetHabits = ({ role, sortHabits }) => {
             habit.completed === true
           ) {
             return (
-              <div key={habit.id} className="habit-container-mobile">
+              <div key={habit.id} className="container-mobile">
                 <MenuHabit habit={habit} role={role} />
                 <GetHabitsTemplate
                   habit={habit}
@@ -87,7 +87,7 @@ const GetHabits = ({ role, sortHabits }) => {
           }
           if (auth.user.role === "ROLE_ADMIN") {
             return (
-              <div key={habit.id} className="habit-container-mobile">
+              <div key={habit.id} className="container-mobile">
                 <MenuHabit habit={habit} role={role} />
                 <GetHabitsTemplate
                   habit={habit}
@@ -105,7 +105,7 @@ const GetHabits = ({ role, sortHabits }) => {
           <CreateHabit role={role} profile="userProfile" />
         )}
       </DesktopWHeight>
-    </Container>
+    </GetContainer>
   );
 };
 

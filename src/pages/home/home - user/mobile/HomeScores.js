@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import HomeNavigation from "../../../../components/navigations/HomeNavigation";
 import Calender from "../../../../components/calender/Calender";
-import Stats from "../../../../components/stats/Stats";
+import Stats from "../../../../components/stats/stats/Stats";
 import GetUserRewards from "../../../../components/rewards/reward - get/GetUserRewards";
 import Welcome from "../../../../components/welcome/Welcome";
 import {
@@ -18,20 +18,20 @@ const HomeScores = () => {
     <ContentLayout>
       <MobileWHeight>
         <InnerContentLayout2>
-          {/*Welcome*/}
+          {/*WELCOME*/}
           <Welcome />
 
           <CardContentMobile>
-            {/*Calender*/}
+            {/*CALENDER*/}
             <Calender />
 
-            {/*Navigation*/}
+            {/*NAVIGATION*/}
             <HomeNavigation />
 
-            {/*Stats*/}
+            {/*STATS*/}
             <Stats />
 
-            {/*Rewards*/}
+            {/*REWARDS*/}
             <GetUserRewards />
           </CardContentMobile>
         </InnerContentLayout2>

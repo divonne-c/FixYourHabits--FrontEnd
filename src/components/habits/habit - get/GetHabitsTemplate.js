@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import {
   ContainerMobile,
-  Habit,
   HabitColorStyle,
   HabitMobile,
 } from "./GetHabits.styles";
@@ -11,15 +10,17 @@ import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../../styles - global/global/MediaQueryDisplay";
+import { Element } from "../../../styles - global/utilities/HabitAndReward.styles";
 
 const GetHabitsTemplate = ({ habitColor, habitLogo, habit }) => {
   const { auth } = useContext(AuthContext);
 
   return (
     <HabitColorStyle>
+      {/*----- DESKTOP ------*/}
       <DesktopWHeight>
         <div className={habitColor}>
-          <Habit>
+          <Element>
             <span className={`material-symbols-outlined ${habitColor}`}>
               {habitLogo}
             </span>
@@ -30,10 +31,11 @@ const GetHabitsTemplate = ({ habitColor, habitLogo, habit }) => {
                 <CompleteHabit habit={habit} />
               </div>
             )}
-          </Habit>
+          </Element>
         </div>
       </DesktopWHeight>
 
+      {/*----- MOBILE ------*/}
       <MobileWHeight>
         <ContainerMobile>
           <div className={habitColor}>
@@ -43,12 +45,12 @@ const GetHabitsTemplate = ({ habitColor, habitLogo, habit }) => {
                   <CompleteHabit habit={habit} />
                 </div>
               )}
-              <Habit>
+              <Element>
                 <span className={`material-symbols-outlined ${habitColor}`}>
                   {habitLogo}
                 </span>
                 <h4>{habit.name}</h4>
-              </Habit>
+              </Element>
             </HabitMobile>
           </div>
         </ContainerMobile>

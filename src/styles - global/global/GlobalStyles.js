@@ -121,14 +121,16 @@ const GlobalStyles = createGlobalStyle`
     --height-100vh: 100vh;
     --height-100: 100%;
     --height-habit: 120px;
+    --height-reward: 150px;
 
     //////////////// Widths /////////////////
     --width-35vw: 35vw;
     --width-40px: 40px;
-    --width-80vw: 80vw;
     --width-100vw: 100vw;
     --width-100: 100%;
     --width-habit: 120px;
+    --width-reward: 150px;
+    --width-modal-mobile: 90vw;
 
     //////////////// Layout /////////////////
     --layout-width-navigation-m: 100px;

@@ -1,17 +1,17 @@
 import React, { useContext, useState } from "react";
-import { CreateAdminHabitButton } from "../../habits/habit - create/CreateHabit.styles";
 import Modal from "../../modals/modal - normal/Modal";
-import { Form } from "../../habits/habit - form/FormHabit.styles";
-import { ButtonContainer } from "../../../pages/home/Home.styles";
-import { ButtonSecondary } from "../../../styles - global/global/ButtonStyles";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
-import RewardForm from "../reward - form/RewardForm";
+import RewardForm from "../../forms/RewardForm";
+import CreateAdminElementButton from "../../habit - reward/create/CreateAdminElementButton";
+import ModalButtons from "../../modals/modal - buttons/ModalButtons";
 
 const CreateReward = () => {
-  const [number, setNumber] = useState(0);
-  const [type, setType] = useState("");
-  const [description, setDescription] = useState("");
+  const [reward, setReward] = useState({
+    number: 0,
+    type: "",
+    description: "",
+  });
   const [showMenu, toggleShowMenu] = useState(false);
   const { auth, renderData, setRenderData, setNotifications, notifications } =
     useContext(AuthContext);
@@ -21,24 +21,24 @@ const CreateReward = () => {
   };
 
   const numberChangeHandler = (event) => {
-    setNumber(event.target.value);
+    setReward({ ...reward, number: event.target.value });
   };
 
   const typeChangeHandler = (event) => {
-    setType(event.target.value);
+    setReward({ ...reward, type: event.target.value });
   };
 
   const descriptionChangeHandler = (event) => {
-    setDescription(event.target.value);
+    setReward({ ...reward, description: event.target.value });
   };
 
   const createRewardHandler = async (e) => {
     e.preventDefault();
 
     const data = {
-      name: `habit-${number}`,
-      description: description,
-      type: type,
+      name: `habit-${reward.number}`,
+      description: reward.description,
+      type: reward.type,
       adminProfile: {
         id: auth.user.id,
       },
@@ -65,40 +65,34 @@ const CreateReward = () => {
     }
 
     toggleShowMenu(!showMenu);
-    setNumber(0);
-    setDescription("");
+    setReward({
+      name: 0,
+      type: "",
+      description: "",
+    });
   };
 
   return (
     <>
       {/*----- BUTTON -----*/}
-      <CreateAdminHabitButton onClick={show}>
-        <div className="container">
-          <span className="material-symbols-outlined">add</span>
-          <p>Create Reward</p>
-        </div>
-      </CreateAdminHabitButton>
+      <CreateAdminElementButton show={show} name="Reward" />
 
       {/*----- MODAL -----*/}
       {showMenu && (
-        <Modal title="Create Habit">
-          <Form onSubmit={createRewardHandler}>
+        <Modal title="Create Reward">
+          {/*FORM*/}
+          <form onSubmit={createRewardHandler}>
             <RewardForm
               typeChangeHandler={typeChangeHandler}
               numberChangeHandler={numberChangeHandler}
-              number={number}
+              number={reward.number}
               descriptionChangeHandler={descriptionChangeHandler}
-              description={description}
+              description={reward.description}
             />
 
-            {/* ----- buttons -----*/}
-            <ButtonContainer>
-              <ButtonSecondary type="button" onClick={show}>
-                Cancel
-              </ButtonSecondary>
-              <button type="submit">Save</button>
-            </ButtonContainer>
-          </Form>
+            {/*MODAL BUTTONS*/}
+            <ModalButtons show={show} buttonText="Create" />
+          </form>
         </Modal>
       )}
     </>

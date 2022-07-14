@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { ProfileContext } from "../../../context/ProfileContext";
 import { Card } from "../../../styles - global/cards/CardHome";
-import { Container } from "./GetUserRewards.styles";
 import RewardInfo from "../reward - info modal/RewardInfo";
+import { Container } from "./GetReward.styles";
 
 const GetUserRewards = () => {
   const { userProfile } = useContext(ProfileContext);

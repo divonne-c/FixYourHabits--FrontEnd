@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-export const Form = styled.form`
+export const Form = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: var(--gap-m);
 
-  input[type="text"] {
+  input[type="text"],
+  input[type="number"] {
     width: var(--width-100);
     background-color: var(--color-white-input);
     padding: var(--padding-s);
@@ -15,7 +16,8 @@ export const Form = styled.form`
     margin-top: var(--margin-s);
   }
 
-  input[type="text"]:focus {
+  input[type="text"]:focus,
+  input[type="number"]:focus {
     outline-color: var(--color-orange);
   }
 
@@ -30,7 +32,7 @@ export const Form = styled.form`
   }
 `;
 
-export const Container = styled.div`
+export const RadioContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
@@ -45,4 +47,10 @@ export const Container = styled.div`
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
   }
+`;
+
+export const Template = styled.div`
+  display: flex;
+  gap: var(--gap-s);
+  text-transform: capitalize;
 `;
