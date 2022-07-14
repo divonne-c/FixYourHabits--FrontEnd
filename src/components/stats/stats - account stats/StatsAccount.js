@@ -39,7 +39,7 @@ const StatsAccount = () => {
         className="pink-dark"
       />
       <StatsAccountTemplate
-        title="Total Habits"
+        title="Total Created"
         number={userProfile && userProfile.totalHabits}
         className="pink-light"
       />

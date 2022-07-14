@@ -10,9 +10,14 @@ import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../styles - global/global/MediaQueryDisplay";
-import { DiscoverStyles, DiscoverStylesMobile } from "./Discover.styles";
+import { DiscoverStyles, Filter } from "./Discover.styles";
+import GetFilteredHabits from "../../components/habits/habit - filter/GetFilteredHabits";
+import HabitTypeFilter from "../../components/habits/habit - filter/HabitTypeFilter";
 
 const DiscoverAll = () => {
+  const [habits, setHabits] = useState([]);
+  const [filteredHabits, setFilteredHabits] = useState([]);
+
   return (
     <ContentLayout>
       <InnerContentLayout2>
@@ -22,18 +27,28 @@ const DiscoverAll = () => {
         <DesktopWHeight>
           <DiscoverStyles>
             <InnerContentLayout3>
-              <p>Discover all</p>
+              <GetFilteredHabits
+                habits={habits}
+                setHabits={setHabits}
+                filteredHabits={filteredHabits}
+                setFilteredHabits={setFilteredHabits}
+              />
+              <Filter>
+                <h1>Filter</h1>
+                <HabitTypeFilter
+                  setFilteredHabits={setFilteredHabits}
+                  habits={habits}
+                />
+              </Filter>
             </InnerContentLayout3>
           </DiscoverStyles>
         </DesktopWHeight>
 
         {/*------- MobileWHeight --------*/}
         <MobileWHeight>
-          <DiscoverStylesMobile>
-            <CardContentMobile>
-              <p>Discover all</p>
-            </CardContentMobile>
-          </DiscoverStylesMobile>
+          <CardContentMobile>
+            <p>Discover all</p>
+          </CardContentMobile>
         </MobileWHeight>
       </InnerContentLayout2>
     </ContentLayout>

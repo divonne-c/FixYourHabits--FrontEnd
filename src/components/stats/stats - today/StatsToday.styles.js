@@ -28,7 +28,9 @@ export const Container = styled.div`
   }
 
   @media (min-width: 1025px) and (max-width: 1150px) {
-    flex-direction: column;
+    .container {
+      flex-direction: column;
+    }
 
     .today {
       border: none;

@@ -6,7 +6,7 @@ export const Element = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: var(--gap-xs);
-  padding: var(--padding-s);
+  padding: var(--padding-s) var(--padding-xxs);
   height: var(--height-habit);
   width: var(--width-habit);
   text-align: center;
@@ -32,6 +32,11 @@ export const Element = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .large-element {
+    height: 160px;
+    width: 160px;
   }
 
   :hover {
@@ -75,6 +80,13 @@ export const GetContainer = styled.div`
   .reward {
     height: var(--height-reward);
     width: var(--width-reward);
+    display: flex;
+    justify-content: center;
+  }
+
+  .discover {
+    height: 160px;
+    width: 160px;
     display: flex;
     justify-content: center;
   }

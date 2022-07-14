@@ -1,14 +1,8 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
-import { MobileWHeight } from "../../../styles - global/global/MediaQueryDisplay";
 import { AuthContext } from "../../../context/AuthContext";
 import Modal from "../../modals/modal - normal/Modal";
 import HabitForm from "../../forms/HabitForm";
-import {
-  ButtonFourth,
-  ButtonThird,
-} from "../../../styles - global/global/ButtonStyles";
-import { Form } from "../../forms/Form.styles";
 import MenuButton from "../../habit - reward/menu buttons/MenuButton";
 import ModalButtons from "../../modals/modal - buttons/ModalButtons";
 

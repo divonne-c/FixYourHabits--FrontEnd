@@ -9,7 +9,7 @@ import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../styles - global/global/MediaQueryDisplay";
-import { DiscoverStyles, DiscoverStylesMobile } from "./Discover.styles";
+import { DiscoverStyles } from "./Discover.styles";
 
 const DiscoverMain = () => {
   return (
@@ -26,11 +26,9 @@ const DiscoverMain = () => {
 
         {/*------- MobileWHeight --------*/}
         <MobileWHeight>
-          <DiscoverStylesMobile>
-            <CardContentMobile>
-              <p>Discover main content mobile</p>
-            </CardContentMobile>
-          </DiscoverStylesMobile>
+          <CardContentMobile>
+            <p>Discover main content mobile</p>
+          </CardContentMobile>
         </MobileWHeight>
       </InnerContentLayout2>
     </ContentLayout>
