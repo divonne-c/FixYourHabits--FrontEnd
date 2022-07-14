@@ -5,7 +5,10 @@ import {
   InnerContentLayout2,
 } from "../../styles - global/global/LayoutStyles";
 import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
-import { Desktop, Mobile } from "../../styles - global/media/MediaQueryDisplay";
+import {
+  DesktopWHeight,
+  MobileWHeight,
+} from "../../styles - global/global/MediaQueryDisplay";
 import { DiscoverStyles, DiscoverStylesMobile } from "./Discover.styles";
 
 const DiscoverMain = () => {
@@ -14,21 +17,21 @@ const DiscoverMain = () => {
       <InnerContentLayout2>
         <DiscoverNavigation />
 
-        {/*------- Desktop --------*/}
-        <Desktop>
+        {/*------- DesktopWHeight --------*/}
+        <DesktopWHeight>
           <DiscoverStyles>
             <p>Discover main content</p>
           </DiscoverStyles>
-        </Desktop>
+        </DesktopWHeight>
 
-        {/*------- Mobile --------*/}
-        <Mobile>
+        {/*------- MobileWHeight --------*/}
+        <MobileWHeight>
           <DiscoverStylesMobile>
             <CardContentMobile>
               <p>Discover main content mobile</p>
             </CardContentMobile>
           </DiscoverStylesMobile>
-        </Mobile>
+        </MobileWHeight>
       </InnerContentLayout2>
     </ContentLayout>
   );

@@ -10,6 +10,11 @@ export const Main = styled.div`
   flex-direction: column;
   gap: var(--gap-m);
   margin: var(--margin-s) var(--margin-m);
+
+  .habit-container {
+    gap: var(--gap-s);
+    padding: var(--padding-s) var(--padding-m) var(--padding-m) var(--padding-m);
+  }
 `;
 
 export const Container = styled.div`
@@ -21,9 +26,22 @@ export const HabitsMobile = styled.div`
   display: flex;
   flex-direction: column;
 
+  .habit-container {
+    background: var(--color-white-background);
+    border-radius: var(--border-radius-s);
+    padding: 2em;
+  }
+
   .button-container {
     margin: var(--margin-l) 0 var(--margin-xs) 0;
     align-self: flex-end;
+  }
+
+  .admin-habit-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-m);
+    margin-top: var(--margin-m);
   }
 `;
 

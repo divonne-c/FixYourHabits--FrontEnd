@@ -6,7 +6,10 @@ import {
 import SettingsNavigation from "../../components/navigations/SettingsNavigation";
 import { SettingStyles, SettingStylesMobile } from "./settings.styles";
 import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
-import { Desktop, Mobile } from "../../styles - global/media/MediaQueryDisplay";
+import {
+  DesktopWHeight,
+  MobileWHeight,
+} from "../../styles - global/global/MediaQueryDisplay";
 
 const SettingsAccount = () => {
   return (
@@ -15,21 +18,21 @@ const SettingsAccount = () => {
         <InnerContentLayout>
           <SettingsNavigation />
 
-          {/*------- Desktop --------*/}
-          <Desktop>
+          {/*------- DesktopWHeight --------*/}
+          <DesktopWHeight>
             <SettingStyles>
               <p>Settings account content</p>
             </SettingStyles>
-          </Desktop>
+          </DesktopWHeight>
 
-          {/*------- Mobile --------*/}
-          <Mobile>
+          {/*------- MobileWHeight --------*/}
+          <MobileWHeight>
             <SettingStylesMobile>
               <CardContentMobile>
                 <p>Settings account content mobile</p>
               </CardContentMobile>
             </SettingStylesMobile>
-          </Mobile>
+          </MobileWHeight>
         </InnerContentLayout>
       </ContentLayout>
     </>

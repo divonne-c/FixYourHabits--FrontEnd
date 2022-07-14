@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import {
-  DesktopNav,
-  MobileNav,
-} from "../../styles - global/media/MediaQueryDisplay";
+  Desktop,
+  Mobile,
+} from "../../styles - global/global/MediaQueryDisplay";
 import { DiscoverNavStyles } from "../../pages/discover/Discover.styles";
 import {
   NavLinkSecondary,
@@ -13,8 +13,8 @@ import {
 const DiscoverNavigation = () => {
   return (
     <>
-      {/*------- Desktop --------*/}
-      <DesktopNav>
+      {/*------- DesktopWHeight --------*/}
+      <Desktop>
         <NavLinkSecondary>
           <DiscoverNavStyles>
             <NavLink to="/discover/main">
@@ -25,17 +25,17 @@ const DiscoverNavigation = () => {
             </NavLink>
           </DiscoverNavStyles>
         </NavLinkSecondary>
-      </DesktopNav>
+      </Desktop>
 
-      {/*------- Mobile --------*/}
-      <MobileNav>
+      {/*------- MobileWHeight --------*/}
+      <Mobile>
         <NavLinkThird>
           <div className="links">
             <NavLink to="/discover/main">Discover</NavLink>
             <NavLink to="/discover/all">All</NavLink>
           </div>
         </NavLinkThird>
-      </MobileNav>
+      </Mobile>
     </>
   );
 };

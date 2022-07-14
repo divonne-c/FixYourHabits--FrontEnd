@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import {
-  DesktopNav,
-  MobileNav,
-} from "../../styles - global/media/MediaQueryDisplay";
+  Desktop,
+  Mobile,
+} from "../../styles - global/global/MediaQueryDisplay";
 import { FaqNavStylesMobile } from "../../pages/help/Help.styles";
 import {
   NavLinkSecondary,
@@ -13,8 +13,8 @@ import {
 const FaqNavigation = () => {
   return (
     <>
-      {/*------- Desktop --------*/}
-      <DesktopNav>
+      {/*------- DesktopWHeight --------*/}
+      <Desktop>
         <NavLinkFourth>
           <NavLink to="/help/faq/account">
             <p>Account</p>
@@ -26,11 +26,11 @@ const FaqNavigation = () => {
             <p>Habits</p>
           </NavLink>
         </NavLinkFourth>
-      </DesktopNav>
+      </Desktop>
       {/*<FaqNavStyles></FaqNavStyles>*/}
 
-      {/*------- Mobile --------*/}
-      <MobileNav>
+      {/*------- MobileWHeight --------*/}
+      <Mobile>
         <NavLinkSecondary>
           <FaqNavStylesMobile>
             <NavLink to="/help/faq/account">
@@ -44,7 +44,7 @@ const FaqNavigation = () => {
             </NavLink>
           </FaqNavStylesMobile>
         </NavLinkSecondary>
-      </MobileNav>
+      </Mobile>
     </>
   );
 };

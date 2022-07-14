@@ -7,7 +7,10 @@ import FaqNavigation from "../../components/navigations/FaqNavigation";
 import HelpNavigation from "../../components/navigations/HelpNavigation";
 import { HelpFaqStyles, HelpStylesMobile } from "./Help.styles";
 import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
-import { Desktop, Mobile } from "../../styles - global/media/MediaQueryDisplay";
+import {
+  DesktopWHeight,
+  MobileWHeight,
+} from "../../styles - global/global/MediaQueryDisplay";
 
 const HelpFaqAccount = () => {
   return (
@@ -15,23 +18,23 @@ const HelpFaqAccount = () => {
       <InnerContentLayout>
         <HelpNavigation />
 
-        {/*------- Desktop --------*/}
-        <Desktop>
+        {/*------- DesktopWHeight --------*/}
+        <DesktopWHeight>
           <HelpFaqStyles>
             <FaqNavigation />
             <p>help faq account content</p>
           </HelpFaqStyles>
-        </Desktop>
+        </DesktopWHeight>
 
-        {/*------- Mobile --------*/}
-        <Mobile>
+        {/*------- MobileWHeight --------*/}
+        <MobileWHeight>
           <HelpStylesMobile>
             <CardContentMobile>
               <FaqNavigation />
               <p>help faq account content</p>
             </CardContentMobile>
           </HelpStylesMobile>
-        </Mobile>
+        </MobileWHeight>
       </InnerContentLayout>
     </ContentLayout>
   );

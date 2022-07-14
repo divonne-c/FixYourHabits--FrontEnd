@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import {
-  DesktopNav,
-  MobileNav,
-} from "../../styles - global/media/MediaQueryDisplay";
+  Desktop,
+  Mobile,
+} from "../../styles - global/global/MediaQueryDisplay";
 import {
   NavLinkPrimary,
   NavLinkThird,
@@ -12,8 +12,8 @@ import {
 const SettingsNavigation = () => {
   return (
     <>
-      {/*------- Desktop --------*/}
-      <DesktopNav>
+      {/*------- DesktopWHeight --------*/}
+      <Desktop>
         <NavLinkPrimary>
           <h1>Settings</h1>
           <NavLink to="/settings/account">
@@ -23,10 +23,10 @@ const SettingsNavigation = () => {
             <p>Security</p>
           </NavLink>
         </NavLinkPrimary>
-      </DesktopNav>
+      </Desktop>
 
-      {/*------- Mobile --------*/}
-      <MobileNav>
+      {/*------- MobileWHeight --------*/}
+      <Mobile>
         <NavLinkThird>
           <h1>Settings</h1>
           <p>Update, reset or delete your account here</p>
@@ -35,7 +35,7 @@ const SettingsNavigation = () => {
             <NavLink to="/settings/security">Security</NavLink>
           </div>
         </NavLinkThird>
-      </MobileNav>
+      </Mobile>
     </>
   );
 };
