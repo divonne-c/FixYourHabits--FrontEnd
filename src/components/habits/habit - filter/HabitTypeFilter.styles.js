@@ -30,4 +30,9 @@ export const Container = styled.div`
   //  background-color: var(--color-orange);
   //  color: var(--color-white);
   //}
+
+  @media (max-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;

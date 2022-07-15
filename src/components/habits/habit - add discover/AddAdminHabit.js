@@ -6,8 +6,6 @@ import { ButtonThird } from "../../../styles - global/global/ButtonStyles";
 const AddAdminHabit = ({ habit, toggleShowModal, showModal }) => {
   const { auth, notifications, setNotifications } = useContext(AuthContext);
 
-  console.log(habit);
-
   const addAdminHabitHandler = () => {
     const data = {
       name: habit.name,
@@ -17,8 +15,6 @@ const AddAdminHabit = ({ habit, toggleShowModal, showModal }) => {
         id: auth.user.id,
       },
     };
-
-    console.log(data);
 
     async function postData() {
       const token = localStorage.getItem("token");
