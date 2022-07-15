@@ -10,6 +10,7 @@ export const Message = styled.div`
   margin-top: 2em;
   animation: slideIn 2s;
   color: var(--color-text-grey);
+  z-index: 3;
 
   .container {
     min-width: 200px;

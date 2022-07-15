@@ -13,6 +13,7 @@ const InputTemplate = ({ handler, type, value, name }) => {
       />
 
       {type === "radio" && <label htmlFor={value}>{value}</label>}
+      {type === "checkbox" && <label htmlFor={value}>{value}</label>}
     </Template>
   );
 };

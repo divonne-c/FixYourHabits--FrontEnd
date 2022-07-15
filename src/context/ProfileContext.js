@@ -8,6 +8,7 @@ function ProfileProvider({ children }) {
   const [userProfile, setUserProfile] = useState({});
   const [adminProfile, setAdminProfile] = useState({});
   const [adminRewards, setAdminRewards] = useState([]);
+  const [adminHabits, setAdminHabits] = useState([]);
   const { auth, renderData, toggleAuth } = useContext(AuthContext);
 
   useEffect(() => {
@@ -63,6 +64,26 @@ function ProfileProvider({ children }) {
   }, [renderData]);
 
   useEffect(() => {
+    async function getAdminData() {
+      const token = localStorage.getItem("token");
+      try {
+        const response = await axios.get(`http://localhost:8080/adminhabits`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setAdminHabits(response.data);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    auth.isAuth && getAdminData();
+  }, [renderData]);
+
+  useEffect(() => {
     async function getData() {
       const token = localStorage.getItem("token");
       try {
@@ -100,6 +121,7 @@ function ProfileProvider({ children }) {
     setAdminProfile,
     adminRewards,
     setAdminRewards,
+    adminHabits,
   };
 
   return (
