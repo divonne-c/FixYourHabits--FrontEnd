@@ -1,9 +1,23 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gap-s);
+  .discover-all {
+    display: flex;
+    gap: var(--gap-s);
+    flex-wrap: wrap;
+  }
+
+  .discover-main {
+    display: flex;
+    gap: var(--gap-s);
+  }
+
+  .discover {
+    height: 160px;
+    width: 160px;
+    display: flex;
+    justify-content: center;
+  }
 
   .reward-icon {
     border-radius: var(--border-radius-s);
@@ -24,26 +38,36 @@ export const Container = styled.div`
     justify-content: center;
   }
 
-  .discover {
-    height: 160px;
-    width: 160px;
-    display: flex;
-    justify-content: center;
-  }
-
   @media (max-width: 1024px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    .container-mobile {
+    .discover-main {
       display: flex;
-      flex-direction: row-reverse;
-      align-items: center;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      margin-top: var(--margin-xs);
+      overflow: scroll;
+
+      .discover-main-element {
+        min-height: 120px;
+        min-width: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--gap-xs);
+        text-align: center;
+        font-size: var(--font-s);
+        position: relative;
+      }
     }
 
-    .discover {
-      height: 120px;
-      width: 120px;
+    .discover-all {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--gap-xs);
+
+      .discover-all-element {
+        min-width: 0;
+      }
     }
   }
 `;
@@ -99,9 +123,9 @@ export const ElementMobile = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  grid-gap: var(--gap-s);
-  padding: var(--padding-s);
-  height: 120px;
+  grid-gap: var(--gap-xxs);
+  padding: var(--padding-xs);
+  min-height: 120px;
 
   .name-habit {
     display: flex;
@@ -115,7 +139,8 @@ export const ElementMobile = styled.div`
   }
 
   h4 {
-    font-size: var(--font-s);
+    font-size: var(--font-xs);
+    font-weight: bolder;
   }
 
   p {
@@ -126,22 +151,17 @@ export const ElementMobile = styled.div`
 
   .complete-btn-mobile {
     position: absolute;
-    //left: -10px;
-    //top: -10px;
     left: 0;
     top: 0;
   }
 
   .add-button-mobile {
     button {
-      //padding: var(--padding-xxs) var(--padding-xs);
       padding: 2px 0 0 5px;
       background-color: transparent;
       color: var(--color-white);
-      //border-radius: var(--border-radius-s);
       font-size: var(--font-m);
       border-radius: 5px;
-      //border-radius: var(--border-radius-s);
     }
   }
 `;
