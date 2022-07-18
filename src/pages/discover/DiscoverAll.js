@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import GetFilteredHabits from "../../components/habits/habit - filter/GetFilteredHabits";
+import DiscoverAllContent from "./DiscoverAllContent";
 import HabitTypeFilter from "../../components/habits/habit - filter/HabitTypeFilter";
 import Modal from "../../components/modals/modal - normal/Modal";
 import DiscoverNavigation from "../../components/navigations/DiscoverNavigation";
@@ -13,7 +13,7 @@ import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../styles - global/global/MediaQueryDisplay";
-import { DiscoverMobile, DiscoverStyles, Filter } from "./Discover.styles";
+import { DiscoverStyles, Filter } from "./Discover.styles";
 import {
   ButtonFourth,
   ButtonSecondary,
@@ -37,12 +37,15 @@ const DiscoverAll = () => {
         <DesktopWHeight>
           <DiscoverStyles>
             <InnerContentLayout3>
-              <GetFilteredHabits
+              {/*HABITS*/}
+              <DiscoverAllContent
                 habits={habits}
                 setHabits={setHabits}
                 filteredHabits={filteredHabits}
                 setFilteredHabits={setFilteredHabits}
               />
+
+              {/*FILTER*/}
               <Filter>
                 <h1>Filter</h1>
                 <HabitTypeFilter
@@ -57,7 +60,7 @@ const DiscoverAll = () => {
         {/*------- MOBILE --------*/}
         <MobileWHeight>
           <CardContentMobile>
-            <DiscoverMobile>
+            <DiscoverStyles>
               {/*FILTER*/}
               <div className="filter-container">
                 <ButtonSecondary
@@ -82,13 +85,13 @@ const DiscoverAll = () => {
               )}
 
               {/*HABITS*/}
-              <GetFilteredHabits
+              <DiscoverAllContent
                 habits={habits}
                 setHabits={setHabits}
                 filteredHabits={filteredHabits}
                 setFilteredHabits={setFilteredHabits}
               />
-            </DiscoverMobile>
+            </DiscoverStyles>
           </CardContentMobile>
         </MobileWHeight>
       </InnerContentLayout2>

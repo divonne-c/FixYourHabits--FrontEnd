@@ -16,8 +16,8 @@ const GetDiscoverHabitTemplate = ({ habit, habitColor, habitLogo }) => {
 
   return (
     <>
-      <Desktop>
-        <HabitColorStyle>
+      <HabitColorStyle>
+        <Desktop>
           <div className={habitColor}>
             <div className="discover">
               <Element>
@@ -36,29 +36,29 @@ const GetDiscoverHabitTemplate = ({ habit, habitColor, habitLogo }) => {
               </Element>
             </div>
           </div>
-        </HabitColorStyle>
-      </Desktop>
+        </Desktop>
 
-      <Mobile>
-        <HabitColorStyle>
+        <Mobile>
           <div className={habitColor}>
-            <ElementMobile>
-              <div className="name-habit">
-                <span className={`material-symbols-outlined ${habitColor}`}>
-                  {habitLogo}
-                </span>
-                <h4>{habit.name}</h4>
-                {auth.isAuth && auth.user.role === "ROLE_USER" && (
-                  <div className="complete-btn-mobile">
-                    <AddHabitModal habit={habit} habitColor={habitColor} />
-                  </div>
-                )}
-              </div>
-              <p>{habit.description}</p>
-            </ElementMobile>
+            <div className="discover-main-element discover-all-element">
+              <ElementMobile>
+                <div className="name-habit">
+                  <span className={`material-symbols-outlined ${habitColor}`}>
+                    {habitLogo}
+                  </span>
+                  <h4>{habit.name}</h4>
+                  {auth.isAuth && auth.user.role === "ROLE_USER" && (
+                    <div className="complete-btn-mobile">
+                      <AddHabitModal habit={habit} habitColor={habitColor} />
+                    </div>
+                  )}
+                </div>
+                <p>{habit.description}</p>
+              </ElementMobile>
+            </div>
           </div>
-        </HabitColorStyle>
-      </Mobile>
+        </Mobile>
+      </HabitColorStyle>
     </>
   );
 };
