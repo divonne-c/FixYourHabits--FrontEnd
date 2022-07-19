@@ -15,6 +15,13 @@ export const Profile = styled.div`
     padding: var(--padding-xs);
   }
 
+  img {
+    height: 65px;
+    width: 65px;
+    border-radius: var(--border-radius-xl);
+    object-fit: cover;
+  }
+
   .role {
     color: var(--color-text-orange-dark);
   }

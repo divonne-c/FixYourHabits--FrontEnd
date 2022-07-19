@@ -10,6 +10,8 @@ import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../styles - global/global/MediaQueryDisplay";
+import { Card } from "../../styles - global/cards/CardHome";
+import EditPassword from "../../components/account/account - edit password/EditPassword";
 
 const SettingsSecurity = () => {
   return (
@@ -21,7 +23,15 @@ const SettingsSecurity = () => {
           {/*------- DesktopWHeight --------*/}
           <DesktopWHeight>
             <SettingStyles>
-              <p>Settings security content</p>
+              <div>
+                <h1>Password</h1>
+                <p>Update your password here.</p>
+              </div>
+
+              <Card>
+                <h2>Change Password</h2>
+                <EditPassword />
+              </Card>
             </SettingStyles>
           </DesktopWHeight>
 

@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card } from "../../../styles - global/cards/CardHome";
 import { Profile } from "./StatsProfileInfo.styles";
+import { ProfileContext } from "../../../context/ProfileContext";
 
 const StatsProfileInfo = ({ name, email, role }) => {
+  const { userProfile } = useContext(ProfileContext);
+
   return (
     <Card>
       <Profile>
-        <span className="material-symbols-outlined">person</span>
+        {userProfile && userProfile.file ? (
+          <img src={userProfile.file.url} alt={userProfile.name} />
+        ) : (
+          <span className="material-symbols-outlined">person</span>
+        )}
         <div>
           <h3>{name}</h3>
           <p>{email}</p>

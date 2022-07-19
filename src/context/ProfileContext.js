@@ -103,6 +103,7 @@ function ProfileProvider({ children }) {
             username: response.data.user.username,
             role: response.data.user.authorities[0].authority,
             id: response.data.id,
+            email: response.data.user.email,
           },
         });
 
