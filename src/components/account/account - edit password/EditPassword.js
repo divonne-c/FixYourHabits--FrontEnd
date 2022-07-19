@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import bcrypt from "bcryptjs";
 import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
-import { Profile } from "../../stats/stats - profile info/StatsProfileInfo.styles";
 import { ProfileContext } from "../../../context/ProfileContext";
 
 const EditPassword = () => {
@@ -11,6 +11,7 @@ const EditPassword = () => {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [verifyPasswords, setVerifyPasswords] = useState("");
+  const [correct, setCorrect] = useState(false);
 
   const currentChangeHandler = (e) => {
     setCurrentPassword(e.target.value);
@@ -24,45 +25,69 @@ const EditPassword = () => {
     setVerifyPasswords(e.target.value);
   };
 
-  // console.log(userProfile);
-  console.log(userProfile.user.password == currentPassword);
+  useEffect(() => {
+    bcrypt.compare(
+      currentPassword,
+      userProfile.user.password,
+      function (err, res) {
+        if (err) {
+          console.log("error");
+          setCorrect(false);
+        }
+        if (res) {
+          console.log("correct");
+          setCorrect(true);
+        } else {
+          // response is OutgoingMessage object that server response http request
+          console.log("false");
+          setCorrect(false);
+        }
+      }
+    );
+  }, [currentPassword]);
 
   const updateAccountHandler = async (e) => {
-    // const checkPassword = () => {};
+    if (correct === true && newPassword === verifyPasswords) {
+      e.preventDefault();
 
-    e.preventDefault();
-
-    const data = {
-      ...userProfile,
-      user: {
-        ...userProfile.user,
-        password: newPassword,
-      },
-    };
-
-    const token = localStorage.getItem("token");
-
-    try {
-      await axios
-        .put(`http://localhost:8080/userprofiles/${auth.user.username}`, data, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => console.log(response));
-
-      setRenderData(!renderData);
-      setNotifications([
-        ...notifications,
-        {
-          type: "success",
-          message: "You successfully updated your personal information",
+      const data = {
+        ...userProfile,
+        user: {
+          ...userProfile.user,
+          password: newPassword,
         },
-      ]);
-    } catch (error) {
-      console.log(error);
-      setNotifications([...notifications, { type: "error", message: error }]);
+      };
+
+      const token = localStorage.getItem("token");
+
+      try {
+        await axios
+          .put(
+            `http://localhost:8080/userprofiles/${auth.user.username}`,
+            data,
+            {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
+          .then((response) => console.log(response));
+
+        setRenderData(!renderData);
+        setNotifications([
+          ...notifications,
+          {
+            type: "success",
+            message: "You successfully updated your personal information",
+          },
+        ]);
+      } catch (error) {
+        console.log(error);
+        setNotifications([...notifications, { type: "error", message: error }]);
+      }
+    } else {
+      console.log("current password incorrect");
     }
   };
 
