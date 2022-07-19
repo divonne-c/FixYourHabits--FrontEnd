@@ -2,6 +2,10 @@ import React, { useContext, useState } from "react";
 import { ProfileContext } from "../../../context/ProfileContext";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
+import {
+  ButtonFourth,
+  ButtonSecondary,
+} from "../../../styles - global/global/ButtonStyles";
 
 const ResetAccount = () => {
   const { auth, setRenderData, renderData, setNotifications, notifications } =
@@ -70,9 +74,9 @@ const ResetAccount = () => {
 
   return (
     <div>
-      <button type="button" onClick={resetAccountHandler}>
+      <ButtonSecondary type="button" onClick={resetAccountHandler}>
         Reset
-      </button>
+      </ButtonSecondary>
     </div>
   );
 };

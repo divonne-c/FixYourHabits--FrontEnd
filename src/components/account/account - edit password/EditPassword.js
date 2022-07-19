@@ -2,76 +2,86 @@ import React, { useContext, useEffect, useState } from "react";
 import bcrypt from "bcryptjs";
 import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
-import { ProfileContext } from "../../../context/ProfileContext";
+import EditPasswordForm from "../../forms/EditPasswordForm";
+import {
+  ButtonSecondary,
+  ButtonThird,
+} from "../../../styles - global/global/ButtonStyles";
+import { Buttons } from "../../forms/Form.styles";
 
 const EditPassword = () => {
-  const { auth, setRenderData, renderData, setNotifications, notifications } =
-    useContext(AuthContext);
-  const { userProfile } = useContext(ProfileContext);
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [verifyPasswords, setVerifyPasswords] = useState("");
+  const [password, setPassword] = useState({
+    currentPassword: "",
+    newPassword: "",
+    verifyPassword: "",
+  });
   const [correct, setCorrect] = useState(false);
+  const {
+    auth,
+    setRenderData,
+    renderData,
+    setNotifications,
+    notifications,
+    user,
+  } = useContext(AuthContext);
 
-  const currentChangeHandler = (e) => {
-    setCurrentPassword(e.target.value);
+  const currentChangeHandler = (event) => {
+    setPassword({ ...password, currentPassword: event.target.value });
   };
 
-  const passwordChangeHandler = (e) => {
-    setNewPassword(e.target.value);
+  const newPasswordHandler = (event) => {
+    setPassword({ ...password, newPassword: event.target.value });
   };
 
-  const verifyHandler = (e) => {
-    setVerifyPasswords(e.target.value);
+  const verifyPasswordHandler = (event) => {
+    setPassword({ ...password, verifyPassword: event.target.value });
+  };
+
+  const resetButtonHandler = () => {
+    setPassword({
+      currentPassword: "",
+      newPassword: "",
+      verifyPassword: "",
+    });
   };
 
   useEffect(() => {
     bcrypt.compare(
-      currentPassword,
-      userProfile.user.password,
+      password.currentPassword,
+      user.password,
       function (err, res) {
         if (err) {
-          console.log("error");
           setCorrect(false);
         }
         if (res) {
-          console.log("correct");
           setCorrect(true);
         } else {
-          // response is OutgoingMessage object that server response http request
-          console.log("false");
           setCorrect(false);
         }
       }
     );
-  }, [currentPassword]);
+  }, [password.currentPassword]);
 
   const updateAccountHandler = async (e) => {
-    if (correct === true && newPassword === verifyPasswords) {
+    if (correct === true && password.newPassword === password.verifyPassword) {
       e.preventDefault();
 
       const data = {
-        ...userProfile,
-        user: {
-          ...userProfile.user,
-          password: newPassword,
-        },
+        ...user,
+        password: bcrypt.hashSync(password.newPassword, 10),
       };
 
+      console.log(data);
       const token = localStorage.getItem("token");
 
       try {
         await axios
-          .put(
-            `http://localhost:8080/userprofiles/${auth.user.username}`,
-            data,
-            {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          )
+          .put(`http://localhost:8080/users/${auth.user.username}`, data, {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          })
           .then((response) => console.log(response));
 
         setRenderData(!renderData);
@@ -79,7 +89,7 @@ const EditPassword = () => {
           ...notifications,
           {
             type: "success",
-            message: "You successfully updated your personal information",
+            message: "You successfully updated your password",
           },
         ]);
       } catch (error) {
@@ -93,18 +103,20 @@ const EditPassword = () => {
 
   return (
     <form onSubmit={updateAccountHandler}>
-      <label htmlFor="">Current password</label>
-      <input
-        type="text"
-        value={currentPassword}
-        onChange={currentChangeHandler}
+      <EditPasswordForm
+        newPasswordHandler={newPasswordHandler}
+        password={password}
+        verifyPasswordHandler={verifyPasswordHandler}
+        currentChangeHandler={currentChangeHandler}
+        resetButtonHandler={resetButtonHandler}
       />
-      <label htmlFor="">New password</label>
-      <input type="text" value={newPassword} onChange={passwordChangeHandler} />
-      <label htmlFor="">New password</label>
-      <input type="text" value={verifyPasswords} onChange={verifyHandler} />
-      <button type="reset">Cancel</button>
-      <button type="submit">Save</button>
+
+      <Buttons>
+        <ButtonSecondary type="reset" onClick={resetButtonHandler}>
+          Cancel
+        </ButtonSecondary>
+        <ButtonThird type="submit">Save</ButtonThird>
+      </Buttons>
     </form>
   );
 };

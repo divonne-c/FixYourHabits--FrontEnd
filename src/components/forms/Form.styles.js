@@ -53,4 +53,26 @@ export const Template = styled.div`
   display: flex;
   gap: var(--gap-s);
   text-transform: capitalize;
+
+  input::placeholder {
+    font-family: "Material Icons";
+    font-size: var(--font-sm);
+    color: var(--color-orange);
+    text-align: right;
+  }
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--gap-m);
+  margin-top: var(--margin-s);
+
+  button {
+    padding: var(--padding-s) var(--padding-m);
+  }
+
+  @media (max-width: 1024px) {
+    justify-content: center;
+  }
 `;

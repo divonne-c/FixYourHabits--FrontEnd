@@ -1,7 +1,7 @@
 import React from "react";
 import { Template } from "./Form.styles";
 
-const InputTemplate = ({ handler, type, value, name }) => {
+const InputTemplate = ({ handler, type, value, name, ...otherProps }) => {
   return (
     <Template>
       <input
@@ -10,6 +10,7 @@ const InputTemplate = ({ handler, type, value, name }) => {
         name={name}
         onChange={handler}
         required
+        {...otherProps}
       />
 
       {type === "radio" && <label htmlFor={value}>{value}</label>}

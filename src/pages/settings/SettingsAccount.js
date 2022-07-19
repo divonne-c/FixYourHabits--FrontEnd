@@ -5,6 +5,7 @@ import {
 } from "../../styles - global/global/LayoutStyles";
 import SettingsNavigation from "../../components/navigations/SettingsNavigation";
 import {
+  Div,
   PersonalInfo,
   SettingStyles,
   SettingStylesMobile,
@@ -22,6 +23,7 @@ import moment from "moment";
 import EditAccount from "../../components/account/account - edit personal info/EditAccount";
 import ResetAccount from "../../components/account/account - reset account/ResetAccount";
 import DeleteAccount from "../../components/account/account - delete account/DeleteAccount";
+import { ButtonFourth } from "../../styles - global/global/ButtonStyles";
 
 const SettingsAccount = () => {
   const { auth, logout } = useContext(AuthContext);
@@ -89,41 +91,51 @@ const SettingsAccount = () => {
               </Card>
 
               <Card>
-                <h2>Edit Information</h2>
-                <EditAccount />
+                <Div>
+                  <div>
+                    <h2>Edit Information</h2>
+                    <EditAccount />
+                  </div>
+                </Div>
               </Card>
 
               <Card>
-                <div>
-                  <h2>Reset Account</h2>
-                  <p>
-                    If you reset your account, you will lose all of your
-                    progress and data
-                  </p>
-                </div>
-                <ResetAccount />
+                <Div>
+                  <div>
+                    <h2>Reset Account</h2>
+                    <p>
+                      If you reset your account, you will lose all of your
+                      progress and data
+                    </p>
+                  </div>
+                  <ResetAccount />
+                </Div>
               </Card>
 
               <Card>
-                <div>
-                  <h2>Delete Account</h2>
-                  <p>
-                    If you delete your account, you will lose all of your
-                    progress and data. Your account will be destroyed and it can
-                    not be restored.
-                  </p>
-                </div>
-                <DeleteAccount />
+                <Div>
+                  <div>
+                    <h2>Delete Account</h2>
+                    <p>
+                      If you delete your account, you will lose all of your
+                      progress and data. Your account will be destroyed and it
+                      can not be restored.
+                    </p>
+                  </div>
+                  <DeleteAccount />
+                </Div>
               </Card>
 
               <Card>
-                <div>
-                  <h2>Sign out</h2>
-                  <p>You will be signed out of your account.</p>
-                </div>
-                <button type="button" onClick={logout}>
-                  Sign out
-                </button>
+                <Div>
+                  <div>
+                    <h2>Sign out</h2>
+                    <p>You will be signed out of your account.</p>
+                  </div>
+                  <ButtonFourth type="button" onClick={logout}>
+                    Sign out
+                  </ButtonFourth>
+                </Div>
               </Card>
             </SettingStyles>
           </DesktopWHeight>

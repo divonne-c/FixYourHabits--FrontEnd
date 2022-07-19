@@ -2,6 +2,12 @@ import React, { useContext, useState } from "react";
 import { ProfileContext } from "../../../context/ProfileContext";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
+import { Buttons, Form } from "../../forms/Form.styles";
+import InputTemplate from "../../forms/InputTemplate";
+import {
+  ButtonSecondary,
+  ButtonThird,
+} from "../../../styles - global/global/ButtonStyles";
 
 const EditAccount = () => {
   const { userProfile } = useContext(ProfileContext);
@@ -57,26 +63,22 @@ const EditAccount = () => {
   };
 
   return (
-    <form onSubmit={updateAccountHandler}>
-      <label htmlFor="">Name</label>
-      <input
-        type="text"
-        value={name}
-        name="name"
-        onChange={nameChangeHandler}
-      />
+    <Form onSubmit={updateAccountHandler}>
+      <div>
+        <label htmlFor="">Name</label>
+        <InputTemplate type="text" value={name} handler={nameChangeHandler} />
+      </div>
 
-      <label htmlFor="">Email</label>
-      <input
-        type="text"
-        value={email}
-        name="name"
-        onChange={emailChangeHandler}
-      />
+      <div>
+        <label htmlFor="">Email</label>
+        <InputTemplate type="text" value={email} handler={emailChangeHandler} />
+      </div>
 
-      <button type="reset">Cancel</button>
-      <button type="submit">Save</button>
-    </form>
+      <Buttons>
+        <ButtonSecondary type="reset">Cancel</ButtonSecondary>
+        <ButtonThird type="submit">Save</ButtonThird>
+      </Buttons>
+    </Form>
   );
 };
 

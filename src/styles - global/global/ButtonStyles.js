@@ -22,7 +22,14 @@ export const ButtonPrimary = styled(Button)`
 
 export const ButtonSecondary = styled(Button)`
   background-color: var(--color-white-background);
+  border: 1px solid var(--color-white-background);
   color: var(--color-orange);
+
+  :hover {
+    background-color: var(--color-orange-light);
+    border: 1px solid var(--color-orange-light);
+    color: var(--color-text-orange-dark);
+  }
 `;
 
 export const ButtonThird = styled(Button)`

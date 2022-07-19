@@ -1,9 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
+import {
+  ButtonFourth,
+  ButtonThird,
+} from "../../../styles - global/global/ButtonStyles";
+import ModalSmall from "../../modals/modal - small/ModalSmall";
+import ModalButtons from "../../modals/modal - buttons/ModalButtons";
+import { Container } from "./DeleteAccount.styles";
 
 const DeleteAccount = () => {
+  const [showModal, toggleShowModal] = useState(false);
   const { auth, setRenderData, renderData, logout } = useContext(AuthContext);
+
+  const show = () => {
+    toggleShowModal(!showModal);
+  };
 
   const deleteAccountHandler = async () => {
     const token = localStorage.getItem("token");
@@ -25,11 +37,28 @@ const DeleteAccount = () => {
   };
 
   return (
-    <div>
-      <button type="button" onClick={deleteAccountHandler}>
+    <Container>
+      <ButtonThird type="button" onClick={show}>
         Delete
-      </button>
-    </div>
+      </ButtonThird>
+
+      {showModal && (
+        <ModalSmall>
+          <p>
+            Are you sure you want to delete your account? It is not possible to
+            restore your account after this.
+          </p>
+          <div className="button-container">
+            <ButtonFourth type="button" onClick={show}>
+              Cancel
+            </ButtonFourth>
+            <ButtonThird type="button" onClick={deleteAccountHandler}>
+              Delete
+            </ButtonThird>
+          </div>
+        </ModalSmall>
+      )}
+    </Container>
   );
 };
 
