@@ -2,12 +2,12 @@ import React, { useContext, useState } from "react";
 import { ProfileContext } from "../../../context/ProfileContext";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
-import { Buttons, Form } from "../../forms/Form.styles";
 import InputTemplate from "../../forms/InputTemplate";
 import {
   ButtonSecondary,
   ButtonThird,
 } from "../../../styles - global/global/ButtonStyles";
+import { Buttons, Form } from "../../forms/Form.styles";
 
 const EditAccount = () => {
   const { userProfile } = useContext(ProfileContext);
@@ -22,6 +22,11 @@ const EditAccount = () => {
 
   const emailChangeHandler = (e) => {
     setEmail(e.target.value);
+  };
+
+  const resetHandler = () => {
+    setName(userProfile.user.name);
+    setEmail(userProfile.user.email);
   };
 
   const updateAccountHandler = async (e) => {
@@ -63,21 +68,29 @@ const EditAccount = () => {
   };
 
   return (
-    <Form onSubmit={updateAccountHandler}>
-      <div>
-        <label htmlFor="">Name</label>
-        <InputTemplate type="text" value={name} handler={nameChangeHandler} />
-      </div>
+    <Form>
+      <form onSubmit={updateAccountHandler}>
+        <div>
+          <label htmlFor="">Name</label>
+          <InputTemplate type="text" value={name} handler={nameChangeHandler} />
+        </div>
 
-      <div>
-        <label htmlFor="">Email</label>
-        <InputTemplate type="text" value={email} handler={emailChangeHandler} />
-      </div>
+        <div>
+          <label htmlFor="">Email</label>
+          <InputTemplate
+            type="text"
+            value={email}
+            handler={emailChangeHandler}
+          />
+        </div>
 
-      <Buttons>
-        <ButtonSecondary type="reset">Cancel</ButtonSecondary>
-        <ButtonThird type="submit">Save</ButtonThird>
-      </Buttons>
+        <Buttons>
+          <ButtonSecondary type="reset" onClick={resetHandler}>
+            Cancel
+          </ButtonSecondary>
+          <ButtonThird type="submit">Save</ButtonThird>
+        </Buttons>
+      </form>
     </Form>
   );
 };

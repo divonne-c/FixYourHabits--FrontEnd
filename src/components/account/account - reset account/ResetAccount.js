@@ -5,12 +5,20 @@ import { AuthContext } from "../../../context/AuthContext";
 import {
   ButtonFourth,
   ButtonSecondary,
+  ButtonThird,
 } from "../../../styles - global/global/ButtonStyles";
+import { Container } from "../account - delete account/DeleteAccount.styles";
+import ModalSmall from "../../modals/modal - small/ModalSmall";
 
 const ResetAccount = () => {
+  const [showModal, toggleShowModal] = useState(false);
   const { auth, setRenderData, renderData, setNotifications, notifications } =
     useContext(AuthContext);
   const { userProfile } = useContext(ProfileContext);
+
+  const show = () => {
+    toggleShowModal(!showModal);
+  };
 
   const resetAccountHandler = async (e) => {
     e.preventDefault();
@@ -73,11 +81,28 @@ const ResetAccount = () => {
   };
 
   return (
-    <div>
-      <ButtonSecondary type="button" onClick={resetAccountHandler}>
+    <Container>
+      <ButtonSecondary type="button" onClick={show}>
         Reset
       </ButtonSecondary>
-    </div>
+
+      {showModal && (
+        <ModalSmall>
+          <p>
+            Are you sure you want to reset your account? All your progress will
+            be gone.
+          </p>
+          <div className="button-container">
+            <ButtonFourth type="button" onClick={show}>
+              Cancel
+            </ButtonFourth>
+            <ButtonThird type="button" onClick={resetAccountHandler}>
+              Reset
+            </ButtonThird>
+          </div>
+        </ModalSmall>
+      )}
+    </Container>
   );
 };
 

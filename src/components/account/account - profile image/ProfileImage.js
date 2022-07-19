@@ -3,13 +3,23 @@ import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
 import { Container } from "./ProfileImage.styles";
 import { ProfileContext } from "../../../context/ProfileContext";
+import Modal from "../../modals/modal - normal/Modal";
+import {
+  ButtonFourth,
+  ButtonThird,
+} from "../../../styles - global/global/ButtonStyles";
 
 const ProfileImage = () => {
+  const [showModal, toggleShowModal] = useState(false);
   const [error, setError] = useState("");
   const [file, setFile] = useState([]);
   const [profilePicture, setProfilePicture] = useState("");
   const { auth, setRenderData, renderData } = useContext(AuthContext);
   const { userProfile } = useContext(ProfileContext);
+
+  const show = () => {
+    toggleShowModal(!showModal);
+  };
 
   function handleImageChange(e) {
     const uploadedFile = e.target.files[0];
@@ -64,33 +74,49 @@ const ProfileImage = () => {
         {userProfile && userProfile.file ? (
           <img src={userProfile.file.url} alt={userProfile.name} />
         ) : (
-          <span className="material-symbols-outlined">person</span>
+          <span className="material-symbols-outlined img">person</span>
         )}
+        <button type="button" onClick={show}>
+          <p>Edit</p>
+          <span className="material-symbols-outlined">border_color</span>
+        </button>
       </div>
-      <form onSubmit={sendImage}>
-        <label className="edit-btn">
-          <input
-            type="file"
-            name="image-field"
-            id="student-image"
-            onChange={handleImageChange}
-          />
-          <span className="material-symbols-outlined">edit</span>
-        </label>
 
-        {/*PREVIEW*/}
-        {profilePicture && (
-          <label>
-            Preview:
-            <img
-              src={profilePicture}
-              alt="Voorbeeld van de afbeelding die zojuist gekozen is"
-              className="image-preview"
-            />
-          </label>
-        )}
-        <button type="submit">Uploaden</button>
-      </form>
+      {showModal && (
+        <Modal title="Edit Profile image">
+          <form onSubmit={sendImage}>
+            <label className="edit-btn">
+              <input
+                type="file"
+                name="image-field"
+                id="student-image"
+                onChange={handleImageChange}
+              />
+              <span className="material-symbols-outlined">edit</span>
+            </label>
+
+            {/*PREVIEW*/}
+            <div>
+              {profilePicture && (
+                <label className="preview">
+                  Preview:
+                  <img
+                    src={profilePicture}
+                    alt="Voorbeeld van de afbeelding die zojuist gekozen is"
+                    className="image-preview"
+                  />
+                </label>
+              )}
+            </div>
+            <div>
+              <ButtonFourth type="button" onClick={show}>
+                Cancel
+              </ButtonFourth>
+              <ButtonThird type="submit">Uploaden</ButtonThird>
+            </div>
+          </form>
+        </Modal>
+      )}
     </Container>
   );
 };
