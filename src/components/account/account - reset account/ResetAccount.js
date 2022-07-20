@@ -10,11 +10,11 @@ import {
 import { Container } from "../account - delete account/DeleteAccount.styles";
 import ModalSmall from "../../modals/modal - small/ModalSmall";
 
-const ResetAccount = () => {
+const ResetAccount = ({ role }) => {
   const [showModal, toggleShowModal] = useState(false);
   const { auth, setRenderData, renderData, setNotifications, notifications } =
     useContext(AuthContext);
-  const { userProfile } = useContext(ProfileContext);
+  const { userProfile, adminProfile } = useContext(ProfileContext);
 
   const show = () => {
     toggleShowModal(!showModal);
@@ -23,21 +23,31 @@ const ResetAccount = () => {
   const resetAccountHandler = async (e) => {
     e.preventDefault();
 
-    const data = {
-      ...userProfile,
-      file: null,
-      totalHabits: 0,
-      totalCompletedHabits: 0,
-      userHabits: [],
-      userRewards: [],
-    };
+    let data = {};
+
+    if (role === "admin") {
+      data = {
+        ...adminProfile,
+        adminHabits: [],
+        adminRewards: [],
+      };
+    } else {
+      data = {
+        ...userProfile,
+        file: null,
+        totalHabits: 0,
+        totalCompletedHabits: 0,
+        userHabits: [],
+        userRewards: [],
+      };
+    }
 
     const token = localStorage.getItem("token");
 
     try {
       axios.all([
         await axios.delete(
-          `http://localhost:8080/userprofiles/${auth.user.username}/userhabits`,
+          `http://localhost:8080/${role}profiles/${auth.user.username}/${role}habits`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -46,7 +56,7 @@ const ResetAccount = () => {
           }
         ),
         await axios.delete(
-          `http://localhost:8080/userprofiles/${auth.user.username}/userrewards`,
+          `http://localhost:8080/${role}profiles/${auth.user.username}/${role}rewards`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -55,7 +65,7 @@ const ResetAccount = () => {
           }
         ),
         await axios.put(
-          `http://localhost:8080/userprofiles/${auth.user.username}`,
+          `http://localhost:8080/${role}profiles/${auth.user.username}`,
           data,
           {
             headers: {

@@ -8,13 +8,19 @@ import {
   ButtonThird,
 } from "../../../styles - global/global/ButtonStyles";
 import { Buttons, Form } from "../../forms/Form.styles";
+import { Container } from "./EditAccount.styles";
 
 const EditAccount = () => {
-  const { userProfile } = useContext(ProfileContext);
-  const { auth, renderData, setRenderData, setNotifications, notifications } =
-    useContext(AuthContext);
-  const [name, setName] = useState(userProfile.user.name);
-  const [email, setEmail] = useState(userProfile.user.email);
+  const {
+    auth,
+    renderData,
+    setRenderData,
+    setNotifications,
+    notifications,
+    user,
+  } = useContext(AuthContext);
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
 
   const nameChangeHandler = (e) => {
     setName(e.target.value);
@@ -25,27 +31,24 @@ const EditAccount = () => {
   };
 
   const resetHandler = () => {
-    setName(userProfile.user.name);
-    setEmail(userProfile.user.email);
+    setName(user.name);
+    setEmail(user.email);
   };
 
   const updateAccountHandler = async (e) => {
     e.preventDefault();
 
     const data = {
-      ...userProfile,
-      user: {
-        ...userProfile.user,
-        name: name,
-        email: email,
-      },
+      ...user,
+      name: name,
+      email: email,
     };
 
     const token = localStorage.getItem("token");
 
     try {
       await axios
-        .put(`http://localhost:8080/userprofiles/${auth.user.username}`, data, {
+        .put(`http://localhost:8080/users/${auth.user.username}`, data, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -70,26 +73,32 @@ const EditAccount = () => {
   return (
     <Form>
       <form onSubmit={updateAccountHandler}>
-        <div>
-          <label htmlFor="">Name</label>
-          <InputTemplate type="text" value={name} handler={nameChangeHandler} />
-        </div>
+        <Container>
+          <div>
+            <label htmlFor="">Name</label>
+            <InputTemplate
+              type="text"
+              value={name}
+              handler={nameChangeHandler}
+            />
+          </div>
 
-        <div>
-          <label htmlFor="">Email</label>
-          <InputTemplate
-            type="text"
-            value={email}
-            handler={emailChangeHandler}
-          />
-        </div>
+          <div>
+            <label htmlFor="">Email</label>
+            <InputTemplate
+              type="text"
+              value={email}
+              handler={emailChangeHandler}
+            />
+          </div>
 
-        <Buttons>
-          <ButtonSecondary type="reset" onClick={resetHandler}>
-            Cancel
-          </ButtonSecondary>
-          <ButtonThird type="submit">Save</ButtonThird>
-        </Buttons>
+          <Buttons>
+            <ButtonSecondary type="reset" onClick={resetHandler}>
+              Cancel
+            </ButtonSecondary>
+            <ButtonThird type="submit">Save</ButtonThird>
+          </Buttons>
+        </Container>
       </form>
     </Form>
   );

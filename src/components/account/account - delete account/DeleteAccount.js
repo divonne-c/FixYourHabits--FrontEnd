@@ -6,7 +6,6 @@ import {
   ButtonThird,
 } from "../../../styles - global/global/ButtonStyles";
 import ModalSmall from "../../modals/modal - small/ModalSmall";
-import ModalButtons from "../../modals/modal - buttons/ModalButtons";
 import { Container } from "./DeleteAccount.styles";
 
 const DeleteAccount = () => {

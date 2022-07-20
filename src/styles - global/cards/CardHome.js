@@ -7,5 +7,6 @@ export const Card = styled.div`
 
   @media (max-width: 1024px) {
     min-height: 0;
+    box-shadow: none;
   }
 `;

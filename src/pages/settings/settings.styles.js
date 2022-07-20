@@ -1,12 +1,35 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  width: 100%;
+`;
+
 export const SettingStyles = styled.div`
   max-width: 1000px;
   min-width: 500px;
   margin: var(--margin-m);
+`;
+
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: var(--gap-m);
+  margin-top: var(--margin-m);
+
+  .edit-account {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-m);
+    padding: var(--padding-m);
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 0;
+
+    .card-container {
+      border-bottom: 1px solid var(--color-white-background);
+    }
+  }
 `;
 
 export const SettingStylesMobile = styled.div`
@@ -21,15 +44,23 @@ export const PersonalInfo = styled.div`
 
   .container,
   .info-container {
-    //display: flex;
-    //gap: var(--gap-l);
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
   }
 
-  .container {
-    //justify-content: space-between;
+  @media (max-width: 1024px) {
+    .container {
+      display: flex;
+      flex-direction: column-reverse;
+      grid-gap: var(--gap-m);
+    }
+
+    .info-container {
+      display: flex;
+      justify-content: center;
+      gap: var(--gap-m);
+    }
   }
 `;
 
@@ -56,5 +87,20 @@ export const Div = styled.div`
   button {
     min-width: 200px;
     box-shadow: var(--shadow-medium);
+  }
+
+  @media (max-width: 1024px) {
+    gap: var(--gap-s);
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-s);
+      font-size: var(--font-xs);
+    }
+
+    button {
+      min-width: 30vw;
+    }
   }
 `;

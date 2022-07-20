@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
-import { Container } from "./ProfileImage.styles";
+import { Container, ModalContainer, Preview } from "./ProfileImage.styles";
 import { ProfileContext } from "../../../context/ProfileContext";
 import Modal from "../../modals/modal - normal/Modal";
 import {
@@ -9,13 +9,13 @@ import {
   ButtonThird,
 } from "../../../styles - global/global/ButtonStyles";
 
-const ProfileImage = () => {
+const ProfileImage = ({ role }) => {
   const [showModal, toggleShowModal] = useState(false);
   const [error, setError] = useState("");
   const [file, setFile] = useState([]);
   const [profilePicture, setProfilePicture] = useState("");
   const { auth, setRenderData, renderData } = useContext(AuthContext);
-  const { userProfile } = useContext(ProfileContext);
+  const { userProfile, adminProfile } = useContext(ProfileContext);
 
   const show = () => {
     toggleShowModal(!showModal);
@@ -46,7 +46,7 @@ const ProfileImage = () => {
       try {
         const result = await axios
           .post(
-            `http://localhost:8080/userprofiles/${auth.user.username}/photo`,
+            `http://localhost:8080/${role}profiles/${auth.user.username}/photo`,
             formData,
             {
               headers: {
@@ -70,52 +70,125 @@ const ProfileImage = () => {
   return (
     <Container>
       {error}
-      <div className="profile-image">
-        {userProfile && userProfile.file ? (
-          <img src={userProfile.file.url} alt={userProfile.name} />
-        ) : (
-          <span className="material-symbols-outlined img">person</span>
-        )}
-        <button type="button" onClick={show}>
-          <p>Edit</p>
-          <span className="material-symbols-outlined">border_color</span>
-        </button>
-      </div>
+      {auth.isAuth && auth.user.role === "ROLE_USER" && (
+        <>
+          <div className="profile-image">
+            {auth.user.role === "ROLE_USER" &&
+            userProfile &&
+            userProfile.file ? (
+              <img src={userProfile.file.url} alt={userProfile.name} />
+            ) : (
+              <span className="material-symbols-outlined img">person</span>
+            )}
+            <button type="button" onClick={show}>
+              <p>Edit</p>
+              <span className="material-symbols-outlined">border_color</span>
+            </button>
+          </div>
 
-      {showModal && (
-        <Modal title="Edit Profile image">
-          <form onSubmit={sendImage}>
-            <label className="edit-btn">
-              <input
-                type="file"
-                name="image-field"
-                id="student-image"
-                onChange={handleImageChange}
-              />
-              <span className="material-symbols-outlined">edit</span>
-            </label>
+          {showModal && (
+            <Modal title="Edit Profile image">
+              <ModalContainer>
+                <form onSubmit={sendImage}>
+                  {/*PREVIEW*/}
+                  <Preview>
+                    {profilePicture ? (
+                      <img
+                        src={profilePicture}
+                        alt="Voorbeeld van de afbeelding die zojuist gekozen is"
+                        className="image-preview"
+                      />
+                    ) : // ) :
+                    userProfile.file ? (
+                      <img src={userProfile.file.url} alt={userProfile.name} />
+                    ) : (
+                      <span className="material-symbols-outlined profile-icon">
+                        person
+                      </span>
+                    )}
 
-            {/*PREVIEW*/}
-            <div>
-              {profilePicture && (
-                <label className="preview">
-                  Preview:
-                  <img
-                    src={profilePicture}
-                    alt="Voorbeeld van de afbeelding die zojuist gekozen is"
-                    className="image-preview"
-                  />
-                </label>
-              )}
-            </div>
-            <div>
-              <ButtonFourth type="button" onClick={show}>
-                Cancel
-              </ButtonFourth>
-              <ButtonThird type="submit">Uploaden</ButtonThird>
-            </div>
-          </form>
-        </Modal>
+                    <label className="edit-btn">
+                      <input
+                        type="file"
+                        name="image-field"
+                        id="student-image"
+                        onChange={handleImageChange}
+                      />
+                      <span className="material-symbols-outlined">edit</span>
+                    </label>
+                  </Preview>
+                  <div className="button-container">
+                    <ButtonFourth type="button" onClick={show}>
+                      Cancel
+                    </ButtonFourth>
+                    <ButtonThird type="submit">Save</ButtonThird>
+                  </div>
+                </form>
+              </ModalContainer>
+            </Modal>
+          )}
+        </>
+      )}
+
+      {auth.isAuth && auth.user.role === "ROLE_ADMIN" && (
+        <>
+          <div className="profile-image">
+            {adminProfile && adminProfile.file ? (
+              <img src={adminProfile.file.url} alt={adminProfile.name} />
+            ) : (
+              <span className="material-symbols-outlined img">person</span>
+            )}
+            <button type="button" onClick={show}>
+              <p>Edit</p>
+              <span className="material-symbols-outlined">border_color</span>
+            </button>
+          </div>
+
+          {showModal && (
+            <Modal title="Edit Profile image">
+              <ModalContainer>
+                <form onSubmit={sendImage}>
+                  {/*PREVIEW*/}
+                  <Preview>
+                    {profilePicture ? (
+                      <img
+                        src={profilePicture}
+                        alt="Voorbeeld van de afbeelding die zojuist gekozen is"
+                        className="image-preview"
+                      />
+                    ) : // ) :
+                    adminProfile.file ? (
+                      <img
+                        src={adminProfile.file.url}
+                        alt={adminProfile.name}
+                      />
+                    ) : (
+                      <span className="material-symbols-outlined profile-icon">
+                        person
+                      </span>
+                    )}
+
+                    <label className="edit-btn">
+                      <input
+                        type="file"
+                        name="image-field"
+                        id="student-image"
+                        onChange={handleImageChange}
+                      />
+                      <span className="material-symbols-outlined">edit</span>
+                    </label>
+                  </Preview>
+                  <div className="button-container">
+                    <ButtonFourth type="button" onClick={show}>
+                      Cancel
+                    </ButtonFourth>
+                    <ButtonThird type="submit">Save</ButtonThird>
+                  </div>
+                </form>
+              </ModalContainer>
+            </Modal>
+          )}
+        </>
       )}
     </Container>
   );

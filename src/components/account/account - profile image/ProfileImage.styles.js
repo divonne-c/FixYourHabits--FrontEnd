@@ -15,7 +15,6 @@ export const Container = styled.div`
 
     button {
       display: flex;
-      //align-items: center;
       align-items: flex-end;
       justify-content: center;
       gap: var(--gap-xs);
@@ -39,7 +38,7 @@ export const Container = styled.div`
       font-size: var(--font-xl);
       background-color: var(--color-orange);
       color: var(--color-white);
-      border-radius: var(--border-radius-l);
+      border-radius: var(--border-radius-xxl);
       padding: var(--padding-sm);
     }
 
@@ -47,24 +46,59 @@ export const Container = styled.div`
       height: 150px;
       width: 150px;
       object-fit: cover;
-      border-radius: var(--border-radius-xl);
+      border-radius: var(--border-radius-xxl);
     }
+  }
+`;
+
+export const ModalContainer = styled.div`
+  .button-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: var(--margin-l);
+
+    button {
+      padding: var(--padding-s) var(--padding-m);
+    }
+  }
+`;
+
+export const Preview = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  .profile-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border-radius: var(--border-radius-xxl);
+    font-size: var(--font-xxl);
+    background-color: var(--color-orange);
+    color: var(--color-white);
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--border-radius-xxl);
   }
 
   .edit-btn {
+    position: absolute;
+    bottom: -20px;
     cursor: pointer;
-    border: 1px solid #ccc;
-  }
+    background-color: var(--color-white-input);
+    color: var(--color-orange);
+    padding: var(--padding-xs);
+    border-radius: var(--border-radius-xl);
 
-  .preview {
-    display: flex;
-    flex-direction: column;
-
-    img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: var(--border-radius-xl);
+    :hover {
+      opacity: 0.9;
     }
   }
 `;

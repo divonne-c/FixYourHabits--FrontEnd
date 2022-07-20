@@ -104,6 +104,7 @@ const GlobalStyles = createGlobalStyle`
     --border-radius-m: 1em;
     --border-radius-l: 2em;
     --border-radius-xl: 4em;
+    --border-radius-xxl: 6em;
 
     //////////////// Border Radius /////////////////
     --border-width-xxs: 1px;
