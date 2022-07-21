@@ -3,11 +3,8 @@ import bcrypt from "bcryptjs";
 import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
 import EditPasswordForm from "../../forms/EditPasswordForm";
-import {
-  ButtonSecondary,
-  ButtonThird,
-} from "../../../styles - global/global/ButtonStyles";
-import { Buttons } from "../../forms/Form.styles";
+import FormButtons from "../../forms/FormButtons";
+import { EditPasswordContainer } from "../account.styles";
 
 const EditPassword = () => {
   const [password, setPassword] = useState({
@@ -16,6 +13,7 @@ const EditPassword = () => {
     verifyPassword: "",
   });
   const [correct, setCorrect] = useState(false);
+  const [error, setError] = useState("");
   const {
     auth,
     setRenderData,
@@ -63,17 +61,16 @@ const EditPassword = () => {
   }, [password.currentPassword]);
 
   const updateAccountHandler = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      ...user,
+      password: bcrypt.hashSync(password.newPassword, 10),
+    };
+
+    const token = localStorage.getItem("token");
+
     if (correct === true && password.newPassword === password.verifyPassword) {
-      e.preventDefault();
-
-      const data = {
-        ...user,
-        password: bcrypt.hashSync(password.newPassword, 10),
-      };
-
-      console.log(data);
-      const token = localStorage.getItem("token");
-
       try {
         await axios
           .put(`http://localhost:8080/users/${auth.user.username}`, data, {
@@ -84,7 +81,6 @@ const EditPassword = () => {
           })
           .then((response) => console.log(response));
 
-        setRenderData(!renderData);
         setNotifications([
           ...notifications,
           {
@@ -94,29 +90,39 @@ const EditPassword = () => {
         ]);
       } catch (error) {
         console.log(error);
-        setNotifications([...notifications, { type: "error", message: error }]);
+        setNotifications([
+          ...notifications,
+          {
+            type: "success",
+            message:
+              "Something went wrong with changing your password. Please try again.",
+          },
+        ]);
       }
+      setPassword({
+        currentPassword: "",
+        newPassword: "",
+        verifyPassword: "",
+      });
     } else {
-      console.log("current password incorrect");
+      setError("current password incorrect");
     }
   };
 
   return (
     <form onSubmit={updateAccountHandler}>
-      <EditPasswordForm
-        newPasswordHandler={newPasswordHandler}
-        password={password}
-        verifyPasswordHandler={verifyPasswordHandler}
-        currentChangeHandler={currentChangeHandler}
-        resetButtonHandler={resetButtonHandler}
-      />
+      <EditPasswordContainer>
+        <EditPasswordForm
+          newPasswordHandler={newPasswordHandler}
+          password={password}
+          verifyPasswordHandler={verifyPasswordHandler}
+          currentChangeHandler={currentChangeHandler}
+          resetButtonHandler={resetButtonHandler}
+        />
 
-      <Buttons>
-        <ButtonSecondary type="reset" onClick={resetButtonHandler}>
-          Cancel
-        </ButtonSecondary>
-        <ButtonThird type="submit">Save</ButtonThird>
-      </Buttons>
+        <FormButtons handler={resetButtonHandler} />
+        {error && <p>{error}</p>}
+      </EditPasswordContainer>
     </form>
   );
 };

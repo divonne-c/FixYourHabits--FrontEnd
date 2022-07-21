@@ -7,7 +7,7 @@ import {
   ButtonSecondary,
   ButtonThird,
 } from "../../../styles - global/global/ButtonStyles";
-import { Buttons, Form } from "../../forms/Form.styles";
+import { Buttons, Form, FormButtons } from "../../forms/Form.styles";
 import { Container } from "./EditAccount.styles";
 
 const EditAccount = () => {
@@ -98,12 +98,7 @@ const EditAccount = () => {
             />
           </div>
 
-          <Buttons>
-            <ButtonSecondary type="reset" onClick={resetHandler}>
-              Cancel
-            </ButtonSecondary>
-            <ButtonThird type="submit">Save</ButtonThird>
-          </Buttons>
+          {/*<FormButtons/>*/}
         </Container>
       </form>
     </Form>

@@ -14,7 +14,7 @@ const EditPasswordForm = ({
         <label htmlFor="">Current password</label>
         <InputTemplate
           handler={currentChangeHandler}
-          type="text"
+          type="password"
           value={password.currentPassword}
           name="current"
           placeholder="&#xe3c9;"
@@ -25,7 +25,7 @@ const EditPasswordForm = ({
         <label htmlFor="">New password</label>
         <InputTemplate
           handler={newPasswordHandler}
-          type="text"
+          type="password"
           value={password.newPassword}
           name="new"
           placeholder="&#xe3c9;"
@@ -36,7 +36,7 @@ const EditPasswordForm = ({
         <label htmlFor="">Verify password</label>
         <InputTemplate
           handler={verifyPasswordHandler}
-          type="text"
+          type="password"
           value={password.verifyPassword}
           name="verify"
           placeholder="&#xe3c9;"

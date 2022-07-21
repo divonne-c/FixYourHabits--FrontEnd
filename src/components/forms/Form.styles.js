@@ -8,6 +8,7 @@ export const Form = styled.div`
 
   input[type="text"],
   input[type="number"],
+  input[type="password"],
   textarea {
     width: var(--width-100);
     background-color: var(--color-white-input);
@@ -18,6 +19,7 @@ export const Form = styled.div`
   }
 
   input[type="text"]:focus,
+  input[type="password"]:focus,
   input[type="number"]:focus {
     outline-color: var(--color-orange);
   }
