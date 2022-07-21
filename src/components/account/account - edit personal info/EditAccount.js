@@ -66,8 +66,14 @@ const EditAccount = () => {
       ]);
     } catch (error) {
       console.log(error);
-      setNotifications([...notifications, { type: "error", message: error }]);
+      setNotifications([
+        ...notifications,
+        { type: "error", message: "The email is already in use." },
+      ]);
     }
+
+    setName(user.name);
+    setEmail(user.email);
   };
 
   return (

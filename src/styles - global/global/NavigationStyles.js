@@ -40,6 +40,19 @@ export const NavigationElement = styled.div`
     background-color: var(--color-orange-active);
     border-left: var(--color-white) var(--border-width-m) solid;
   }
+
+  .modal-container {
+    color: var(--color-text-grey);
+    padding: var(--padding-s);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm);
+
+    .button-container {
+      display: flex;
+      gap: var(--gap-sm);
+    }
+  }
 `;
 
 export const NavigationLink = styled(NavLink)`
@@ -47,6 +60,24 @@ export const NavigationLink = styled(NavLink)`
   align-items: center;
   gap: var(--gap-sm);
   padding: var(--padding-s) var(--padding-m);
+`;
+
+export const LogoutButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  padding: var(--padding-s) var(--padding-m);
+  color: var(--color-white);
+  border-left: transparent var(--border-width-m) solid;
+
+  p {
+    font-family: var(--font-family);
+    font-size: var(--font-s);
+  }
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const NavigationLogo = styled.div`
