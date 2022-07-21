@@ -10,6 +10,8 @@ import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../styles - global/global/MediaQueryDisplay";
+import { Card } from "../../styles - global/cards/CardHome";
+import ContactForm from "../../components/forms/ContactForm";
 
 const HelpContact = () => {
   return (
@@ -20,7 +22,18 @@ const HelpContact = () => {
         {/*------- DesktopWHeight --------*/}
         <DesktopWHeight>
           <HelpStyles>
-            <p>Help contact content</p>
+            <div>
+              <h1>Get in touch</h1>
+              <p>
+                Feel free to contact us for any other questions at
+                <span> fixyourhabits@hotmail.com</span>
+              </p>
+            </div>
+            <Card>
+              <div className="form-container">
+                <ContactForm />
+              </div>
+            </Card>
           </HelpStyles>
         </DesktopWHeight>
 

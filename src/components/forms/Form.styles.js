@@ -7,7 +7,8 @@ export const Form = styled.div`
   gap: var(--gap-m);
 
   input[type="text"],
-  input[type="number"] {
+  input[type="number"],
+  textarea {
     width: var(--width-100);
     background-color: var(--color-white-input);
     padding: var(--padding-s);

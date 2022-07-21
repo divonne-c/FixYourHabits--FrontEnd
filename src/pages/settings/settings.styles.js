@@ -40,7 +40,6 @@ export const PersonalInfo = styled.div`
   padding: var(--padding-m);
   display: flex;
   flex-direction: column;
-  gap: var(--gap-s);
 
   .container,
   .info-container {
