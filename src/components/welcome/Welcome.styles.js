@@ -12,5 +12,10 @@ export const Container = styled.div`
 
   @media (max-width: 1024px) {
     padding: var(--padding-s) var(--padding-s) 0 var(--padding-s);
+
+    img {
+      height: 20px;
+      width: 20px;
+    }
   }
 `;

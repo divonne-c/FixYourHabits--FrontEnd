@@ -14,6 +14,7 @@ export const GlobalLayout = styled.div`
 export const ContentLayout = styled.div`
   margin-left: var(--layout-margin-content-l);
   width: var(--width-100);
+  height: 100%;
 
   ////////// Laptop
   @media screen and (max-width: 1400px) {
@@ -29,6 +30,7 @@ export const ContentLayout = styled.div`
 
 export const InnerContentLayout = styled.div`
   display: flex;
+  height: 100%;
 
   ////////// Tablet / phone
   @media screen and (max-width: 1024px) {

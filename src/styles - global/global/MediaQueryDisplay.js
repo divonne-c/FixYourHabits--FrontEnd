@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const DesktopWHeight = styled.div`
   height: var(--height-100);
+  overflow: scroll;
+
   @media (max-width: 1024px) {
     display: none;
   }

@@ -12,7 +12,7 @@ import {
 const SettingsNavigation = () => {
   return (
     <>
-      {/*------- DesktopWHeight --------*/}
+      {/*------- Desktop --------*/}
       <Desktop>
         <NavLinkPrimary>
           <h1>Settings</h1>
@@ -25,7 +25,7 @@ const SettingsNavigation = () => {
         </NavLinkPrimary>
       </Desktop>
 
-      {/*------- MobileWHeight --------*/}
+      {/*------- Mobile --------*/}
       <Mobile>
         <NavLinkThird>
           <h1>Settings</h1>

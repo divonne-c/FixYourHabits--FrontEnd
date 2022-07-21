@@ -16,6 +16,7 @@ function AuthProvider({ children }) {
   const [notifications, setNotifications] = useState([
     { type: "", message: "" },
   ]);
+  const [user, setUser] = useState({});
 
   const navigate = useNavigate();
 
@@ -55,6 +56,7 @@ function AuthProvider({ children }) {
         },
         status: "done",
       });
+      setUser(response.data);
     } catch (e) {
       console.error(e);
       toggleAuth({
@@ -145,6 +147,7 @@ function AuthProvider({ children }) {
     notifications,
     login: login,
     logout: logout,
+    user,
   };
 
   return (

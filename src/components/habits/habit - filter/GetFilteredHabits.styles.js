@@ -162,6 +162,7 @@ export const ElementMobile = styled.div`
       color: var(--color-white);
       font-size: var(--font-m);
       border-radius: 5px;
+      border: none;
     }
   }
 `;
