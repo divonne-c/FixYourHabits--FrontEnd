@@ -12,6 +12,10 @@ export const HelpStyles = styled.div`
 
 export const HelpStylesMobile = styled.div`
   height: var(--height-100);
+
+  .faq-container {
+    margin: var(--margin-m);
+  }
 `;
 
 export const HelpFaqStyles = styled.div`
@@ -59,5 +63,19 @@ export const ContentConainter = styled.div`
 
   .answer {
     margin-top: var(--margin-m);
+  }
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    padding-bottom: var(--padding-s);
+    font-size: var(--font-s);
+
+    .question {
+      font-size: var(--font-s);
+    }
+
+    .answer {
+      margin-top: var(--margin-s);
+    }
   }
 `;
