@@ -56,7 +56,6 @@ function AuthProvider({ children }) {
         },
         status: "done",
       });
-      setUser(response.data);
     } catch (e) {
       console.error(e);
       toggleAuth({
@@ -66,6 +65,29 @@ function AuthProvider({ children }) {
       });
     }
   }
+
+  useEffect(() => {
+    async function getUserData() {
+      const token = localStorage.getItem("token");
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/users/${auth.user.username}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        setUser(response.data);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    auth.isAuth && getUserData();
+  }, [renderData]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");

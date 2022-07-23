@@ -16,7 +16,7 @@ import {
   MobileWHeight,
 } from "../../styles - global/global/MediaQueryDisplay";
 import { Card } from "../../styles - global/cards/CardHome";
-import EditPassword from "../../components/account/account - edit password/EditPassword";
+import EditPassword from "../../components/account/EditPassword";
 import { ProfileContext } from "../../context/ProfileContext";
 
 const SettingsSecurity = () => {

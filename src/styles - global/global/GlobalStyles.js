@@ -35,7 +35,7 @@ const GlobalStyles = createGlobalStyle`
     --color-background-modal: rgba(0, 0, 0, 0.38);
     --color-success: #98bd98;
     --color-success-background: #e5efe5;
-    --color-error: #d58d8d;
+    --color-error: #e54141;
     --color-error-background: #f5e8e8;
     --color-pink: #FBBCA8;
 
@@ -196,8 +196,8 @@ const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4 {
     font-weight: var(--font-weight-normal);
   }
-  
-  
+
+
 `;
 
 export default GlobalStyles;

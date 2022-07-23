@@ -69,7 +69,6 @@ const ProfileImage = ({ role }) => {
   }
   return (
     <Container>
-      {error}
       {auth.isAuth && auth.user.role === "ROLE_USER" && (
         <>
           <div className="profile-image">
@@ -88,6 +87,7 @@ const ProfileImage = ({ role }) => {
 
           {showModal && (
             <Modal title="Edit Profile image">
+              {error}
               <ModalContainer>
                 <form onSubmit={sendImage}>
                   {/*PREVIEW*/}
@@ -98,8 +98,7 @@ const ProfileImage = ({ role }) => {
                         alt="Voorbeeld van de afbeelding die zojuist gekozen is"
                         className="image-preview"
                       />
-                    ) : // ) :
-                    userProfile.file ? (
+                    ) : userProfile.file ? (
                       <img src={userProfile.file.url} alt={userProfile.name} />
                     ) : (
                       <span className="material-symbols-outlined profile-icon">

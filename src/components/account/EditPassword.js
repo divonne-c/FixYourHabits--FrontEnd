@@ -1,19 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
 import bcrypt from "bcryptjs";
-import { AuthContext } from "../../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
-import EditPasswordForm from "../../forms/EditPasswordForm";
-import FormButtons from "../../forms/FormButtons";
-import { EditPasswordContainer } from "../account.styles";
+import FormButtons from "../forms/FormButtons";
+import InputTemplate from "../forms/InputTemplate";
+import { Form } from "../forms/Form.styles";
 
 const EditPassword = () => {
+  const [correct, setCorrect] = useState(false);
   const [password, setPassword] = useState({
     currentPassword: "",
     newPassword: "",
     verifyPassword: "",
   });
-  const [correct, setCorrect] = useState(false);
-  const [error, setError] = useState("");
   const {
     auth,
     setRenderData,
@@ -23,16 +22,8 @@ const EditPassword = () => {
     user,
   } = useContext(AuthContext);
 
-  const currentChangeHandler = (event) => {
-    setPassword({ ...password, currentPassword: event.target.value });
-  };
-
-  const newPasswordHandler = (event) => {
-    setPassword({ ...password, newPassword: event.target.value });
-  };
-
-  const verifyPasswordHandler = (event) => {
-    setPassword({ ...password, verifyPassword: event.target.value });
+  const onChangeHandler = (e) => {
+    setPassword({ ...password, [e.target.name]: e.target.value });
   };
 
   const resetButtonHandler = () => {
@@ -72,14 +63,16 @@ const EditPassword = () => {
 
     if (correct === true && password.newPassword === password.verifyPassword) {
       try {
-        await axios
-          .put(`http://localhost:8080/users/${auth.user.username}`, data, {
+        await axios.put(
+          `http://localhost:8080/users/${auth.user.username}`,
+          data,
+          {
             headers: {
               "Content-Type": "application/json",
               Authorization: `Bearer ${token}`,
             },
-          })
-          .then((response) => console.log(response));
+          }
+        );
 
         setNotifications([
           ...notifications,
@@ -88,6 +81,7 @@ const EditPassword = () => {
             message: "You successfully updated your password",
           },
         ]);
+        setRenderData(!renderData);
       } catch (error) {
         console.log(error);
         setNotifications([
@@ -104,25 +98,45 @@ const EditPassword = () => {
         newPassword: "",
         verifyPassword: "",
       });
-    } else {
-      setError("current password incorrect");
     }
   };
 
   return (
     <form onSubmit={updateAccountHandler}>
-      <EditPasswordContainer>
-        <EditPasswordForm
-          newPasswordHandler={newPasswordHandler}
-          password={password}
-          verifyPasswordHandler={verifyPasswordHandler}
-          currentChangeHandler={currentChangeHandler}
-          resetButtonHandler={resetButtonHandler}
+      <Form>
+        <InputTemplate
+          label="Current password"
+          handler={onChangeHandler}
+          type="password"
+          value={password.currentPassword}
+          name="currentPassword"
+          placeholder="&#xe3c9;"
+        />
+
+        <InputTemplate
+          label="New password"
+          handler={onChangeHandler}
+          type="password"
+          value={password.newPassword}
+          name="newPassword"
+          placeholder="&#xe3c9;"
+          errorMessage="Password must be between 5 and 20 characters long and must contain at least one number, uppercase and lowercase character."
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,20}"
+        />
+
+        <InputTemplate
+          label="Confirm password"
+          handler={onChangeHandler}
+          type="password"
+          value={password.verifyPassword}
+          name="verifyPassword"
+          placeholder="&#xe3c9;"
+          pattern={password.newPassword}
+          errorMessage="Please make sure your password matches."
         />
 
         <FormButtons handler={resetButtonHandler} />
-        {error && <p>{error}</p>}
-      </EditPasswordContainer>
+      </Form>
     </form>
   );
 };

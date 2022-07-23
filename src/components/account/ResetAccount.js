@@ -1,14 +1,10 @@
 import React, { useContext, useState } from "react";
-import { ProfileContext } from "../../../context/ProfileContext";
+import { ProfileContext } from "../../context/ProfileContext";
 import axios from "axios";
-import { AuthContext } from "../../../context/AuthContext";
-import {
-  ButtonFourth,
-  ButtonSecondary,
-  ButtonThird,
-} from "../../../styles - global/global/ButtonStyles";
-import { Container } from "../account - delete account/DeleteAccount.styles";
-import ModalSmall from "../../modals/modal - small/ModalSmall";
+import { AuthContext } from "../../context/AuthContext";
+import ModalSmall from "../modals/modal - small/ModalSmall";
+import ModalButtons from "../modals/modal - buttons/ModalButtons";
+import { ButtonSecondary } from "../../styles - global/global/ButtonStyles";
 
 const ResetAccount = ({ role }) => {
   const [showModal, toggleShowModal] = useState(false);
@@ -45,7 +41,7 @@ const ResetAccount = ({ role }) => {
     const token = localStorage.getItem("token");
 
     try {
-      axios.all([
+      await axios.all([
         await axios.delete(
           `http://localhost:8080/${role}profiles/${auth.user.username}/${role}habits`,
           {
@@ -91,7 +87,7 @@ const ResetAccount = ({ role }) => {
   };
 
   return (
-    <Container>
+    <>
       <ButtonSecondary type="button" onClick={show}>
         Reset
       </ButtonSecondary>
@@ -102,17 +98,14 @@ const ResetAccount = ({ role }) => {
             Are you sure you want to reset your account? All your progress will
             be gone.
           </p>
-          <div className="button-container">
-            <ButtonFourth type="button" onClick={show}>
-              Cancel
-            </ButtonFourth>
-            <ButtonThird type="button" onClick={resetAccountHandler}>
-              Reset
-            </ButtonThird>
-          </div>
+          <ModalButtons
+            show={show}
+            handler={resetAccountHandler}
+            buttonText="Reset"
+          />
         </ModalSmall>
       )}
-    </Container>
+    </>
   );
 };
 
