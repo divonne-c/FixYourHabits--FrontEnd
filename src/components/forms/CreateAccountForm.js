@@ -2,68 +2,57 @@ import React from "react";
 import { Form } from "./Form.styles";
 import InputTemplate from "./InputTemplate";
 
-const CreateAccountForm = ({
-  name,
-  nameChangeHandler,
-  username,
-  password,
-  passwordChangeHandler,
-  usernameChangeHandler,
-  verifyPassword,
-  verifyPasswordHandler,
-  emailChangeHandler,
-  email,
-}) => {
+const CreateAccountForm = ({ userData, handler }) => {
   return (
     <Form>
-      <div>
-        <label htmlFor="">Name</label>
-        <InputTemplate
-          value={name}
-          name="name"
-          handler={nameChangeHandler}
-          type="text"
-        />
-      </div>
+      <InputTemplate
+        value={userData.name}
+        type="text"
+        handler={handler}
+        name="name"
+        label="Name"
+        pattern="^[a-zA-Z](\s?[a-zA-Z]){0,30}$"
+        errorMessage="Name should have a maximum of 30 characters and can not contain numbers."
+      />
 
-      <div>
-        <label htmlFor="username">Username</label>
-        <InputTemplate
-          value={username}
-          type="text"
-          handler={usernameChangeHandler}
-          name="name"
-        />
-      </div>
+      <InputTemplate
+        value={userData.username}
+        type="text"
+        handler={handler}
+        name="username"
+        label="Username"
+        pattern="^[a-zA-Z](\s?[a-zA-Z]){0,30}$"
+        errorMessage="Name should have a maximum of 30 characters and can not contain numbers."
+      />
 
-      <div>
-        <label htmlFor="username">Email</label>
-        <InputTemplate
-          value={email}
-          type="text"
-          handler={emailChangeHandler}
-          name="name"
-        />
-      </div>
+      <InputTemplate
+        label="Email"
+        name="email"
+        value={userData.email}
+        type="email"
+        handler={handler}
+        errorMessage="Not a valid email address."
+      />
 
-      <div>
-        <label htmlFor="password">Password</label>
-        <InputTemplate
-          value={password}
-          type="text"
-          handler={passwordChangeHandler}
-          name="password"
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Confirm password</label>
-        <InputTemplate
-          value={verifyPassword}
-          type="text"
-          handler={verifyPasswordHandler}
-          name="password"
-        />
-      </div>
+      <InputTemplate
+        label="New password"
+        handler={handler}
+        type="password"
+        value={userData.password}
+        name="password"
+        errorMessage="Password must be between 5 and 20 characters long and must contain at least one number, uppercase and lowercase character."
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,20}"
+      />
+
+      <InputTemplate
+        label="Confirm password"
+        handler={handler}
+        type="password"
+        value={userData.verifyPassword}
+        name="verifyPassword"
+        pattern={userData.password}
+        errorMessage="Please make sure your password matches."
+      />
     </Form>
   );
 };

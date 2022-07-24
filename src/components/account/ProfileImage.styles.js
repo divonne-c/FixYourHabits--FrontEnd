@@ -49,6 +49,15 @@ export const Container = styled.div`
       border-radius: var(--border-radius-xxl);
     }
   }
+
+  .error {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-s);
+    color: var(--color-error);
+    text-align: center;
+    margin-top: var(--margin-l);
+  }
 `;
 
 export const ModalContainer = styled.div`
@@ -68,6 +77,7 @@ export const Preview = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  margin-bottom: var(--margin-l);
 
   .profile-icon {
     display: flex;

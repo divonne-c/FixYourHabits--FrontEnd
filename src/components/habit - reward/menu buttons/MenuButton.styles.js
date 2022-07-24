@@ -11,16 +11,13 @@ export const MenuButtonContainer = styled.div`
   @media (max-width: 1024px) {
     p {
       font-size: var(--font-s);
+      text-transform: capitalize;
     }
 
     .menu-button-container {
       display: flex;
       align-items: center;
       gap: var(--gap-xxs);
-    }
-
-    .menu-button-container:hover {
-      opacity: 0.8;
     }
   }
 `;

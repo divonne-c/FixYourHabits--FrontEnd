@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Banner from "../../components/banner/Banner";
-import { Container } from "../../components/habits/habit - filter/GetFilteredHabits.styles";
+import { Container } from "../../components/habits/habit - filter/HabitTypeFilter.styles";
 import habitColorFunction from "../../helpers/habitcolors";
 import habitLogoFunction from "../../helpers/habitlogos";
 import GetDiscoverHabitTemplate from "../../components/habits/habit - get/GetDiscoverHabitTemplate";

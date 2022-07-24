@@ -11,7 +11,8 @@ import { GetContainer } from "../../habit - reward/HabitAndReward.styles";
 
 const GetHabits = ({ role, sortHabits }) => {
   const [habits, setHabits] = useState([]);
-  const { auth, renderData } = useContext(AuthContext);
+  const { auth, renderData, setNotifications, notifications } =
+    useContext(AuthContext);
 
   useEffect(() => {
     async function getData() {
@@ -29,6 +30,14 @@ const GetHabits = ({ role, sortHabits }) => {
         setHabits(response.data);
       } catch (e) {
         console.error(e);
+        setNotifications([
+          ...notifications,
+          {
+            type: "error",
+            message:
+              "Something went wrong with rendering the data. Please log in again.",
+          },
+        ]);
       }
     }
     auth.isAuth && getData();

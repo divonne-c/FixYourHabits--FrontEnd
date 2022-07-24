@@ -32,6 +32,12 @@ export const Form = styled.div`
     cursor: pointer;
   }
 
+  .input-title {
+    margin-bottom: var(--margin-s);
+    padding: var(--padding-xs) 0;
+    border-bottom: 1px solid var(--color-white-input);
+  }
+
   @media (max-width: 1024px) {
     gap: var(--gap-s);
   }
@@ -41,12 +47,11 @@ export const RadioContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  grid-gap: var(--gap-s);
-  padding: var(--padding-s) var(--padding-xs);
+  padding: var(--padding-xs);
 
   div {
     display: flex;
-    gap: var(--gap-s);
+    padding-bottom: var(--padding-xs);
   }
 
   @media (max-width: 1024px) {
@@ -69,7 +74,7 @@ export const Template = styled.div`
     color: var(--color-error);
     font-size: var(--font-xs);
     height: 10px;
-    opacity: 0;
+    display: none;
     margin-top: var(--margin-s);
   }
 
@@ -77,8 +82,23 @@ export const Template = styled.div`
     outline: var(--border-width-xs) solid var(--color-error);
   }
 
+  input[type="radio"]:invalid[focused="true"],
+  input[type="checkbox"]:invalid[focused="true"] {
+    outline: none;
+  }
+
   input:invalid[focused="true"] ~ .error {
-    opacity: 1;
+    display: flex;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+    label {
+      padding-left: var(--padding-s);
+    }
   }
 `;
 

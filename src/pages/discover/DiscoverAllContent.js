@@ -3,7 +3,7 @@ import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import habitColorFunction from "../../helpers/habitcolors";
 import habitLogoFunction from "../../helpers/habitlogos";
-import { Container } from "../../components/habits/habit - filter/GetFilteredHabits.styles";
+import { Container } from "../../components/habits/habit - filter/HabitTypeFilter.styles";
 import GetDiscoverHabitTemplate from "../../components/habits/habit - get/GetDiscoverHabitTemplate";
 
 const DiscoverAllContent = ({ habits, setHabits, filteredHabits }) => {

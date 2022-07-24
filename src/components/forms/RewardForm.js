@@ -2,81 +2,74 @@ import React from "react";
 import InputTemplate from "./InputTemplate";
 import { Form, RadioContainer } from "./Form.styles";
 
-const RewardForm = ({
-  number,
-  numberChangeHandler,
-  descriptionChangeHandler,
-  description,
-  typeChangeHandler,
-}) => {
+const RewardForm = ({ reward, handler }) => {
   return (
     <Form>
-      {/* ----- NAME -----*/}
-      <div>
-        <h3>How many habits does an user need to create?</h3>
-        <InputTemplate
-          type="number"
-          value={number}
-          name="name"
-          handler={numberChangeHandler}
-        />
-      </div>
+      {/* ----- NUMBER -----*/}
+      <InputTemplate
+        type="number"
+        value={reward.number}
+        name="number"
+        handler={handler}
+        label="How many habits does an user need to create?"
+        min="1"
+        errorMessage="The number must higher than zero."
+      />
 
       {/* ----- DESCRIPTION -----*/}
-      <div>
-        <h3>Description</h3>
-        <InputTemplate
-          type="text"
-          value={description}
-          name="name"
-          handler={descriptionChangeHandler}
-        />
-      </div>
+      <InputTemplate
+        type="text"
+        value={reward.description}
+        name="description"
+        handler={handler}
+        label="Description"
+        pattern="^.{10,50}$"
+        errorMessage="The description must between 10 and 50 characters."
+      />
 
       {/* ----- COLOR -----*/}
       <div>
-        <h3>Color</h3>
+        <p className="input-title">Color</p>
         <RadioContainer>
-          <div>
-            <InputTemplate
-              type="radio"
-              value="pink"
-              name="type"
-              handler={typeChangeHandler}
-            />
-          </div>
-          <div>
-            <InputTemplate
-              type="radio"
-              value="green"
-              name="type"
-              handler={typeChangeHandler}
-            />
-          </div>
-          <div>
-            <InputTemplate
-              type="radio"
-              value="yellow"
-              name="type"
-              handler={typeChangeHandler}
-            />
-          </div>
-          <div>
-            <InputTemplate
-              type="radio"
-              value="blue"
-              name="type"
-              handler={typeChangeHandler}
-            />
-          </div>
-          <div>
-            <InputTemplate
-              type="radio"
-              value="purple"
-              name="type"
-              handler={typeChangeHandler}
-            />
-          </div>
+          <InputTemplate
+            type="radio"
+            name="type"
+            handler={handler}
+            label="Pink"
+            value="pink"
+          />
+
+          <InputTemplate
+            type="radio"
+            name="type"
+            handler={handler}
+            label="Green"
+            value="green"
+          />
+
+          <InputTemplate
+            type="radio"
+            name="type"
+            handler={handler}
+            label="Yellow"
+            value="yellow"
+          />
+
+          <InputTemplate
+            type="radio"
+            name="type"
+            handler={handler}
+            label="Blue"
+            value="blue"
+          />
+
+          <InputTemplate
+            type="radio"
+            name="type"
+            handler={handler}
+            label="Purple"
+            value="purple"
+          />
         </RadioContainer>
       </div>
     </Form>

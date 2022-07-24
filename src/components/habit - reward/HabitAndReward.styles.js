@@ -6,9 +6,9 @@ export const Element = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: var(--gap-xs);
-  padding: var(--padding-s) var(--padding-xxs);
-  height: var(--height-habit);
-  width: var(--width-habit);
+  padding: var(--padding-s) var(--padding-xs);
+  min-height: var(--height-habit);
+  min-width: var(--width-habit);
   text-align: center;
   font-size: var(--font-s);
   position: relative;
@@ -48,7 +48,8 @@ export const Element = styled.div`
   }
 
   @media (max-width: 1024px) {
-    height: 50px;
+    min-height: 20px;
+    max-height: 45px;
     width: var(--width-100);
     flex-direction: row;
     gap: var(--gap-s);
@@ -80,13 +81,6 @@ export const GetContainer = styled.div`
   .reward {
     height: var(--height-reward);
     width: var(--width-reward);
-    display: flex;
-    justify-content: center;
-  }
-
-  .discover {
-    height: 160px;
-    width: 160px;
     display: flex;
     justify-content: center;
   }

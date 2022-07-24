@@ -19,16 +19,12 @@ const AddAdminHabit = ({ habit, toggleShowModal, showModal }) => {
     async function postData() {
       const token = localStorage.getItem("token");
       try {
-        const response = await axios.post(
-          `http://localhost:8080/userhabits`,
-          data,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        await axios.post(`http://localhost:8080/userhabits`, data, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         setNotifications([
           ...notifications,
@@ -40,7 +36,14 @@ const AddAdminHabit = ({ habit, toggleShowModal, showModal }) => {
         ]);
       } catch (error) {
         console.error(error);
-        setNotifications([...notifications, { type: "error", message: error }]);
+        setNotifications([
+          ...notifications,
+          {
+            type: "error",
+            message:
+              "Something went wrong with adding the habit. Please try again.",
+          },
+        ]);
       }
     }
     auth.isAuth && auth.user.role === "ROLE_USER" && postData();

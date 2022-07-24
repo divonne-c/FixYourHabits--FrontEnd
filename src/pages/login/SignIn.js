@@ -9,9 +9,7 @@ import {
   ButtonThird,
 } from "../../styles - global/global/ButtonStyles";
 import { Container } from "./Auth.styles";
-import { Card } from "../../styles - global/cards/CardHome";
 import {
-  Desktop,
   DesktopWHeight,
   MobileWHeight,
 } from "../../styles - global/global/MediaQueryDisplay";
@@ -19,25 +17,23 @@ import AuthNavigation from "../../components/navigations/AuthNavigation";
 import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
 
 const SignIn = () => {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [userData, setUserData] = useState({
+    username: "",
+    password: "",
+  });
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const emailChangeHandler = (event) => {
-    setUserName(event.target.value);
-  };
-
-  const passwordChangeHandler = (event) => {
-    setPassword(event.target.value);
+  const onChangeHandler = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
   async function makeLoginRequest(e) {
     e.preventDefault();
 
     const data = {
-      username: userName,
-      password: password,
+      username: userData.username,
+      password: userData.password,
     };
 
     ///////////// Post request: login /////////////
@@ -68,12 +64,7 @@ const SignIn = () => {
             </div>
 
             <form onSubmit={makeLoginRequest}>
-              <LoginForm
-                passwordChangeHandler={passwordChangeHandler}
-                password={password}
-                username={userName}
-                emailChangeHandler={emailChangeHandler}
-              />
+              <LoginForm handler={onChangeHandler} userData={userData} />
               <ButtonThird type="submit">Sign in</ButtonThird>
             </form>
           </div>
@@ -98,12 +89,7 @@ const SignIn = () => {
 
         <CardContentMobile>
           <form onSubmit={makeLoginRequest}>
-            <LoginForm
-              passwordChangeHandler={passwordChangeHandler}
-              password={password}
-              username={userName}
-              emailChangeHandler={emailChangeHandler}
-            />
+            <LoginForm handler={onChangeHandler} userData={userData} />
             <ButtonThird type="submit">Sign in</ButtonThird>
           </form>
         </CardContentMobile>

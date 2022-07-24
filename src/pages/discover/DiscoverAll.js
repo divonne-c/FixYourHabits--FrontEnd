@@ -80,7 +80,9 @@ const DiscoverAll = () => {
                       habits={habits}
                     />
                   </Filter>
-                  <ButtonFourth onClick={show}>Cancel</ButtonFourth>
+                  <div className="cancel-button">
+                    <ButtonFourth onClick={show}>Cancel</ButtonFourth>
+                  </div>
                 </Modal>
               )}
 

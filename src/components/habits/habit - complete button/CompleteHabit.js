@@ -9,7 +9,8 @@ import { CompleteButton } from "./CompleteHabit.styles";
 
 const CompleteHabit = ({ habit }) => {
   const [habitCompleted, toggleHabitCompleted] = useState(habit.completed);
-  const { renderData, setRenderData } = useContext(AuthContext);
+  const { renderData, setRenderData, setNotifications, notifications } =
+    useContext(AuthContext);
 
   const completeHandler = () => {
     toggleHabitCompleted(!habitCompleted);
@@ -33,6 +34,14 @@ const CompleteHabit = ({ habit }) => {
       setRenderData(!renderData);
     } catch (error) {
       console.log(error);
+      setNotifications([
+        ...notifications,
+        {
+          type: "success",
+          message:
+            "Something went wrong with completing the habit. Please try again.",
+        },
+      ]);
     }
   }, [habitCompleted]);
 

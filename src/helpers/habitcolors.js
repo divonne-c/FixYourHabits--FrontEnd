@@ -12,6 +12,25 @@ const habitColorFunction = (type) => {
     case "health":
       return "health";
       break;
+    case "finance":
+      return "finance";
+      break;
+    case "business":
+      return "business";
+      break;
+    case "hobby":
+      return "hobby";
+      break;
+    case "study":
+      return "study";
+      break;
+    case "home":
+      return "home";
+      break;
+    case "family":
+      return "family";
+      break;
+
     default:
       return "none";
   }

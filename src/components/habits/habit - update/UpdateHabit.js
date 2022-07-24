@@ -14,23 +14,15 @@ const UpdateHabit = ({ habit, role, toggleShowMenu, showMenu, show }) => {
     completed: habit.completed,
   });
   const [showModal, toggleShowModal] = useState(false);
-  const { auth, renderData, setRenderData, setNotifications, notifications } =
+  const { renderData, setRenderData, setNotifications, notifications } =
     useContext(AuthContext);
 
   const showModalHandler = () => {
     toggleShowModal(!showModal);
   };
 
-  const nameChangeHandler = (event) => {
-    setUpdatedHabit({ ...updatedHabit, name: event.target.value });
-  };
-
-  const typeChangeHandler = (event) => {
-    setUpdatedHabit({ ...updatedHabit, type: event.target.value });
-  };
-
-  const descriptionChangeHandler = (event) => {
-    setUpdatedHabit({ ...updatedHabit, description: event.target.value });
+  const onChangeHandler = (e) => {
+    setUpdatedHabit({ ...updatedHabit, [e.target.name]: e.target.value });
   };
 
   const updateHabitHandler = async (e) => {
@@ -60,7 +52,14 @@ const UpdateHabit = ({ habit, role, toggleShowMenu, showMenu, show }) => {
       ]);
     } catch (error) {
       console.log(error);
-      setNotifications([...notifications, { type: "error", message: error }]);
+      setNotifications([
+        ...notifications,
+        {
+          type: "error",
+          message:
+            "Something went wrong with updating the habit. Please try again.",
+        },
+      ]);
     }
 
     toggleShowModal(!showModal);
@@ -77,13 +76,7 @@ const UpdateHabit = ({ habit, role, toggleShowMenu, showMenu, show }) => {
         <Modal title="Edit Habit">
           {/*FORM*/}
           <form onSubmit={updateHabitHandler}>
-            <HabitForm
-              nameHabit={updatedHabit.name}
-              typeChangeHandler={typeChangeHandler}
-              nameChangeHandler={nameChangeHandler}
-              descriptionChangeHandler={descriptionChangeHandler}
-              description={updatedHabit.description}
-            />
+            <HabitForm habit={updatedHabit} handler={onChangeHandler} />
 
             {/*MODAL BUTTONS*/}
             <ModalButtons show={show} buttonText="Save" />

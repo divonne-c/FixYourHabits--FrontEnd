@@ -2,32 +2,23 @@ import React from "react";
 import { Form } from "./Form.styles";
 import InputTemplate from "./InputTemplate";
 
-const LoginForm = ({
-  username,
-  emailChangeHandler,
-  passwordChangeHandler,
-  password,
-}) => {
+const LoginForm = ({ userData, handler }) => {
   return (
     <Form>
-      <div>
-        <label htmlFor="username">Username</label>
-        <InputTemplate
-          value={username}
-          type="text"
-          handler={emailChangeHandler}
-          name="name"
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <InputTemplate
-          value={password}
-          type="text"
-          handler={passwordChangeHandler}
-          name="password"
-        />
-      </div>
+      <InputTemplate
+        value={userData.username}
+        type="text"
+        handler={handler}
+        name="username"
+        label="Username"
+      />
+      <InputTemplate
+        value={userData.password}
+        type="password"
+        handler={handler}
+        name="password"
+        label="Password"
+      />
     </Form>
   );
 };

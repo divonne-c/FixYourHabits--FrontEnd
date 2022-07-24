@@ -19,48 +19,32 @@ import { CardContentMobile } from "../../styles - global/cards/CardContentMobile
 import LoginForm from "../../components/forms/LoginForm";
 
 const CreateAccount = () => {
-  const [name, setName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [verifyPassword, setVerifyPassword] = useState("");
+  const [userData, setUserData] = useState({
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+    verifyPassword: "",
+  });
   const [error, setError] = useState("");
   const { notifications, setNotifications } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  console.log(error);
-
-  const nameChangeHandler = (event) => {
-    setName(event.target.value);
-  };
-
-  const userNameChangeHandler = (event) => {
-    setUserName(event.target.value);
-  };
-
-  const emailChangeHandler = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const passwordChangeHandler = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const verifyPasswordHandler = (event) => {
-    setVerifyPassword(event.target.value);
+  const onChangeHandler = (e) => {
+    setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
   const createAccountHandler = async (e) => {
     e.preventDefault();
 
     const data = {
-      name: name,
-      username: userName,
-      email: email,
-      password: bcrypt.hashSync(password, 10),
+      name: userData.name,
+      username: userData.username,
+      email: userData.email,
+      password: bcrypt.hashSync(userData.password, 10),
     };
 
-    if (verifyPassword === password) {
+    if (userData.verifyPassword === userData.password) {
       try {
         await axios
           .post(`http://localhost:8080/users`, data)
@@ -79,8 +63,6 @@ const CreateAccount = () => {
         console.error(e);
         setError("Username or email already in use.");
       }
-    } else {
-      setError("The password confirmation does not match.");
     }
   };
 
@@ -100,16 +82,8 @@ const CreateAccount = () => {
 
             <form onSubmit={createAccountHandler}>
               <CreateAccountForm
-                verifyPasswordHandler={verifyPasswordHandler}
-                passwordChangeHandler={passwordChangeHandler}
-                emailChangeHandler={emailChangeHandler}
-                nameChangeHandler={nameChangeHandler}
-                usernameChangeHandler={userNameChangeHandler}
-                email={email}
-                verifyPassword={verifyPassword}
-                password={password}
-                username={userName}
-                name={name}
+                handler={onChangeHandler}
+                userData={userData}
               />
               {error && <p className="error">{error}</p>}
               <ButtonThird type="submit">Create</ButtonThird>
@@ -136,18 +110,7 @@ const CreateAccount = () => {
 
         <CardContentMobile>
           <form onSubmit={createAccountHandler}>
-            <CreateAccountForm
-              verifyPasswordHandler={verifyPasswordHandler}
-              passwordChangeHandler={passwordChangeHandler}
-              emailChangeHandler={emailChangeHandler}
-              nameChangeHandler={nameChangeHandler}
-              usernameChangeHandler={userNameChangeHandler}
-              email={email}
-              verifyPassword={verifyPassword}
-              password={password}
-              username={userName}
-              name={name}
-            />
+            <CreateAccountForm handler={onChangeHandler} userData={userData} />
             {error && <p className="error">{error}</p>}
             <ButtonThird type="submit">Create</ButtonThird>
           </form>

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Card } from "../../styles - global/cards/CardHome";
 import { Content, Div, PersonalInfo, SettingStyles } from "./settings.styles";
 import moment from "moment";
-import ProfileImage from "../../components/account/account - profile image/ProfileImage";
+import ProfileImage from "../../components/account/ProfileImage";
 import EditAccount from "../../components/account/EditAccount";
 import ResetAccount from "../../components/account/ResetAccount";
 import DeleteAccount from "../../components/account/DeleteAccount";

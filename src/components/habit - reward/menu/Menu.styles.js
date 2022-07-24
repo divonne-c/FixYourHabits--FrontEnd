@@ -14,7 +14,7 @@ export const Container = styled.div`
     position: absolute;
     top: 18px;
     text-align: center;
-    padding: 20px 0;
+    padding: var(--padding-sm) 0;
     height: var(--height-habit);
     width: var(--width-habit);
     border-radius: var(--border-radius-s);
