@@ -1,24 +1,45 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  justify-content: center;
-  align-items: center;
-  gap: var(--gap-l);
-  max-width: 1300px;
-  min-height: 60%;
-  margin: var(--margin-l);
+  .content-container {
+    max-width: 1300px;
+    min-height: 80vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-l);
+    margin: var(--margin-l);
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-medium);
+  }
 
-  background-color: var(--color-white);
-  border-radius: var(--border-radius-xl);
-  box-shadow: var(--shadow-medium);
+  .error {
+    color: var(--color-error);
+    text-align: center;
+    margin-top: var(--margin-s);
+  }
+
+  .sign-in {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .create-account {
+    grid-template-columns: 1fr 2fr;
+  }
 
   aside {
-    height: 100%;
+    height: var(--height-100);
     background: var(--color-orange-salmon);
-    border-radius: 0 var(--border-radius-xl) var(--border-radius-xl) 0;
     text-align: center;
+  }
+
+  .aside-left {
+    border-radius: var(--border-radius-xl) 0 0 var(--border-radius-xl);
+  }
+
+  .aside-right {
+    border-radius: 0 var(--border-radius-xl) var(--border-radius-xl) 0;
   }
 
   aside,
@@ -32,7 +53,7 @@ export const Container = styled.div`
 
   .auth-container {
     form {
-      width: 100%;
+      width: var(--width-100);
       display: flex;
       flex-direction: column;
     }
@@ -56,5 +77,25 @@ export const Container = styled.div`
   .error {
     color: var(--color-error);
     text-align: center;
+  }
+`;
+
+export const MobileContainer = styled.div`
+  @media (max-width: 1024px) {
+    .auth-title {
+      text-align: center;
+      color: var(--color-text-orange-light);
+      padding: var(--padding-m);
+    }
+
+    .form-container {
+      padding: var(--padding-s);
+
+      button {
+        display: flex;
+        margin: var(--margin-m) auto 0 auto;
+        box-shadow: var(--shadow-medium);
+      }
+    }
   }
 `;

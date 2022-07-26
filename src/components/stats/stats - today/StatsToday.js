@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { useContext } from "react";
-import { Container, Div } from "./StatsToday.styles";
+import { AuthContext } from "../../../context/AuthContext";
+import StatsCircle from "./StatsCircle";
+import { Container } from "./StatsToday.styles";
 import { Card } from "../../../styles - global/cards/CardHome";
 import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../../styles - global/global/MediaQueryDisplay";
-import StatsCircle from "./StatsCircle";
-import { AuthContext } from "../../../context/AuthContext";
-import axios from "axios";
 
 const StatsToday = () => {
   const [userHabits, setUserHabits] = useState([]);

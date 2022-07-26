@@ -34,7 +34,7 @@ export const Container = styled.div`
 
     .today {
       border: none;
-      border-top: 1px solid var(--color-white-input);
+      border-top: var(--border-width-xxs) solid var(--color-white-input);
     }
   }
 

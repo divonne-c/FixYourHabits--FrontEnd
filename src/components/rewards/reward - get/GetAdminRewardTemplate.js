@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Reward } from "./GetReward.styles";
 import {
   DesktopWHeight,
   MobileWHeight,

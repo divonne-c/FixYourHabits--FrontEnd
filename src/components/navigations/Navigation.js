@@ -1,5 +1,9 @@
 import React, { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import ModalButtons from "../modals/modal - buttons/ModalButtons";
+import ModalSignOut from "../modals/modal - sign out/ModalSignOut";
 import { NavLink } from "react-router-dom";
+import CreateHabit from "../habits/habit - create/CreateHabit";
 import {
   LogoutButton,
   NavigationDesktop,
@@ -7,19 +11,11 @@ import {
   NavigationLink,
   NavigationLogo,
   NavigationMobile,
-} from "../../styles - global/global/NavigationStyles";
+} from "./Navigation.styles";
 import {
   Desktop,
   Mobile,
 } from "../../styles - global/global/MediaQueryDisplay";
-import { AuthContext } from "../../context/AuthContext";
-import CreateHabit from "../habits/habit - create/CreateHabit";
-import ModalSmall from "../modals/modal - small/ModalSmall";
-import {
-  ButtonFourth,
-  ButtonThird,
-} from "../../styles - global/global/ButtonStyles";
-import { CreateHabitButton } from "../habits/habit - create/CreateHabit.styles";
 
 const Navigation = () => {
   const [showMenu, toggleShowMenu] = useState(false);
@@ -30,7 +26,7 @@ const Navigation = () => {
   };
   return (
     <>
-      {/*------- DesktopWHeight --------*/}
+      {/*------- DESKTOP --------*/}
       <Desktop>
         <NavigationDesktop>
           <div>
@@ -86,22 +82,17 @@ const Navigation = () => {
                   <p>Sign Out</p>
                 </LogoutButton>
                 {showMenu && (
-                  <ModalSmall>
-                    <div className="modal-container">
-                      <p>Would you like to sign out?</p>
-                      <div className="button-container">
-                        <ButtonFourth onClick={show}>Cancel</ButtonFourth>
-                        <ButtonThird
-                          onClick={() => {
-                            show();
-                            logout();
-                          }}
-                        >
-                          Sign out
-                        </ButtonThird>
-                      </div>
-                    </div>
-                  </ModalSmall>
+                  <ModalSignOut>
+                    <p>Would you like to sign out?</p>
+                    <ModalButtons
+                      show={show}
+                      handler={() => {
+                        show();
+                        logout();
+                      }}
+                      buttonText="Sign out"
+                    />
+                  </ModalSignOut>
                 )}
               </>
             ) : (
@@ -114,15 +105,15 @@ const Navigation = () => {
         </NavigationDesktop>
       </Desktop>
 
-      {/*------- MobileWHeight --------*/}
+      {/*------- MOBILE --------*/}
       <Mobile>
         <NavigationMobile>
           {/*Home*/}
           <NavLink
             to={
               auth.isAuth && auth.user.role === "ROLE_USER"
-                ? `/home/${auth.user.username}/habits`
-                : auth.isAuth && `/admin/home/${auth.user.username}/habits`
+                ? `/home/${auth.user.username}`
+                : auth.isAuth && `/admin/home/${auth.user.username}`
             }
           >
             <span className="material-symbols-outlined">home</span>
@@ -134,7 +125,6 @@ const Navigation = () => {
           </NavLink>
 
           {/*Add habit button*/}
-
           <CreateHabit
             role={
               auth.isAuth && auth.user.role === "ROLE_USER" ? "user" : "admin"

@@ -4,10 +4,7 @@ import {
   Desktop,
   Mobile,
 } from "../../styles - global/global/MediaQueryDisplay";
-import {
-  NavLinkPrimary,
-  NavLinkThird,
-} from "../../styles - global/navlinks/NavLinkStyles";
+import { NavLinkPrimary, NavLinkThird } from "./NavLink.styles";
 
 const SettingsNavigation = () => {
   return (

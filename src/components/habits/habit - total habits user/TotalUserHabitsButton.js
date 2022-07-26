@@ -5,7 +5,8 @@ import { ProfileContext } from "../../../context/ProfileContext";
 import { ButtonThird } from "../../../styles - global/global/ButtonStyles";
 
 const TotalUserHabitsButton = () => {
-  const { auth, renderData, setRenderData } = useContext(AuthContext);
+  const { auth, renderData, setRenderData, setNotifications, notifications } =
+    useContext(AuthContext);
   const { userProfile } = useContext(ProfileContext);
 
   const totalHabits = async () => {
@@ -35,7 +36,6 @@ const TotalUserHabitsButton = () => {
       setRenderData(!renderData);
     } catch (e) {
       console.error(e);
-      console.log("habitform error");
     }
   };
 

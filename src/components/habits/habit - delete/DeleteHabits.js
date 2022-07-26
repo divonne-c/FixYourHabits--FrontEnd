@@ -30,7 +30,14 @@ const DeleteHabits = ({ role, id, toggleShowMenu, showMenu, show }) => {
       ]);
     } catch (error) {
       console.log(error);
-      setNotifications([...notifications, { type: "error", message: error }]);
+      setNotifications([
+        ...notifications,
+        {
+          type: "error",
+          message:
+            "Something went wrong with deleting the habit. Please try again.",
+        },
+      ]);
     }
 
     toggleShowMenu(!showMenu);

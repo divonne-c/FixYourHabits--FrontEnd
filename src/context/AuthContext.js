@@ -20,6 +20,7 @@ function AuthProvider({ children }) {
 
   const navigate = useNavigate();
 
+  ///////// MOUNTING /////////
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -35,6 +36,7 @@ function AuthProvider({ children }) {
     }
   }, []);
 
+  ///////// GET USER DATA /////////
   async function getUserData(username, token) {
     try {
       const response = await axios.get(
@@ -56,7 +58,6 @@ function AuthProvider({ children }) {
         },
         status: "done",
       });
-      setUser(response.data);
     } catch (e) {
       console.error(e);
       toggleAuth({
@@ -67,12 +68,38 @@ function AuthProvider({ children }) {
     }
   }
 
+  ///////// GET USER DATA: for navigate /////////
   useEffect(() => {
     const token = localStorage.getItem("token");
     auth.isAuth && getUserData(auth.user.username, token);
     setRenderData(!renderData);
   }, [auth.isAuth]);
 
+  ///////// GET USER /////////
+  useEffect(() => {
+    async function getUserData() {
+      const token = localStorage.getItem("token");
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/users/${auth.user.username}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        setUser(response.data);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    auth.isAuth && getUserData();
+  }, [renderData]);
+
+  ///////// LOGIN /////////
   function login(token) {
     const decodedToken = jwt_decode(token);
 
@@ -87,6 +114,7 @@ function AuthProvider({ children }) {
     });
   }
 
+  ///////// LOGOUT /////////
   function logout() {
     localStorage.clear();
     toggleAuth({
@@ -96,6 +124,7 @@ function AuthProvider({ children }) {
     });
   }
 
+  ///////// CHECK SCREEN SIZE /////////
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth < 1025) {
@@ -108,6 +137,7 @@ function AuthProvider({ children }) {
     handleResize();
   }, [auth]);
 
+  ///////// AUTO NAVIGATE /////////
   useEffect(() => {
     if (
       auth.isAuth === true &&

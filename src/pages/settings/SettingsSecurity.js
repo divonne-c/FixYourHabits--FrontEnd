@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import SettingsNavigation from "../../components/navigations/SettingsNavigation";
+import EditPassword from "../../components/account/EditPassword";
 import {
   ContentLayout,
   InnerContentLayout,
 } from "../../styles - global/global/LayoutStyles";
-import SettingsNavigation from "../../components/navigations/SettingsNavigation";
 import {
-  Security,
   SecurityForm,
   SettingStyles,
   SettingStylesMobile,
@@ -16,47 +15,43 @@ import {
   MobileWHeight,
 } from "../../styles - global/global/MediaQueryDisplay";
 import { Card } from "../../styles - global/cards/CardHome";
-import EditPassword from "../../components/account/account - edit password/EditPassword";
-import { ProfileContext } from "../../context/ProfileContext";
 
 const SettingsSecurity = () => {
   return (
-    <>
-      <ContentLayout>
-        <InnerContentLayout>
-          <SettingsNavigation />
+    <ContentLayout>
+      <InnerContentLayout>
+        <SettingsNavigation />
 
-          {/*------- Desktop --------*/}
-          <DesktopWHeight>
-            <SettingStyles>
-              <div>
-                <h1>Password</h1>
-                <p>Update your password here.</p>
-              </div>
+        {/*------- Desktop --------*/}
+        <DesktopWHeight>
+          <SettingStyles>
+            <div>
+              <h1>Password</h1>
+              <p>Update your password here.</p>
+            </div>
 
-              <Card>
-                <SecurityForm>
-                  <h2>Change Password</h2>
-                  <EditPassword />
-                </SecurityForm>
-              </Card>
-            </SettingStyles>
-          </DesktopWHeight>
+            <Card>
+              <SecurityForm>
+                <h2>Change Password</h2>
+                <EditPassword />
+              </SecurityForm>
+            </Card>
+          </SettingStyles>
+        </DesktopWHeight>
 
-          {/*------- Mobile --------*/}
-          <MobileWHeight>
-            <SettingStylesMobile>
-              <CardContentMobile>
-                <SecurityForm>
-                  <h3>Change Password</h3>
-                  <EditPassword />
-                </SecurityForm>
-              </CardContentMobile>
-            </SettingStylesMobile>
-          </MobileWHeight>
-        </InnerContentLayout>
-      </ContentLayout>
-    </>
+        {/*------- Mobile --------*/}
+        <MobileWHeight>
+          <SettingStylesMobile>
+            <CardContentMobile>
+              <SecurityForm>
+                <h3>Change Password</h3>
+                <EditPassword />
+              </SecurityForm>
+            </CardContentMobile>
+          </SettingStylesMobile>
+        </MobileWHeight>
+      </InnerContentLayout>
+    </ContentLayout>
   );
 };
 

@@ -5,15 +5,12 @@ import {
   Mobile,
 } from "../../styles - global/global/MediaQueryDisplay";
 import { FaqNavStylesMobile } from "../../pages/help/Help.styles";
-import {
-  NavLinkSecondary,
-  NavLinkFourth,
-} from "../../styles - global/navlinks/NavLinkStyles";
+import { NavLinkSecondary, NavLinkFourth } from "./NavLink.styles";
 
 const FaqNavigation = () => {
   return (
     <>
-      {/*------- DesktopWHeight --------*/}
+      {/*------- Desktop --------*/}
       <Desktop>
         <NavLinkFourth>
           <NavLink to="/help/faq/account">
@@ -27,9 +24,8 @@ const FaqNavigation = () => {
           </NavLink>
         </NavLinkFourth>
       </Desktop>
-      {/*<FaqNavStyles></FaqNavStyles>*/}
 
-      {/*------- MobileWHeight --------*/}
+      {/*------- Mobile --------*/}
       <Mobile>
         <NavLinkSecondary>
           <FaqNavStylesMobile>

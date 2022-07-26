@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ProfileContext } from "../../context/ProfileContext";
 import DiscoverAllContent from "./DiscoverAllContent";
 import HabitTypeFilter from "../../components/habits/habit - filter/HabitTypeFilter";
 import Modal from "../../components/modals/modal - normal/Modal";
@@ -20,9 +21,9 @@ import {
 } from "../../styles - global/global/ButtonStyles";
 
 const DiscoverAll = () => {
-  const [habits, setHabits] = useState([]);
-  const [showModal, toggleShowModal] = useState(false);
   const [filteredHabits, setFilteredHabits] = useState([]);
+  const [showModal, toggleShowModal] = useState(false);
+  const { adminHabits } = useContext(ProfileContext);
 
   const show = () => {
     toggleShowModal(!showModal);
@@ -39,10 +40,8 @@ const DiscoverAll = () => {
             <InnerContentLayout3>
               {/*HABITS*/}
               <DiscoverAllContent
-                habits={habits}
-                setHabits={setHabits}
+                adminHabits={adminHabits}
                 filteredHabits={filteredHabits}
-                setFilteredHabits={setFilteredHabits}
               />
 
               {/*FILTER*/}
@@ -50,7 +49,7 @@ const DiscoverAll = () => {
                 <h1>Filter</h1>
                 <HabitTypeFilter
                   setFilteredHabits={setFilteredHabits}
-                  habits={habits}
+                  habits={adminHabits}
                 />
               </Filter>
             </InnerContentLayout3>
@@ -77,19 +76,19 @@ const DiscoverAll = () => {
                   <Filter>
                     <HabitTypeFilter
                       setFilteredHabits={setFilteredHabits}
-                      habits={habits}
+                      habits={adminHabits}
                     />
                   </Filter>
-                  <ButtonFourth onClick={show}>Cancel</ButtonFourth>
+                  <div className="cancel-button">
+                    <ButtonFourth onClick={show}>Cancel</ButtonFourth>
+                  </div>
                 </Modal>
               )}
 
               {/*HABITS*/}
               <DiscoverAllContent
-                habits={habits}
-                setHabits={setHabits}
+                adminHabits={adminHabits}
                 filteredHabits={filteredHabits}
-                setFilteredHabits={setFilteredHabits}
               />
             </DiscoverStyles>
           </CardContentMobile>

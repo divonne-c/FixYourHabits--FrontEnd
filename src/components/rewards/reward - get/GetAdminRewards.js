@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import GetAdminRewardTemplate from "./GetAdminRewardTemplate";
 import MenuReward from "../reward - menu/MenuReward";
 import { RewardColor } from "./GetReward.styles";

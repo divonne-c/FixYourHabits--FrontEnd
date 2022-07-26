@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+  width: var(--width-100);
 `;
 
 export const SettingStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
   max-width: 1000px;
   min-width: 500px;
   margin: var(--margin-m);
@@ -14,7 +17,6 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: var(--gap-m);
-  margin-top: var(--margin-m);
 
   .edit-account {
     display: flex;
@@ -33,7 +35,7 @@ export const Content = styled.div`
 `;
 
 export const SettingStylesMobile = styled.div`
-  height: 100%;
+  height: var(--height-100);
 `;
 
 export const PersonalInfo = styled.div`
@@ -71,7 +73,7 @@ export const SecurityForm = styled.div`
   min-width: 600px;
 
   @media (max-width: 1024px) {
-    min-width: 100%;
+    min-width: var(--width-100);
     padding: var(--padding-m);
   }
 `;

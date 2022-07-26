@@ -1,38 +1,15 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Container } from "./Welcome.styles";
-import axios from "axios";
 
 const Welcome = () => {
-  const [name, setName] = useState("");
-  const { auth } = useContext(AuthContext);
-
-  useEffect(() => {
-    async function getData() {
-      const token = localStorage.getItem("token");
-      try {
-        const response = await axios.get(
-          `http://localhost:8080/users/${auth.user.username}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setName(response.data.name);
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    auth.isAuth && getData();
-  }, []);
+  const { user } = useContext(AuthContext);
 
   return (
     <Container>
-      {name ? (
+      {user.name ? (
         <h1>
-          Hi, <span>{name}</span>{" "}
+          Hi, <span>{user.name}</span>{" "}
         </h1>
       ) : (
         "Loading..."

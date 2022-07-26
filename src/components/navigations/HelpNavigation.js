@@ -1,18 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   Desktop,
   Mobile,
 } from "../../styles - global/global/MediaQueryDisplay";
-import {
-  NavLinkPrimary,
-  NavLinkThird,
-} from "../../styles - global/navlinks/NavLinkStyles";
+import { NavLinkPrimary, NavLinkThird } from "./NavLink.styles";
 
 const HelpNavigation = () => {
   return (
     <>
-      {/*------- DesktopWHeight --------*/}
+      {/*------- Desktop --------*/}
       <Desktop>
         <NavLinkPrimary>
           <h1>Help</h1>
@@ -25,11 +22,17 @@ const HelpNavigation = () => {
         </NavLinkPrimary>
       </Desktop>
 
-      {/*------- MobileWHeight --------*/}
+      {/*------- Mobile --------*/}
       <Mobile>
         <NavLinkThird>
           <h1>Help</h1>
-          <p>blabla</p>
+          <p>
+            Feel free to{" "}
+            <Link to="/help/contact" className="title-link">
+              contact
+            </Link>{" "}
+            us for any other questions.
+          </p>
           <div className="links">
             <NavLink to="/help/faq">FAQ</NavLink>
             <NavLink to="/help/contact">Contact</NavLink>

@@ -24,18 +24,21 @@ const GlobalStyles = createGlobalStyle`
 
     // Habit Colors
     --color-habit-sport: #C2ECE7;
+    --color-habit-health: #ecc2c2;
     --color-habit-food: #C2ECC2;
     --color-habit-finance: #E8ECC2;
-    --color-habit-business: #ECC2D8;
+    --color-habit-business: #cbf3b1;
     --color-habit-hobby: #C2CDEC;
     --color-habit-mind: #D4C2EC;
     --color-habit-study: #FDCA9D;
+    --color-habit-home: #fd9d9d;
+    --color-habit-family: #9ddbfd;
 
     // Other Colors
     --color-background-modal: rgba(0, 0, 0, 0.38);
     --color-success: #98bd98;
     --color-success-background: #e5efe5;
-    --color-error: #d58d8d;
+    --color-error: #e54141;
     --color-error-background: #f5e8e8;
     --color-pink: #FBBCA8;
 
@@ -126,7 +129,7 @@ const GlobalStyles = createGlobalStyle`
 
     //////////////// Widths /////////////////
     --width-35vw: 35vw;
-    --width-40px: 40px;
+    --width-icon: 40px;
     --width-100vw: 100vw;
     --width-100: 100%;
     --width-habit: 120px;
@@ -196,8 +199,8 @@ const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4 {
     font-weight: var(--font-weight-normal);
   }
-  
-  
+
+
 `;
 
 export default GlobalStyles;

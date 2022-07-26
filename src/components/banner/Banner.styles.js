@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+  width: var(--width-100);
   height: 30vh;
   background-color: var(--color-orange-active);
   border-radius: var(--border-radius-m);
@@ -9,8 +9,8 @@ export const Container = styled.div`
   margin-top: var(--margin-s);
 
   img {
-    height: 100%;
-    width: 100%;
+    height: var(--height-100);
+    width: var(--width-100);
     object-fit: cover;
     border-radius: var(--border-radius-m);
     box-shadow: var(--shadow-medium);
@@ -40,7 +40,7 @@ export const Container = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
+      width: var(--width-100);
       margin: var(--margin-xs);
     }
 

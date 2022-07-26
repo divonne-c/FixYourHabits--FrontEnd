@@ -1,17 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import HelpNavigation from "../../components/navigations/HelpNavigation";
+import FaqNavigation from "../../components/navigations/FaqNavigation";
+import FaqContent from "./FaqContent";
 import {
   ContentLayout,
   InnerContentLayout,
 } from "../../styles - global/global/LayoutStyles";
-import HelpNavigation from "../../components/navigations/HelpNavigation";
-import { HelpFaqStyles, HelpStyles, HelpStylesMobile } from "./Help.styles";
-import FaqNavigation from "../../components/navigations/FaqNavigation";
+import { HelpFaqStyles, HelpStylesMobile } from "./Help.styles";
 import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
 import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../styles - global/global/MediaQueryDisplay";
-import FaqContent from "./FaqContent";
+import FaqRewardsContent from "./faq - questions and answers/FaqRewardsContent";
 
 const HelpFaqRewards = () => {
   return (
@@ -19,39 +21,36 @@ const HelpFaqRewards = () => {
       <InnerContentLayout>
         <HelpNavigation />
 
-        {/*------- DesktopWHeight --------*/}
+        {/*------- Desktop --------*/}
         <DesktopWHeight>
           <HelpFaqStyles>
             <div>
               <h1>Have a question?</h1>
               <p>
-                Feel free to contact us for any other questoin with the (link:
-                contactform)
+                Feel free to{" "}
+                <Link to="/help/contact" className="title-link">
+                  contact
+                </Link>{" "}
+                us for any other questions.
               </p>
             </div>
 
             <div className="content-container">
               <FaqNavigation />
-              <div>
-                <FaqContent
-                  question="How do I create an account?"
-                  answer="To create an account you can go to the register page: link"
-                />
+              <div className="faq-container">
+                <FaqRewardsContent />
               </div>
             </div>
           </HelpFaqStyles>
         </DesktopWHeight>
 
-        {/*------- MobileWHeight --------*/}
+        {/*------- Mobile --------*/}
         <MobileWHeight>
           <HelpStylesMobile>
             <CardContentMobile>
               <FaqNavigation />
               <div className="faq-container">
-                <FaqContent
-                  question="How do I create an account?"
-                  answer="To create an account you can go to the register page: link"
-                />
+                <FaqRewardsContent />
               </div>
             </CardContentMobile>
           </HelpStylesMobile>

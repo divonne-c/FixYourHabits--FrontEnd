@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
-import { Card } from "../../styles - global/cards/CardHome";
-import { Content, Div, PersonalInfo, SettingStyles } from "./settings.styles";
-import moment from "moment";
-import ProfileImage from "../../components/account/account - profile image/ProfileImage";
-import EditAccount from "../../components/account/account - edit personal info/EditAccount";
-import ResetAccount from "../../components/account/account - reset account/ResetAccount";
-import DeleteAccount from "../../components/account/account - delete account/DeleteAccount";
-import { ButtonFourth } from "../../styles - global/global/ButtonStyles";
 import { AuthContext } from "../../context/AuthContext";
 import { ProfileContext } from "../../context/ProfileContext";
+import moment from "moment";
+import ProfileImage from "../../components/account/ProfileImage";
+import EditAccount from "../../components/account/EditAccount";
+import ResetAccount from "../../components/account/ResetAccount";
+import DeleteAccount from "../../components/account/DeleteAccount";
+import { Card } from "../../styles - global/cards/CardHome";
+import { Content, Div, PersonalInfo } from "./settings.styles";
+import { ButtonFourth } from "../../styles - global/global/ButtonStyles";
 
 const SettingsAccountContent = () => {
   const { auth, logout, user } = useContext(AuthContext);
-  const { userProfile, adminProfile } = useContext(ProfileContext);
+  const { userProfile } = useContext(ProfileContext);
 
   return (
     <Content>
@@ -78,6 +78,7 @@ const SettingsAccountContent = () => {
         </div>
       </Card>
 
+      {/*EDIT INFORMATION*/}
       <Card>
         <div className="card-container">
           <div className="edit-account">
@@ -87,6 +88,7 @@ const SettingsAccountContent = () => {
         </div>
       </Card>
 
+      {/*RESET ACCOUNT*/}
       <Card>
         <div className="card-container">
           <Div>
@@ -107,6 +109,7 @@ const SettingsAccountContent = () => {
         </div>
       </Card>
 
+      {/*DELETE ACCOUNT*/}
       <Card>
         <div className="card-container">
           <Div>
@@ -123,6 +126,7 @@ const SettingsAccountContent = () => {
         </div>
       </Card>
 
+      {/*SIGN OUT*/}
       <Card>
         <div className="card-container">
           <Div>

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ButtonPrimary } from "../../../styles - global/global/ButtonStyles";
 
 export const Button = styled(ButtonPrimary)`
-  width: 100%;
+  width: var(--width-100);
   padding: var(--padding-sm);
   margin-top: var(--margin-m);
 

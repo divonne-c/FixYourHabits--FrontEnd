@@ -4,10 +4,6 @@ export const Container = styled.div`
   margin: 0 var(--margin-m);
   display: flex;
 
-  input[type="file"] {
-    display: none;
-  }
-
   .profile-image {
     display: flex;
     flex-direction: column;
@@ -49,6 +45,15 @@ export const Container = styled.div`
       border-radius: var(--border-radius-xxl);
     }
   }
+
+  .error {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-s);
+    color: var(--color-error);
+    text-align: center;
+    margin-top: var(--margin-l);
+  }
 `;
 
 export const ModalContainer = styled.div`
@@ -68,6 +73,7 @@ export const Preview = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  margin-bottom: var(--margin-l);
 
   .profile-icon {
     display: flex;
@@ -96,6 +102,10 @@ export const Preview = styled.div`
     color: var(--color-orange);
     padding: var(--padding-xs);
     border-radius: var(--border-radius-xl);
+
+    input[type="file"] {
+      display: none;
+    }
 
     :hover {
       opacity: 0.9;

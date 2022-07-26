@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-////////////////////// NavLink style: settings/help ////////////////////////
 export const NavLinkPrimary = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,8 +21,6 @@ export const NavLinkPrimary = styled.div`
   }
 `;
 
-////////////////////// NavLink style: discover/help - faq mobile ////////////////////////
-
 export const NavLinkSecondary = styled.div`
   a {
     color: var(--color-text-grey);
@@ -34,7 +31,6 @@ export const NavLinkSecondary = styled.div`
   }
 `;
 
-////////////////////// NavLinks style: mobile ////////////////////////
 export const NavLinkThird = styled.div`
   display: flex;
   flex-direction: column;
@@ -66,9 +62,14 @@ export const NavLinkThird = styled.div`
     display: flex;
     justify-content: center;
   }
+
+  .title-link {
+    background: none;
+    padding: 0;
+    color: var(--color-text-orange-dark);
+  }
 `;
 
-////////////////////// NavLinks style: help - faq ////////////////////////
 export const NavLinkFourth = styled.div`
   display: flex;
   flex-direction: column;
@@ -88,11 +89,9 @@ export const NavLinkFourth = styled.div`
   }
 `;
 
-////////////////////// NavLinks style: homenav mobile ////////////////////////
 export const NavLinkFifth = styled.div`
   display: flex;
   flex-direction: column;
-  //margin: var(--margin-xs) var(--margin-m);
 
   a {
     color: var(--color-orange-salmon);

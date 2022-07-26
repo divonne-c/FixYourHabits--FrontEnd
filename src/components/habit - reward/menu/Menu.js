@@ -1,7 +1,6 @@
-import React from "react";
 import ModalSmall from "../../modals/modal - small/ModalSmall";
 import {
-  DesktopWHeight,
+  Desktop,
   MobileWHeight,
 } from "../../../styles - global/global/MediaQueryDisplay";
 import { ButtonFourth } from "../../../styles - global/global/ButtonStyles";
@@ -11,11 +10,11 @@ const Menu = ({ children, show, reward }) => {
   return (
     <Container>
       {/*----- DESKTOP -----*/}
-      <DesktopWHeight>
+      <Desktop>
         <div className="container">
           <div className={`button-container ${reward}`}>{children}</div>
         </div>
-      </DesktopWHeight>
+      </Desktop>
 
       {/*----- MOBILE -----*/}
       <MobileWHeight>

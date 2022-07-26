@@ -4,6 +4,7 @@ import { AuthContext } from "../../../context/AuthContext";
 import Modal from "../../modals/modal - normal/Modal";
 import HabitForm from "../../forms/HabitForm";
 import TotalUserHabitsButton from "../habit - total habits user/TotalUserHabitsButton";
+import CreateAdminElementButton from "../../habit - reward/create/CreateAdminElementButton";
 import {
   ButtonFourth,
   ButtonThird,
@@ -13,7 +14,6 @@ import {
   Desktop,
   MobileWHeight,
 } from "../../../styles - global/global/MediaQueryDisplay";
-import CreateAdminElementButton from "../../habit - reward/create/CreateAdminElementButton";
 import { Container } from "../../modals/modal - buttons/ModalButtons.styles";
 
 const CreateHabit = ({ role, profile }) => {
@@ -30,16 +30,8 @@ const CreateHabit = ({ role, profile }) => {
     toggleShowMenu(!showMenu);
   };
 
-  const nameChangeHandler = (event) => {
-    setHabit({ ...habit, name: event.target.value });
-  };
-
-  const typeChangeHandler = (event) => {
-    setHabit({ ...habit, type: event.target.value });
-  };
-
-  const descriptionChangeHandler = (event) => {
-    setHabit({ ...habit, description: event.target.value });
+  const onChangeHandler = (e) => {
+    setHabit({ ...habit, [e.target.name]: e.target.value });
   };
 
   const createHabitHandler = async (e) => {
@@ -72,7 +64,14 @@ const CreateHabit = ({ role, profile }) => {
       ]);
     } catch (error) {
       console.log(error);
-      setNotifications([...notifications, { type: "error", message: error }]);
+      setNotifications([
+        ...notifications,
+        {
+          type: "error",
+          message:
+            "Something went wrong with creating the habit. Please try again.",
+        },
+      ]);
     }
 
     toggleShowMenu(!showMenu);
@@ -115,13 +114,7 @@ const CreateHabit = ({ role, profile }) => {
         <Modal title="Create Habit">
           {/*FORM*/}
           <form onSubmit={createHabitHandler}>
-            <HabitForm
-              nameHabit={habit.name}
-              typeChangeHandler={typeChangeHandler}
-              nameChangeHandler={nameChangeHandler}
-              descriptionChangeHandler={descriptionChangeHandler}
-              description={habit.description}
-            />
+            <HabitForm habit={habit} handler={onChangeHandler} />
 
             {/*MODAL BUTTONS*/}
             <Container>

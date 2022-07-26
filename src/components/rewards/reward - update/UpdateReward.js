@@ -1,19 +1,17 @@
 import React, { useContext, useState } from "react";
-import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
+import { AuthContext } from "../../../context/AuthContext";
 import Modal from "../../modals/modal - normal/Modal";
 import RewardForm from "../../forms/RewardForm";
-import {
-  ButtonFourth,
-  ButtonThird,
-} from "../../../styles - global/global/ButtonStyles";
 import MenuButton from "../../habit - reward/menu buttons/MenuButton";
 import ModalButtons from "../../modals/modal - buttons/ModalButtons";
 
 const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
-  const [number, setNumber] = useState(reward.name);
-  const [type, setType] = useState(reward.type);
-  const [description, setDescription] = useState(reward.description);
+  const [rewardData, setRewardData] = useState({
+    number: reward.name.split("-")[1],
+    type: reward.type,
+    description: reward.description,
+  });
   const [showModal, toggleShowModal] = useState(false);
   const { auth, renderData, setRenderData, setNotifications, notifications } =
     useContext(AuthContext);
@@ -22,25 +20,17 @@ const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
     toggleShowModal(!showModal);
   };
 
-  const numberChangeHandler = (event) => {
-    setNumber(event.target.value);
-  };
-
-  const typeChangeHandler = (event) => {
-    setType(event.target.value);
-  };
-
-  const descriptionChangeHandler = (event) => {
-    setDescription(event.target.value);
+  const onChangeHandler = (e) => {
+    setRewardData({ ...rewardData, [e.target.name]: e.target.value });
   };
 
   const updateRewardHandler = async (e) => {
     e.preventDefault();
 
     const data = {
-      name: `habit-${number}`,
-      description: description,
-      type: type,
+      name: `habit-${rewardData.number}`,
+      description: rewardData.description,
+      type: rewardData.type,
       adminProfile: {
         id: auth.user.id,
       },
@@ -63,7 +53,14 @@ const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
       ]);
     } catch (error) {
       console.log(error);
-      setNotifications([...notifications, { type: "error", message: error }]);
+      setNotifications([
+        ...notifications,
+        {
+          type: "error",
+          message:
+            "Something went wrong with updating the reward. Please try again.",
+        },
+      ]);
     }
 
     toggleShowModal(!showModal);
@@ -71,7 +68,7 @@ const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
   };
 
   return (
-    <div>
+    <>
       {/*----- BUTTON -----*/}
       <MenuButton handler={showModalHandler} name="edit" />
 
@@ -80,20 +77,14 @@ const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
         <Modal title="Update Reward">
           {/*FORM*/}
           <form onSubmit={updateRewardHandler}>
-            <RewardForm
-              typeChangeHandler={typeChangeHandler}
-              numberChangeHandler={numberChangeHandler}
-              number={number}
-              descriptionChangeHandler={descriptionChangeHandler}
-              description={description}
-            />
+            <RewardForm reward={rewardData} handler={onChangeHandler} />
 
             {/*MODAL BUTTONS*/}
             <ModalButtons show={show} buttonText="Save" />
           </form>
         </Modal>
       )}
-    </div>
+    </>
   );
 };
 

@@ -20,16 +20,8 @@ const CreateReward = () => {
     toggleShowMenu(!showMenu);
   };
 
-  const numberChangeHandler = (event) => {
-    setReward({ ...reward, number: event.target.value });
-  };
-
-  const typeChangeHandler = (event) => {
-    setReward({ ...reward, type: event.target.value });
-  };
-
-  const descriptionChangeHandler = (event) => {
-    setReward({ ...reward, description: event.target.value });
+  const onChangeHandler = (e) => {
+    setReward({ ...reward, [e.target.name]: e.target.value });
   };
 
   const createRewardHandler = async (e) => {
@@ -61,7 +53,14 @@ const CreateReward = () => {
       ]);
     } catch (error) {
       console.log(error);
-      setNotifications([...notifications, { type: "error", message: error }]);
+      setNotifications([
+        ...notifications,
+        {
+          type: "error",
+          message:
+            "Something went wrong with creating the reward. Please try again.",
+        },
+      ]);
     }
 
     toggleShowMenu(!showMenu);
@@ -82,13 +81,7 @@ const CreateReward = () => {
         <Modal title="Create Reward">
           {/*FORM*/}
           <form onSubmit={createRewardHandler}>
-            <RewardForm
-              typeChangeHandler={typeChangeHandler}
-              numberChangeHandler={numberChangeHandler}
-              number={reward.number}
-              descriptionChangeHandler={descriptionChangeHandler}
-              description={reward.description}
-            />
+            <RewardForm reward={reward} handler={onChangeHandler} />
 
             {/*MODAL BUTTONS*/}
             <ModalButtons show={show} buttonText="Create" />

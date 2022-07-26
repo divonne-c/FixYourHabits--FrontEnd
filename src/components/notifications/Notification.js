@@ -4,8 +4,7 @@ import NotificationTemplate from "./NotificationTemplate";
 
 const Notification = () => {
   const [showError, toggleShowError] = useState(true);
-  const { notifications, setNotifications, renderData } =
-    useContext(AuthContext);
+  const { notifications, setNotifications } = useContext(AuthContext);
   let keynumber = 0;
 
   const show = () => {

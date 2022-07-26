@@ -26,6 +26,10 @@ export const Profile = styled.div`
     color: var(--color-text-orange-dark);
   }
 
+  h3 {
+    text-transform: capitalize;
+  }
+
   @media (min-width: 1025px) and (max-width: 1150px) {
     flex-direction: column;
     text-align: center;

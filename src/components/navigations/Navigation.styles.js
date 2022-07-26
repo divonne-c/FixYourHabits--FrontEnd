@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-////////////////////// DesktopWHeight: navigation ////////////////////////
 export const NavigationDesktop = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,7 +13,6 @@ export const NavigationDesktop = styled.div`
   background-color: var(--color-orange);
   font-weight: var(--font-weight-light);
 
-  ////////// Laptop
   @media (max-width: 1400px) {
     width: var(--layout-width-navigation-m);
 
@@ -39,19 +37,6 @@ export const NavigationElement = styled.div`
     color: var(--color-text-orange-dark);
     background-color: var(--color-orange-active);
     border-left: var(--color-white) var(--border-width-m) solid;
-  }
-
-  .modal-container {
-    color: var(--color-text-grey);
-    padding: var(--padding-s);
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-sm);
-
-    .button-container {
-      display: flex;
-      gap: var(--gap-sm);
-    }
   }
 `;
 
@@ -93,7 +78,6 @@ export const NavigationLogo = styled.div`
   }
 `;
 
-////////////////////// MobileWHeight: navigation ////////////////////////
 export const NavigationMobile = styled.div`
   display: flex;
   justify-content: space-around;
@@ -101,7 +85,7 @@ export const NavigationMobile = styled.div`
   background-color: var(--color-orange);
   position: fixed;
   bottom: 0;
-  width: 100vw;
+  width: var(--width-100vw);
   z-index: 1;
 
   span {
