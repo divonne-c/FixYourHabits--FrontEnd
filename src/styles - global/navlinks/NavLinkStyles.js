@@ -66,6 +66,12 @@ export const NavLinkThird = styled.div`
     display: flex;
     justify-content: center;
   }
+
+  .title-link {
+    background: none;
+    padding: 0;
+    color: var(--color-text-orange-dark);
+  }
 `;
 
 ////////////////////// NavLinks style: help - faq ////////////////////////

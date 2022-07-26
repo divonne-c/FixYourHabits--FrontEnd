@@ -11,6 +11,7 @@ function ProfileProvider({ children }) {
   const [adminHabits, setAdminHabits] = useState([]);
   const { auth, renderData, toggleAuth } = useContext(AuthContext);
 
+  ///////// GET ADMIN /////////
   useEffect(() => {
     async function getAdminData() {
       const token = localStorage.getItem("token");
@@ -41,9 +42,10 @@ function ProfileProvider({ children }) {
       }
     }
 
-    auth.isAuth && auth.user.role !== "ROLE_USER" && getAdminData();
+    auth.isAuth && auth.user.role === "ROLE_ADMIN" && getAdminData();
   }, [renderData]);
 
+  ///////// GET ADMIN REWARDS /////////
   useEffect(() => {
     async function getAdminData() {
       const token = localStorage.getItem("token");
@@ -64,6 +66,7 @@ function ProfileProvider({ children }) {
     auth.isAuth && getAdminData();
   }, [renderData]);
 
+  ///////// GET ADMIN HABITS /////////
   useEffect(() => {
     async function getAdminData() {
       const token = localStorage.getItem("token");
@@ -84,6 +87,7 @@ function ProfileProvider({ children }) {
     auth.isAuth && getAdminData();
   }, [renderData]);
 
+  ///////// GET USER PROFILE /////////
   useEffect(() => {
     async function getData() {
       const token = localStorage.getItem("token");
@@ -114,7 +118,7 @@ function ProfileProvider({ children }) {
       }
     }
 
-    auth.isAuth && auth.user.role !== "ROLE_ADMIN" && getData();
+    auth.isAuth && auth.user.role === "ROLE_USER" && getData();
   }, [renderData]);
 
   const values = {

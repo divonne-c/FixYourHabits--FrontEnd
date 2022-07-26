@@ -7,8 +7,8 @@ export const Element = styled.div`
   align-items: center;
   gap: var(--gap-xs);
   padding: var(--padding-s) var(--padding-xs);
-  min-height: var(--height-habit);
-  min-width: var(--width-habit);
+  height: var(--height-habit);
+  width: var(--width-habit);
   text-align: center;
   font-size: var(--font-s);
   position: relative;

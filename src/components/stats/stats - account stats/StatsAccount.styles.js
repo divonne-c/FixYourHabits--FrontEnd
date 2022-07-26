@@ -4,15 +4,15 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   text-align: center;
-  grid-gap: 1em;
-  margin: 2em 0;
+  grid-gap: var(--gap-s);
+  margin: var(--margin-m) 0;
   color: var(--color-white);
 
   .stat {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1em;
+    padding: var(--padding-s);
     border-radius: var(--border-radius-s);
 
     h1 {
@@ -63,7 +63,7 @@ export const Container = styled.div`
   @media (max-width: 1024px) {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 0.5em;
+    grid-gap: var(--gap-xs);
     color: var(--color-white);
 
     .stat {

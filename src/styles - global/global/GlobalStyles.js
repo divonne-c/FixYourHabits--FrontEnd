@@ -128,8 +128,8 @@ const GlobalStyles = createGlobalStyle`
     --height-reward: 150px;
 
     //////////////// Widths /////////////////
-    --width-35vw: 35vw;
-    --width-40px: 40px;
+    //--width-35vw: 35vw;
+    --width-icon: 40px;
     --width-100vw: 100vw;
     --width-100: 100%;
     --width-habit: 120px;

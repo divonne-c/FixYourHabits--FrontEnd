@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import Welcome from "../../../components/welcome/Welcome";
 import Calender from "../../../components/calender/Calender";
 import GetHabits from "../../../components/habits/habit - get/GetHabits";
+import GetUserRewards from "../../../components/rewards/reward - get/GetUserRewards";
+import Stats from "../../../components/stats/stats/Stats";
 import {
   ContentLayout,
   InnerContentLayout3,
@@ -10,8 +12,6 @@ import {
 import { ButtonContainer, Container, Main, Sidebar } from "../Home.styles";
 import { DesktopWHeight } from "../../../styles - global/global/MediaQueryDisplay";
 import { Card } from "../../../styles - global/cards/CardHome";
-import GetUserRewards from "../../../components/rewards/reward - get/GetUserRewards";
-import Stats from "../../../components/stats/stats/Stats";
 
 const Home = () => {
   const [sortHabits, setSortHabits] = useState({

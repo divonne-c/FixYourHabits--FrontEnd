@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import moment from "moment";
 import { ProfileContext } from "../../../context/ProfileContext";
+import moment from "moment";
 import StatsAccountTemplate from "./StatsAccountTemplate";
 import { Container } from "./StatsAccount.styles";
 

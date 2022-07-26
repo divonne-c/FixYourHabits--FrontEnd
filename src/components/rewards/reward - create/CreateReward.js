@@ -53,7 +53,14 @@ const CreateReward = () => {
       ]);
     } catch (error) {
       console.log(error);
-      setNotifications([...notifications, { type: "error", message: error }]);
+      setNotifications([
+        ...notifications,
+        {
+          type: "error",
+          message:
+            "Something went wrong with creating the reward. Please try again.",
+        },
+      ]);
     }
 
     toggleShowMenu(!showMenu);

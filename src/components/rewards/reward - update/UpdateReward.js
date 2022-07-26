@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
+import { AuthContext } from "../../../context/AuthContext";
 import Modal from "../../modals/modal - normal/Modal";
 import RewardForm from "../../forms/RewardForm";
 import MenuButton from "../../habit - reward/menu buttons/MenuButton";
@@ -53,7 +53,14 @@ const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
       ]);
     } catch (error) {
       console.log(error);
-      setNotifications([...notifications, { type: "error", message: error }]);
+      setNotifications([
+        ...notifications,
+        {
+          type: "error",
+          message:
+            "Something went wrong with updating the reward. Please try again.",
+        },
+      ]);
     }
 
     toggleShowModal(!showModal);
@@ -61,7 +68,7 @@ const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
   };
 
   return (
-    <div>
+    <>
       {/*----- BUTTON -----*/}
       <MenuButton handler={showModalHandler} name="edit" />
 
@@ -77,7 +84,7 @@ const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
           </form>
         </Modal>
       )}
-    </div>
+    </>
   );
 };
 

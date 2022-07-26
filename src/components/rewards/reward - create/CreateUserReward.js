@@ -71,6 +71,7 @@ const CreateUserReward = () => {
       toggleExist(false);
     }
   }, [userProfile.totalHabits]);
+
   return (
     <Container>
       {userProfile.userRewards &&

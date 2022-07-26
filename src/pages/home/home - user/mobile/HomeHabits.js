@@ -1,16 +1,16 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import Welcome from "../../../../components/welcome/Welcome";
+import GetHabits from "../../../../components/habits/habit - get/GetHabits";
+import HomeNavigation from "../../../../components/navigations/HomeNavigation";
+import Calender from "../../../../components/calender/Calender";
 import {
   ContentLayout,
   InnerContentLayout2,
 } from "../../../../styles - global/global/LayoutStyles";
 import { MobileWHeight } from "../../../../styles - global/global/MediaQueryDisplay";
-import { useParams } from "react-router-dom";
-import Welcome from "../../../../components/welcome/Welcome";
 import { CardContentMobile } from "../../../../styles - global/cards/CardContentMobile";
-import HomeNavigation from "../../../../components/navigations/HomeNavigation";
-import Calender from "../../../../components/calender/Calender";
 import { ButtonContainer, HabitsMobile } from "../../Home.styles";
-import GetHabits from "../../../../components/habits/habit - get/GetHabits";
 
 const HomeHabits = () => {
   const [sortHabits, setSortHabits] = useState({

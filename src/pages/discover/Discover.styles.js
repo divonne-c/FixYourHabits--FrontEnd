@@ -5,11 +5,16 @@ export const DiscoverStyles = styled.div`
   display: flex;
   flex-direction: column;
   gap: var(--gap-m);
+  overflow: hidden;
+  max-width: calc(
+    100vw - var(--layout-width-navigation-l) - var(--margin-l) - var(--margin-l)
+  );
 
   @media (max-width: 1024px) {
     margin: 0;
     display: flex;
     flex-direction: column;
+    max-width: 100vw;
 
     .filter-container {
       display: flex;

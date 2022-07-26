@@ -5,6 +5,10 @@ export const HelpStyles = styled.div`
   min-width: 600px;
   max-width: 1100px;
 
+  .title {
+    margin-bottom: var(--margin-m);
+  }
+
   .form-container {
     padding: var(--padding-l);
   }
@@ -28,6 +32,10 @@ export const HelpFaqStyles = styled.div`
     display: flex;
     gap: var(--gap-xxxl);
   }
+
+  .title-link {
+    color: var(--color-text-orange-dark);
+  }
 `;
 
 export const FaqNavStylesMobile = styled.div`
@@ -38,13 +46,13 @@ export const FaqNavStylesMobile = styled.div`
   margin: var(--margin-s) var(--margin-l);
 `;
 
-export const ContentConainter = styled.div`
+export const ContentContainer = styled.div`
   width: 30vw;
-  border-bottom: solid var(--color-orange) 1px;
-  padding-bottom: 2em;
+  border-bottom: solid var(--color-orange) var(--border-width-xxs);
+  padding-bottom: var(--padding-m);
 
   button {
-    width: 100%;
+    width: var(--width-100);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -66,7 +74,7 @@ export const ContentConainter = styled.div`
   }
 
   @media (max-width: 1024px) {
-    width: 100%;
+    width: var(--width-100);
     padding-bottom: var(--padding-s);
     font-size: var(--font-s);
 
@@ -78,4 +86,8 @@ export const ContentConainter = styled.div`
       margin-top: var(--margin-s);
     }
   }
+`;
+
+export const HelpMobile = styled.div`
+  padding: var(--padding-s);
 `;

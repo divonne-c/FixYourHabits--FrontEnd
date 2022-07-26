@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-/////////////////// Main //////////////////
 export const Nav = styled.nav`
   display: flex;
 `;
@@ -68,7 +67,6 @@ export const ButtonContainer = styled.div`
   }
 `;
 
-/////////////////// Sidebar //////////////////
 export const Sidebar = styled.div`
   background-color: var(--color-orange-light);
   padding: var(--padding-s) var(--padding-m);

@@ -17,11 +17,10 @@ import HelpFaqHabits from "../pages/help/HelpFaqHabits";
 import HelpContact from "../pages/help/HelpContact";
 import SignIn from "../pages/login/SignIn";
 import CreateAccount from "../pages/login/CreateAccount";
-import PageNotFound from "../pages/errorpage/PageNotFound";
 
 const AppRoutes = () => {
   const { auth } = useContext(AuthContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <Routes>
@@ -95,9 +94,6 @@ const AppRoutes = () => {
         <Route path="sign-in" element={<SignIn />} />
         <Route path="create-account" element={<CreateAccount />} />
       </Route>
-
-      {/*/!*    Error moet laatste zijn in routes *!/*/}
-      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };

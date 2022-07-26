@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
+import CreateHabit from "../habits/habit - create/CreateHabit";
+import ModalSmall from "../modals/modal - small/ModalSmall";
 import {
   LogoutButton,
   NavigationDesktop,
@@ -13,13 +15,10 @@ import {
   Mobile,
 } from "../../styles - global/global/MediaQueryDisplay";
 import { AuthContext } from "../../context/AuthContext";
-import CreateHabit from "../habits/habit - create/CreateHabit";
-import ModalSmall from "../modals/modal - small/ModalSmall";
 import {
   ButtonFourth,
   ButtonThird,
 } from "../../styles - global/global/ButtonStyles";
-import { CreateHabitButton } from "../habits/habit - create/CreateHabit.styles";
 
 const Navigation = () => {
   const [showMenu, toggleShowMenu] = useState(false);
@@ -30,7 +29,7 @@ const Navigation = () => {
   };
   return (
     <>
-      {/*------- DesktopWHeight --------*/}
+      {/*------- DESKTOP --------*/}
       <Desktop>
         <NavigationDesktop>
           <div>
@@ -114,15 +113,15 @@ const Navigation = () => {
         </NavigationDesktop>
       </Desktop>
 
-      {/*------- MobileWHeight --------*/}
+      {/*------- MOBILE --------*/}
       <Mobile>
         <NavigationMobile>
           {/*Home*/}
           <NavLink
             to={
               auth.isAuth && auth.user.role === "ROLE_USER"
-                ? `/home/${auth.user.username}/habits`
-                : auth.isAuth && `/admin/home/${auth.user.username}/habits`
+                ? `/home/${auth.user.username}`
+                : auth.isAuth && `/admin/home/${auth.user.username}`
             }
           >
             <span className="material-symbols-outlined">home</span>
@@ -134,7 +133,6 @@ const Navigation = () => {
           </NavLink>
 
           {/*Add habit button*/}
-
           <CreateHabit
             role={
               auth.isAuth && auth.user.role === "ROLE_USER" ? "user" : "admin"

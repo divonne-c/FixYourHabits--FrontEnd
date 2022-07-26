@@ -1,22 +1,21 @@
 import React, { useContext, useState } from "react";
-import { ContentLayout } from "../../styles - global/global/LayoutStyles";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import CreateAccountForm from "../../components/forms/CreateAccountForm";
-import axios from "axios";
+import bcrypt from "bcryptjs";
+import AuthNavigation from "../../components/navigations/AuthNavigation";
+import { ContentLayout } from "../../styles - global/global/LayoutStyles";
 import { AuthContext } from "../../context/AuthContext";
 import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../styles - global/global/MediaQueryDisplay";
-import { Container } from "./Auth.styles";
+import { Container, MobileContainer } from "./Auth.styles";
 import {
   ButtonPrimary,
   ButtonThird,
 } from "../../styles - global/global/ButtonStyles";
-import bcrypt from "bcryptjs";
-import AuthNavigation from "../../components/navigations/AuthNavigation";
 import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
-import LoginForm from "../../components/forms/LoginForm";
 
 const CreateAccount = () => {
   const [userData, setUserData] = useState({
@@ -71,50 +70,66 @@ const CreateAccount = () => {
       {/*----- DESKTOP -----*/}
       <DesktopWHeight>
         <Container>
-          <div className="auth-container">
-            <div className="auth-title">
-              <h1>Get Started</h1>
-              <p>
-                Welcome to Fix Your Habits. <br /> Fill in your info to get
-                started and fix your habits.
-              </p>
-            </div>
+          <div className="create-account content-container">
+            <aside className="aside-left">
+              <h1>Welcome Back!</h1>
+              <div>
+                <p>Already have an account?</p>
+                <p>Click on the button below to sign in.</p>
+              </div>
+              <ButtonPrimary onClick={() => navigate("/auth/sign-in")}>
+                Sign in
+              </ButtonPrimary>
+            </aside>
 
-            <form onSubmit={createAccountHandler}>
-              <CreateAccountForm
-                handler={onChangeHandler}
-                userData={userData}
-              />
-              {error && <p className="error">{error}</p>}
-              <ButtonThird type="submit">Create</ButtonThird>
-            </form>
+            <div className="auth-container">
+              <div className="auth-title">
+                <h1>Get Started</h1>
+                <p>
+                  Welcome to Fix Your Habits. <br /> Fill in your info to get
+                  started and fix your habits.
+                </p>
+              </div>
+
+              <form onSubmit={createAccountHandler}>
+                <CreateAccountForm
+                  handler={onChangeHandler}
+                  userData={userData}
+                />
+                {error && <p className="error">{error}</p>}
+                <ButtonThird type="submit">Create</ButtonThird>
+              </form>
+            </div>
           </div>
-
-          <aside>
-            <h1>Welcome Back!</h1>
-            <div>
-              <p>Already have an account?</p>
-              <p>Click on the button below to sign in.</p>
-            </div>
-            <ButtonPrimary onClick={() => navigate("/auth/sign-in")}>
-              Sign in
-            </ButtonPrimary>
-          </aside>
         </Container>
       </DesktopWHeight>
 
       {/*----- MOBILE -----*/}
       <MobileWHeight>
         <AuthNavigation />
-        <p>Log in with your account to fix your habits.</p>
 
-        <CardContentMobile>
-          <form onSubmit={createAccountHandler}>
-            <CreateAccountForm handler={onChangeHandler} userData={userData} />
-            {error && <p className="error">{error}</p>}
-            <ButtonThird type="submit">Create</ButtonThird>
-          </form>
-        </CardContentMobile>
+        <MobileContainer>
+          <div className="auth-title">
+            <p>
+              {" "}
+              Welcome to Fix Your Habits. <br /> Fill in your info to get
+              started and fix your habits.
+            </p>
+          </div>
+
+          <CardContentMobile>
+            <div className="form-container">
+              <form onSubmit={createAccountHandler}>
+                <CreateAccountForm
+                  handler={onChangeHandler}
+                  userData={userData}
+                />
+                {error && <p className="error">{error}</p>}
+                <ButtonThird type="submit">Create</ButtonThird>
+              </form>
+            </div>
+          </CardContentMobile>
+        </MobileContainer>
       </MobileWHeight>
     </ContentLayout>
   );

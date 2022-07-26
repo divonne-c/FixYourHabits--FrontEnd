@@ -1,5 +1,5 @@
-import { ProfileContext } from "../../../context/ProfileContext";
 import { useContext } from "react";
+import { ProfileContext } from "../../../context/ProfileContext";
 import { AuthContext } from "../../../context/AuthContext";
 import StatsProfileInfo from "../stats - profile info/StatsProfileInfo";
 import StatsToday from "../stats - today/StatsToday";

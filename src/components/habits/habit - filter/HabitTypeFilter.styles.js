@@ -10,6 +10,8 @@ export const Container = styled.div`
   .discover-main {
     display: flex;
     gap: var(--gap-s);
+    overflow-x: scroll;
+    scroll-behavior: smooth;
   }
 
   .discover {

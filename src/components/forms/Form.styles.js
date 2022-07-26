@@ -71,11 +71,8 @@ export const Template = styled.div`
   }
 
   span {
-    color: var(--color-error);
-    font-size: var(--font-xs);
     height: 10px;
     display: none;
-    margin-top: var(--margin-s);
   }
 
   input:invalid[focused="true"] {
@@ -89,6 +86,9 @@ export const Template = styled.div`
 
   input:invalid[focused="true"] ~ .error {
     display: flex;
+    color: var(--color-error);
+    font-size: var(--font-xs);
+    margin-top: var(--margin-s);
   }
 
   .input {

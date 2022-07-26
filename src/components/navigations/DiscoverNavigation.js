@@ -13,7 +13,7 @@ import {
 const DiscoverNavigation = () => {
   return (
     <>
-      {/*------- DesktopWHeight --------*/}
+      {/*------- Desktop --------*/}
       <Desktop>
         <NavLinkSecondary>
           <DiscoverNavStyles>
@@ -27,7 +27,7 @@ const DiscoverNavigation = () => {
         </NavLinkSecondary>
       </Desktop>
 
-      {/*------- MobileWHeight --------*/}
+      {/*------- Mobile --------*/}
       <Mobile>
         <NavLinkThird>
           <div className="links">

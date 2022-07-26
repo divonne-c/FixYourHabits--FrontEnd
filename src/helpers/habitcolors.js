@@ -30,7 +30,6 @@ const habitColorFunction = (type) => {
     case "family":
       return "family";
       break;
-
     default:
       return "none";
   }

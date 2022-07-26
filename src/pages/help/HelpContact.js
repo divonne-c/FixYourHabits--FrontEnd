@@ -1,17 +1,16 @@
-import React from "react";
+import HelpNavigation from "../../components/navigations/HelpNavigation";
+import ContactForm from "../../components/forms/ContactForm";
 import {
   ContentLayout,
   InnerContentLayout,
 } from "../../styles - global/global/LayoutStyles";
-import HelpNavigation from "../../components/navigations/HelpNavigation";
-import { HelpStyles, HelpStylesMobile } from "./Help.styles";
+import { HelpMobile, HelpStyles, HelpStylesMobile } from "./Help.styles";
 import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
 import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../styles - global/global/MediaQueryDisplay";
 import { Card } from "../../styles - global/cards/CardHome";
-import ContactForm from "../../components/forms/ContactForm";
 
 const HelpContact = () => {
   return (
@@ -19,15 +18,12 @@ const HelpContact = () => {
       <InnerContentLayout>
         <HelpNavigation />
 
-        {/*------- DesktopWHeight --------*/}
+        {/*------- Desktop --------*/}
         <DesktopWHeight>
           <HelpStyles>
-            <div>
+            <div className="title">
               <h1>Get in touch</h1>
-              <p>
-                Feel free to contact us for any other questions at
-                <span> fixyourhabits@hotmail.com</span>
-              </p>
+              <p>Fill in the contact form for any questions or comments.</p>
             </div>
             <Card>
               <div className="form-container">
@@ -37,11 +33,13 @@ const HelpContact = () => {
           </HelpStyles>
         </DesktopWHeight>
 
-        {/*------- MobileWHeight --------*/}
+        {/*------- Mobile --------*/}
         <MobileWHeight>
           <HelpStylesMobile>
             <CardContentMobile>
-              <ContactForm />
+              <HelpMobile>
+                <ContactForm />
+              </HelpMobile>
             </CardContentMobile>
           </HelpStylesMobile>
         </MobileWHeight>

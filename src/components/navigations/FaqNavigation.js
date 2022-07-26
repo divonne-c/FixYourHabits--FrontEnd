@@ -13,7 +13,7 @@ import {
 const FaqNavigation = () => {
   return (
     <>
-      {/*------- DesktopWHeight --------*/}
+      {/*------- Desktop --------*/}
       <Desktop>
         <NavLinkFourth>
           <NavLink to="/help/faq/account">
@@ -27,9 +27,8 @@ const FaqNavigation = () => {
           </NavLink>
         </NavLinkFourth>
       </Desktop>
-      {/*<FaqNavStyles></FaqNavStyles>*/}
 
-      {/*------- MobileWHeight --------*/}
+      {/*------- Mobile --------*/}
       <Mobile>
         <NavLinkSecondary>
           <FaqNavStylesMobile>
