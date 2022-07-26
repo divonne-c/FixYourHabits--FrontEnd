@@ -19,7 +19,7 @@ function App() {
         <Navigation />
 
         {/*Notifications*/}
-        {auth.isAuth && <Notification />}
+        <Notification />
 
         {/*Rewards*/}
         {auth.isAuth && <CreateUserReward />}

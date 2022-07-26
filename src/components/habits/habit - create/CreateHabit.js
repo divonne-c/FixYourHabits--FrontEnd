@@ -99,9 +99,15 @@ const CreateHabit = ({ role, profile }) => {
       </Desktop>
 
       <MobileWHeight>
-        <CreateHabitButton onClick={show}>
-          <span>+</span>
-        </CreateHabitButton>
+        {auth.isAuth ? (
+          <CreateHabitButton onClick={show}>
+            <span>+</span>
+          </CreateHabitButton>
+        ) : (
+          <CreateHabitButton>
+            <span>+</span>
+          </CreateHabitButton>
+        )}
       </MobileWHeight>
 
       {/*----- MODAL -----*/}

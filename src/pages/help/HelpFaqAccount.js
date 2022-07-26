@@ -47,7 +47,12 @@ const HelpFaqAccount = () => {
           <HelpStylesMobile>
             <CardContentMobile>
               <FaqNavigation />
-              <p>help faq account content</p>
+              <div className="faq-container">
+                <FaqContent
+                  question="How do I create an account?"
+                  answer="To create an account you can go to the register page: link"
+                />
+              </div>
             </CardContentMobile>
           </HelpStylesMobile>
         </MobileWHeight>

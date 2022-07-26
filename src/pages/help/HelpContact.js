@@ -41,7 +41,7 @@ const HelpContact = () => {
         <MobileWHeight>
           <HelpStylesMobile>
             <CardContentMobile>
-              <p>Help contact content mobile</p>
+              <ContactForm />
             </CardContentMobile>
           </HelpStylesMobile>
         </MobileWHeight>
