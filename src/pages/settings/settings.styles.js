@@ -17,7 +17,6 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: var(--gap-m);
-  margin-top: var(--margin-m);
 
   .edit-account {
     display: flex;

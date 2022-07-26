@@ -42,7 +42,7 @@ function ProfileProvider({ children }) {
       }
     }
 
-    auth.isAuth && auth.user.role === "ROLE_ADMIN" && getAdminData();
+    auth.isAuth && auth.user.role !== "ROLE_USER" && getAdminData();
   }, [renderData]);
 
   ///////// GET ADMIN REWARDS /////////
@@ -118,7 +118,7 @@ function ProfileProvider({ children }) {
       }
     }
 
-    auth.isAuth && auth.user.role === "ROLE_USER" && getData();
+    auth.isAuth && auth.user.role !== "ROLE_ADMIN" && getData();
   }, [renderData]);
 
   const values = {

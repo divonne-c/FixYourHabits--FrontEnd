@@ -1,8 +1,9 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import { ModalContainer } from "./Modal.styles";
 
 const Modal = ({ title, children }) => {
-  return (
+  return ReactDOM.createPortal(
     <ModalContainer>
       <div className="modal">
         <div className="element">
@@ -10,7 +11,8 @@ const Modal = ({ title, children }) => {
           <div>{children}</div>
         </div>
       </div>
-    </ModalContainer>
+    </ModalContainer>,
+    document.getElementById("portal")
   );
 };
 

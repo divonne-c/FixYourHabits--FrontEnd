@@ -5,10 +5,7 @@ import {
   Mobile,
 } from "../../styles - global/global/MediaQueryDisplay";
 import { FaqNavStylesMobile } from "../../pages/help/Help.styles";
-import {
-  NavLinkSecondary,
-  NavLinkFourth,
-} from "../../styles - global/navlinks/NavLinkStyles";
+import { NavLinkSecondary, NavLinkFourth } from "./NavLink.styles";
 
 const FaqNavigation = () => {
   return (

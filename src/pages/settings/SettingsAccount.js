@@ -21,7 +21,7 @@ const SettingsAccount = () => {
       <InnerContentLayout>
         <SettingsNavigation />
 
-        {/*------- DesktopWHeight --------*/}
+        {/*------- Desktop --------*/}
         <Container>
           <DesktopWHeight>
             <SettingStyles>
@@ -38,7 +38,7 @@ const SettingsAccount = () => {
           </DesktopWHeight>
         </Container>
 
-        {/*------- MobileWHeight --------*/}
+        {/*------- Mobile --------*/}
         <MobileWHeight>
           <SettingStylesMobile>
             <CardContentMobile>

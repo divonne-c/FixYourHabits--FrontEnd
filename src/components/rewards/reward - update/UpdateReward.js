@@ -8,7 +8,7 @@ import ModalButtons from "../../modals/modal - buttons/ModalButtons";
 
 const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
   const [rewardData, setRewardData] = useState({
-    number: reward.name,
+    number: reward.name.split("-")[1],
     type: reward.type,
     description: reward.description,
   });

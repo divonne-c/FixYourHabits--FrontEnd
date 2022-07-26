@@ -1,7 +1,9 @@
 import React, { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import ModalButtons from "../modals/modal - buttons/ModalButtons";
+import ModalSignOut from "../modals/modal - sign out/ModalSignOut";
 import { NavLink } from "react-router-dom";
 import CreateHabit from "../habits/habit - create/CreateHabit";
-import ModalSmall from "../modals/modal - small/ModalSmall";
 import {
   LogoutButton,
   NavigationDesktop,
@@ -9,16 +11,11 @@ import {
   NavigationLink,
   NavigationLogo,
   NavigationMobile,
-} from "../../styles - global/global/NavigationStyles";
+} from "./Navigation.styles";
 import {
   Desktop,
   Mobile,
 } from "../../styles - global/global/MediaQueryDisplay";
-import { AuthContext } from "../../context/AuthContext";
-import {
-  ButtonFourth,
-  ButtonThird,
-} from "../../styles - global/global/ButtonStyles";
 
 const Navigation = () => {
   const [showMenu, toggleShowMenu] = useState(false);
@@ -85,22 +82,17 @@ const Navigation = () => {
                   <p>Sign Out</p>
                 </LogoutButton>
                 {showMenu && (
-                  <ModalSmall>
-                    <div className="modal-container">
-                      <p>Would you like to sign out?</p>
-                      <div className="button-container">
-                        <ButtonFourth onClick={show}>Cancel</ButtonFourth>
-                        <ButtonThird
-                          onClick={() => {
-                            show();
-                            logout();
-                          }}
-                        >
-                          Sign out
-                        </ButtonThird>
-                      </div>
-                    </div>
-                  </ModalSmall>
+                  <ModalSignOut>
+                    <p>Would you like to sign out?</p>
+                    <ModalButtons
+                      show={show}
+                      handler={() => {
+                        show();
+                        logout();
+                      }}
+                      buttonText="Sign out"
+                    />
+                  </ModalSignOut>
                 )}
               </>
             ) : (

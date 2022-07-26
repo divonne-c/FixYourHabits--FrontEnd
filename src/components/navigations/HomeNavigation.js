@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Mobile } from "../../styles - global/global/MediaQueryDisplay";
 import { NavLink } from "react-router-dom";
-import { NavLinkFifth } from "../../styles - global/navlinks/NavLinkStyles";
+import { NavLinkFifth } from "./NavLink.styles";
 import { AuthContext } from "../../context/AuthContext";
 import { Nav } from "../../pages/home/Home.styles";
 

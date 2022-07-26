@@ -9,7 +9,6 @@ import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../styles - global/global/MediaQueryDisplay";
-import Banner from "../../components/banner/Banner";
 
 const DiscoverMain = () => {
   return (

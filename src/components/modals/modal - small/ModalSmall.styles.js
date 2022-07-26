@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   text-align: left;
+  color: var(--color-text-grey);
   position: fixed;
   top: 0;
   left: 0;
   height: var(--height-100vh);
   width: var(--width-100vw);
-  z-index: 2;
+  z-index: 3;
 
   .modal {
     display: flex;

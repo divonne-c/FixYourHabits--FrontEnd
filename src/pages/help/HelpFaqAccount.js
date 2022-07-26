@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import FaqNavigation from "../../components/navigations/FaqNavigation";
 import HelpNavigation from "../../components/navigations/HelpNavigation";
-import FaqContent from "./FaqContent";
+import FaqAccountContent from "./faq - questions and answers/FaqAccountContent";
 import {
   ContentLayout,
   InnerContentLayout,
@@ -36,11 +36,8 @@ const HelpFaqAccount = () => {
 
             <div className="content-container">
               <FaqNavigation />
-              <div>
-                <FaqContent
-                  question="How do I create an account?"
-                  answer="To create an account you can go to the register page: link"
-                />
+              <div className="faq-container">
+                <FaqAccountContent />
               </div>
             </div>
           </HelpFaqStyles>
@@ -52,10 +49,7 @@ const HelpFaqAccount = () => {
             <CardContentMobile>
               <FaqNavigation />
               <div className="faq-container">
-                <FaqContent
-                  question="How do I create an account?"
-                  answer="To create an account you can go to the register page: link"
-                />
+                <FaqAccountContent />
               </div>
             </CardContentMobile>
           </HelpStylesMobile>

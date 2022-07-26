@@ -4,10 +4,6 @@ export const Container = styled.div`
   margin: 0 var(--margin-m);
   display: flex;
 
-  input[type="file"] {
-    display: none;
-  }
-
   .profile-image {
     display: flex;
     flex-direction: column;
@@ -106,6 +102,10 @@ export const Preview = styled.div`
     color: var(--color-orange);
     padding: var(--padding-xs);
     border-radius: var(--border-radius-xl);
+
+    input[type="file"] {
+      display: none;
+    }
 
     :hover {
       opacity: 0.9;

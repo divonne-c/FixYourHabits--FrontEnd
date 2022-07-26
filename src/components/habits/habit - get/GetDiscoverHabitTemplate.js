@@ -7,7 +7,7 @@ import {
 import { HabitColorStyle } from "./GetHabits.styles";
 import { ElementMobile } from "../habit - filter/HabitTypeFilter.styles";
 import { AuthContext } from "../../../context/AuthContext";
-import { Element } from "../../habit - reward/HabitAndReward.styles";
+import { DiscoverElement } from "../../habit - reward/HabitAndReward.styles";
 
 const GetDiscoverHabitTemplate = ({ habit, habitColor, habitLogo }) => {
   const { auth } = useContext(AuthContext);
@@ -18,7 +18,7 @@ const GetDiscoverHabitTemplate = ({ habit, habitColor, habitLogo }) => {
       <Desktop>
         <div className={habitColor}>
           <div className="discover">
-            <Element>
+            <DiscoverElement>
               <span className={`material-symbols-outlined ${habitColor}`}>
                 {habitLogo}
               </span>
@@ -31,7 +31,7 @@ const GetDiscoverHabitTemplate = ({ habit, habitColor, habitLogo }) => {
                   <AddHabitModal habit={habit} />
                 </div>
               )}
-            </Element>
+            </DiscoverElement>
           </div>
         </div>
       </Desktop>

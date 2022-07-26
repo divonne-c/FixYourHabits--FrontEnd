@@ -5,10 +5,7 @@ import {
   Mobile,
 } from "../../styles - global/global/MediaQueryDisplay";
 import { DiscoverNavStyles } from "../../pages/discover/Discover.styles";
-import {
-  NavLinkSecondary,
-  NavLinkThird,
-} from "../../styles - global/navlinks/NavLinkStyles";
+import { NavLinkSecondary, NavLinkThird } from "./NavLink.styles";
 
 const DiscoverNavigation = () => {
   return (

@@ -38,6 +38,11 @@ export const Form = styled.div`
     border-bottom: 1px solid var(--color-white-input);
   }
 
+  input[value] {
+    color: var(--color-text-grey);
+    font-family: var(--font-family);
+  }
+
   @media (max-width: 1024px) {
     gap: var(--gap-s);
   }

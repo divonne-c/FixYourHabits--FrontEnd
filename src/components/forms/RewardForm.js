@@ -34,6 +34,7 @@ const RewardForm = ({ reward, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={reward.type === "pink"}
             handler={handler}
             label="Pink"
             value="pink"
@@ -42,6 +43,7 @@ const RewardForm = ({ reward, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={reward.type === "green"}
             handler={handler}
             label="Green"
             value="green"
@@ -50,6 +52,7 @@ const RewardForm = ({ reward, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={reward.type === "yellow"}
             handler={handler}
             label="Yellow"
             value="yellow"
@@ -58,6 +61,7 @@ const RewardForm = ({ reward, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={reward.type === "blue"}
             handler={handler}
             label="Blue"
             value="blue"
@@ -66,6 +70,7 @@ const RewardForm = ({ reward, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={reward.type === "purple"}
             handler={handler}
             label="Purple"
             value="purple"

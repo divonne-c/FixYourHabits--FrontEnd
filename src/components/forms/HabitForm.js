@@ -39,6 +39,7 @@ const HabitForm = ({ habit, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={habit.type === "sport"}
             handler={handler}
             label="Sport"
             value="sport"
@@ -47,6 +48,7 @@ const HabitForm = ({ habit, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={habit.type === "health"}
             handler={handler}
             label="Health"
             value="health"
@@ -55,6 +57,7 @@ const HabitForm = ({ habit, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={habit.type === "mind"}
             handler={handler}
             label="Mind"
             value="mind"
@@ -63,6 +66,7 @@ const HabitForm = ({ habit, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={habit.type === "business"}
             handler={handler}
             label="Business"
             value="business"
@@ -71,6 +75,7 @@ const HabitForm = ({ habit, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={habit.type === "finance"}
             handler={handler}
             label="Finance"
             value="finance"
@@ -79,6 +84,7 @@ const HabitForm = ({ habit, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={habit.type === "hobby"}
             handler={handler}
             label="Hobby"
             value="hobby"
@@ -87,6 +93,7 @@ const HabitForm = ({ habit, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={habit.type === "food"}
             handler={handler}
             label="Food"
             value="food"
@@ -95,6 +102,7 @@ const HabitForm = ({ habit, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={habit.type === "study"}
             handler={handler}
             label="Study"
             value="study"
@@ -103,6 +111,7 @@ const HabitForm = ({ habit, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={habit.type === "home"}
             handler={handler}
             label="Home"
             value="home"
@@ -111,6 +120,7 @@ const HabitForm = ({ habit, handler }) => {
           <InputTemplate
             type="radio"
             name="type"
+            checked={habit.type === "family"}
             handler={handler}
             label="Family"
             value="family"

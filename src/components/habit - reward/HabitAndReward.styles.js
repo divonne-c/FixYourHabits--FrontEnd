@@ -60,6 +60,66 @@ export const Element = styled.div`
   }
 `;
 
+export const DiscoverElement = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--gap-xs);
+  padding: var(--padding-s) var(--padding-xs);
+  min-height: var(--height-habit);
+  min-width: var(--width-habit);
+  text-align: center;
+  font-size: var(--font-s);
+  position: relative;
+
+  p {
+    font-size: var(--font-xs);
+  }
+
+  h4 {
+    text-transform: capitalize;
+  }
+
+  .complete-btn {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    height: var(--height-100);
+    width: var(--width-100);
+    background: var(--color-background-modal);
+    border-radius: var(--border-radius-s);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .large-element {
+    height: 160px;
+    width: 160px;
+  }
+
+  :hover {
+    cursor: pointer;
+  }
+
+  :hover .complete-btn {
+    opacity: 1;
+  }
+
+  @media (max-width: 1024px) {
+    min-height: 20px;
+    max-height: 45px;
+    width: var(--width-100);
+    flex-direction: row;
+    gap: var(--gap-s);
+
+    span {
+      transform: scale(0.8);
+    }
+  }
+`;
+
 export const GetContainer = styled.div`
   display: flex;
   flex-wrap: wrap;

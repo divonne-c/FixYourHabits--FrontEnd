@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ProfileContext } from "../../context/ProfileContext";
 import Banner from "../../components/banner/Banner";
 import habitColorFunction from "../../helpers/habitcolors";
@@ -17,11 +17,11 @@ const DiscoverMainContent = () => {
 
   useEffect(() => {
     //  NEW
-    setNewHabits(adminHabits.slice(-10));
+    setNewHabits(adminHabits.slice(-20));
 
     // HEALTH
     setHealthHabits(
-      adminHabits.filter((habit) => habit.type === "health").slice(-10)
+      adminHabits.filter((habit) => habit.type === "health").slice(-20)
     );
 
     // RANDOM
@@ -29,11 +29,11 @@ const DiscoverMainContent = () => {
       const shuffled = [...arr].sort(() => 0.5 - Math.random());
       return shuffled.slice(0, num);
     }
-    setRandomHabits(getMultipleRandom(adminHabits, 10));
+    setRandomHabits(getMultipleRandom(adminHabits, 20));
 
     // MIND
     setMindHabits(
-      adminHabits.filter((habit) => habit.type === "mind").slice(-10)
+      adminHabits.filter((habit) => habit.type === "mind").slice(-20)
     );
   }, [adminHabits]);
 

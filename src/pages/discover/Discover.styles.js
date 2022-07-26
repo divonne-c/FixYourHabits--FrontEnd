@@ -49,6 +49,7 @@ export const Filter = styled.div`
   background-color: var(--color-white);
   padding: var(--padding-s) var(--padding-m);
   margin-left: var(--margin-m);
+  max-height: 700px;
 
   h1 {
     text-align: center;

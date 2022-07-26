@@ -19,6 +19,9 @@ export const HelpStylesMobile = styled.div`
 
   .faq-container {
     margin: var(--margin-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm);
   }
 `;
 
@@ -31,6 +34,12 @@ export const HelpFaqStyles = styled.div`
   .content-container {
     display: flex;
     gap: var(--gap-xxxl);
+  }
+
+  .faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm);
   }
 
   .title-link {
@@ -69,8 +78,22 @@ export const ContentContainer = styled.div`
     font-weight: lighter;
   }
 
+  .questions-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm);
+  }
+
   .answer {
-    margin-top: var(--margin-m);
+    margin-top: var(--margin-s);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-s);
+
+    a,
+    span {
+      color: var(--color-text-orange-dark);
+    }
   }
 
   @media (max-width: 1024px) {
@@ -80,6 +103,7 @@ export const ContentContainer = styled.div`
 
     .question {
       font-size: var(--font-s);
+      text-align: left;
     }
 
     .answer {

@@ -13,6 +13,8 @@ import {
   DesktopWHeight,
   MobileWHeight,
 } from "../../styles - global/global/MediaQueryDisplay";
+import FaqRewardsContent from "./faq - questions and answers/FaqRewardsContent";
+import FaqHabitsContent from "./faq - questions and answers/FaqHabitsContent";
 
 const HelpFaqHabits = () => {
   return (
@@ -36,11 +38,8 @@ const HelpFaqHabits = () => {
 
             <div className="content-container">
               <FaqNavigation />
-              <div>
-                <FaqContent
-                  question="How do I create an account?"
-                  answer="To create an account you can go to the register page: link"
-                />
+              <div className="faq-container">
+                <FaqHabitsContent />
               </div>
             </div>
           </HelpFaqStyles>
@@ -52,10 +51,7 @@ const HelpFaqHabits = () => {
             <CardContentMobile>
               <FaqNavigation />
               <div className="faq-container">
-                <FaqContent
-                  question="How do I create an account?"
-                  answer="To create an account you can go to the register page: link"
-                />
+                <FaqHabitsContent />
               </div>
             </CardContentMobile>
           </HelpStylesMobile>

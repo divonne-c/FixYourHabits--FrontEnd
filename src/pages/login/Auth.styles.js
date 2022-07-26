@@ -14,6 +14,12 @@ export const Container = styled.div`
     box-shadow: var(--shadow-medium);
   }
 
+  .error {
+    color: var(--color-error);
+    text-align: center;
+    margin-top: var(--margin-s);
+  }
+
   .sign-in {
     grid-template-columns: 2fr 1fr;
   }

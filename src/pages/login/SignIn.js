@@ -21,6 +21,7 @@ const SignIn = () => {
     username: "",
     password: "",
   });
+  const [error, setError] = useState("");
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -46,6 +47,7 @@ const SignIn = () => {
       login(response.data.jwt);
     } catch (e) {
       console.error(e);
+      setError("Incorrect username or password");
     }
   }
 
@@ -65,6 +67,7 @@ const SignIn = () => {
 
               <form onSubmit={makeLoginRequest}>
                 <LoginForm handler={onChangeHandler} userData={userData} />
+                {error && <p className="error">{error}</p>}
                 <ButtonThird type="submit">Sign in</ButtonThird>
               </form>
             </div>

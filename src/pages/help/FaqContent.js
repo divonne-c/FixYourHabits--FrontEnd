@@ -19,7 +19,7 @@ const FaqContent = ({ question, answer }) => {
 
       {showContent && (
         <div className="answer">
-          <p>{answer}</p>
+          <div>{answer}</div>
         </div>
       )}
     </ContentContainer>
