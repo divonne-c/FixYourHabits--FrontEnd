@@ -1,11 +1,7 @@
 import React, { useContext } from "react";
 import FaqContent from "../FaqContent";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../../context/AuthContext";
 
 const FaqRewardsContent = () => {
-  const { auth } = useContext(AuthContext);
-
   return (
     <>
       <FaqContent
@@ -14,17 +10,7 @@ const FaqRewardsContent = () => {
           <div className="questions-container">
             <p>
               To earn rewards you'll need to create habits. You can create
-              habits on your computer at{" "}
-              <Link
-                to={
-                  auth.user.role === "ROLE_USER"
-                    ? `/home/${auth.user.username}`
-                    : `/admin/home/${auth.user.username}`
-                }
-              >
-                home
-              </Link>
-              . Click on the{" "}
+              habits on your computer at <span>home</span>. Click on the{" "}
               <span className="material-symbols-outlined">add_box</span> button
               to create a habit.
             </p>
@@ -69,17 +55,8 @@ const FaqRewardsContent = () => {
         question="Where can I find my rewards?"
         answer={
           <p>
-            You'll find all of your rewards at{" "}
-            <Link
-              to={
-                auth.user.role === "ROLE_USER"
-                  ? `/home/${auth.user.username}`
-                  : `/admin/home/${auth.user.username}`
-              }
-            >
-              home
-            </Link>{" "}
-            under Rewards. You can click on the reward to see more information.
+            You'll find all of your rewards at <span>home</span> under Rewards.
+            You can click on the reward to see more information.
           </p>
         }
       />

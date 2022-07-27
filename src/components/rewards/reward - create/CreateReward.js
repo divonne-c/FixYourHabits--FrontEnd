@@ -58,7 +58,7 @@ const CreateReward = () => {
         {
           type: "error",
           message:
-            "Something went wrong with creating the reward. Please try again.",
+            "Something went wrong with creating the reward. Please check if the reward already exists and try again.",
         },
       ]);
     }

@@ -22,7 +22,6 @@ export const Container = styled.div`
     padding-left: var(--padding-m);
 
     h2 {
-      text-align: center;
       font-weight: var(--font-weight-bold);
     }
   }

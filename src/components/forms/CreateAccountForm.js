@@ -12,7 +12,7 @@ const CreateAccountForm = ({ userData, handler }) => {
         name="name"
         label="Name"
         pattern="^[a-zA-Z](\s?[a-zA-Z]){0,30}$"
-        errorMessage="Name should have a maximum of 30 characters and can not contain numbers."
+        errorMessage="Name should have a maximum of 30 characters and can not contain numbers or special characters."
       />
 
       <InputTemplate
@@ -21,8 +21,8 @@ const CreateAccountForm = ({ userData, handler }) => {
         handler={handler}
         name="username"
         label="Username"
-        pattern="^[a-zA-Z](\s?[a-zA-Z]){0,30}$"
-        errorMessage="Name should have a maximum of 30 characters and can not contain numbers."
+        pattern="^.{3,30}$"
+        errorMessage="Username should be between 3 and 30 characters long."
       />
 
       <InputTemplate

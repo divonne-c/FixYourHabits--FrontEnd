@@ -3,7 +3,6 @@ import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
 import Modal from "../../modals/modal - normal/Modal";
 import { ButtonFourth } from "../../../styles - global/global/ButtonStyles";
-import { Container } from "./CreateRewards.styles";
 import { ProfileContext } from "../../../context/ProfileContext";
 import rewards from "../../../helpers/rewards";
 
@@ -73,13 +72,13 @@ const CreateUserReward = () => {
   }, [userProfile.totalHabits]);
 
   return (
-    <Container>
+    <>
       {userProfile.userRewards &&
         userProfile.userRewards.map((reward) => {
           return (
             <div key={reward.id}>
               {showReward && (
-                <Modal title="Congratulations!" className="modal">
+                <Modal title="Congratulations!">
                   <div className="modal-reward">
                     <span className="material-symbols-outlined">
                       workspace_premium
@@ -93,7 +92,7 @@ const CreateUserReward = () => {
             </div>
           );
         })}
-    </Container>
+    </>
   );
 };
 

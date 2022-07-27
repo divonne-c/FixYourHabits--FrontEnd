@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import FaqContent from "../FaqContent";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 
 const FaqHabitsContent = () => {
@@ -22,9 +21,9 @@ const FaqHabitsContent = () => {
         question="How can I add a habit from Discover?"
         answer={
           <p>
-            In <Link to="/discover/main">discover</Link> we have a list of
-            habits that are already made. You can add these habits simply by
-            hovering over the habit and click on the <span>add button</span>.
+            In <span>discover</span> we have a list of habits that are already
+            made. You can add these habits simply by hovering over the habit and
+            click on the <span>add button</span>.
           </p>
         }
       />
@@ -33,17 +32,8 @@ const FaqHabitsContent = () => {
         answer={
           <div className="questions-container">
             <p>
-              To create a new habit, you can go to{" "}
-              <Link
-                to={
-                  auth.user.role === "ROLE_USER"
-                    ? `/home/${auth.user.username}`
-                    : `/admin/home/${auth.user.username}`
-                }
-              >
-                home
-              </Link>{" "}
-              on your computer. Click on the{" "}
+              To create a new habit, you can go to <span>home</span> on your
+              computer. Click on the{" "}
               <span className="material-symbols-outlined">add_box</span> button
               to make the habit.
             </p>
@@ -61,17 +51,7 @@ const FaqHabitsContent = () => {
         answer={
           <div className="questions-container">
             <p>
-              To edit a habit, you need to go to{" "}
-              <Link
-                to={
-                  auth.user.role === "ROLE_USER"
-                    ? `/home/${auth.user.username}`
-                    : `/admin/home/${auth.user.username}`
-                }
-              >
-                home
-              </Link>
-              . Click on{" "}
+              To edit a habit, you need to go to <span>home</span>. Click on{" "}
               <span className="material-symbols-outlined">more_horiz</span>{" "}
               right above the habit to open the menu. You'll see a menu where
               you need to click on the edit{" "}
@@ -91,17 +71,7 @@ const FaqHabitsContent = () => {
         answer={
           <div className="questions-container">
             <p>
-              To delete a habit, you need to go to{" "}
-              <Link
-                to={
-                  auth.user.role === "ROLE_USER"
-                    ? `/home/${auth.user.username}`
-                    : `/admin/home/${auth.user.username}`
-                }
-              >
-                home
-              </Link>
-              . Click on{" "}
+              To delete a habit, you need to go to <span>home</span>. Click on{" "}
               <span className="material-symbols-outlined">more_horiz</span>{" "}
               right above the habit to open the menu. You'll see a menu where
               you need to click on the delete{" "}
@@ -121,19 +91,10 @@ const FaqHabitsContent = () => {
         answer={
           <div className="questions-container">
             <p>
-              To complete a habit, you need to go to{" "}
-              <Link
-                to={
-                  auth.user.role === "ROLE_USER"
-                    ? `/home/${auth.user.username}`
-                    : `/admin/home/${auth.user.username}`
-                }
-              >
-                home
-              </Link>
-              . Hover on the habit and you will see the complete button. To
-              complete the habit you need to click on this button and the habit
-              will be placed at the completed habits.
+              To complete a habit, you need to go to <span>home</span>. Hover on
+              the habit and you will see the complete button. To complete the
+              habit you need to click on this button and the habit will be
+              placed at the completed habits.
             </p>
             <p>
               On your phone you need to click on{" "}
@@ -150,18 +111,9 @@ const FaqHabitsContent = () => {
         answer={
           <p>
             {" "}
-            You can find all your habits at{" "}
-            <Link
-              to={
-                auth.user.role === "ROLE_USER"
-                  ? `/home/${auth.user.username}`
-                  : `/admin/home/${auth.user.username}`
-              }
-            >
-              home
-            </Link>
-            . You can see al your habits that are completed and the habits that
-            need to be completed.
+            You can find all your habits at <span>home</span>. You can see al
+            your habits that are completed and the habits that need to be
+            completed.
           </p>
         }
       />

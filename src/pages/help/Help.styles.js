@@ -76,6 +76,7 @@ export const ContentContainer = styled.div`
     font-size: var(--font-sm);
     font-family: var(--font-family);
     font-weight: lighter;
+    text-align: left;
   }
 
   .questions-container {
