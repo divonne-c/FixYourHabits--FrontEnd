@@ -35,7 +35,7 @@ const CreateAccountForm = ({ userData, handler }) => {
       />
 
       <InputTemplate
-        label="New password"
+        label="Password"
         handler={handler}
         type="password"
         value={userData.password}

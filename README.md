@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Fix Your Habits
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![screenshot page](./src/assets/home.jpg)
 
-## Available Scripts
+## Table of contents
+* [About the project](##About the Project)
+* [Getting Started](##Getting Started)
+* [Data for login](##Data for login)
 
-In the project directory, you can run:
 
-### `npm start`
+## About the Project
+Here you can find the Backend for my webapplication Fix Your Habits. It's a habit tracker where you can add, create, edit and delete habits. You can earn rewards for creating habits and discover all kinds of pre-made habits!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Take a look at the <a href="https://github.com/divonne-c/FixYourHabits--BackEnd">Backend</a> code of this project.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
+To install this project and use it locally, you need to follow a few steps.
 
-### `npm test`
+### Prerequisites
+* IDE (Created in Webstorm)
+* Server/localhost
+* npm/Node.js
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. Download and Install Webstorm, node.js and npm.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Clone the repo with the SSH key in Webstorm.
+```
+git@github.com:divonne-c/FixYourHabits--FrontEnd.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Write the following in the terminal
+```
+npm install
+```
+4. To run the webapplication in your browser, write the following in the terminal
+```
+npm run start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. It’s possible to login and use the web application locally in combination with the <a href="https://github.com/divonne-c/FixYourHabits--BackEnd">backend</a> part of the application.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Data for login
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To test the webapplication, you need to authenticate by signing in or creating an account. Below you will see the dummy accounts to log in. Be aware that the username and password are both lowercase!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Role          | Username | Password |
+|---------------|:--------:|---------:|
+| User          |   user   | password |
+| Admin         |  admin   | password |
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
