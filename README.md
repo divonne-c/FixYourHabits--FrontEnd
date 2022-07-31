@@ -3,10 +3,11 @@
 ![screenshot page](./src/assets/home.jpg)
 
 ## Table of contents
-* [About the project](##About the Project)
-* [Getting Started](##Getting Started)
-* [Data for login](##Data for login)
-
+* [About the Project](#about-the-project)
+* [Getting Started](#getting-started)
+    + [Prerequisites](#prerequisites)
+    + [Installation](#installation)
+* [Data for login](#data-for-login)
 
 ## About the Project
 Here you can find the Backend for my webapplication Fix Your Habits. It's a habit tracker where you can add, create, edit and delete habits. You can earn rewards for creating habits and discover all kinds of pre-made habits!
