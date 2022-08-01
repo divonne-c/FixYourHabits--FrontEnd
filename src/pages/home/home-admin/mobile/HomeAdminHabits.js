@@ -7,10 +7,10 @@ import GetHabits from "../../../../components/habits/habit - get/GetHabits";
 import {
   ContentLayout,
   InnerContentLayout2,
-} from "../../../../styles - global/global/LayoutStyles";
-import { MobileWHeight } from "../../../../styles - global/global/MediaQueryDisplay";
-import { CardContentMobile } from "../../../../styles - global/cards/CardContentMobile";
-import { Card } from "../../../../styles - global/cards/CardHome";
+} from "../../../../globalstyles/LayoutStyles";
+import { MobileWHeight } from "../../../../globalstyles/MediaQueryDisplay";
+import { CardContentMobile } from "../../../../globalstyles/CardContentMobile";
+import { Card } from "../../../../globalstyles/CardHome";
 import { HabitsMobile } from "../../Home.styles";
 
 const HomeAdminHabits = () => {

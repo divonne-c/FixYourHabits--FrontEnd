@@ -27,11 +27,6 @@ export const DiscoverStyles = styled.div`
       align-items: center;
       gap: var(--gap-s);
     }
-
-    .cancel-button {
-      text-align: center;
-    }
-  }
 `;
 
 export const DiscoverNavStyles = styled.div`

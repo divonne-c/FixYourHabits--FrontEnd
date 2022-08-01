@@ -1,20 +1,17 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ContentLayout } from "../../styles - global/global/LayoutStyles";
+import { ContentLayout } from "../../globalstyles/LayoutStyles";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import LoginForm from "../../components/forms/LoginForm";
 import AuthNavigation from "../../components/navigations/AuthNavigation";
-import {
-  ButtonPrimary,
-  ButtonThird,
-} from "../../styles - global/global/ButtonStyles";
+import { ButtonPrimary, ButtonThird } from "../../globalstyles/ButtonStyles";
 import { Container, MobileContainer } from "./Auth.styles";
 import {
   DesktopWHeight,
   MobileWHeight,
-} from "../../styles - global/global/MediaQueryDisplay";
-import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
+} from "../../globalstyles/MediaQueryDisplay";
+import { CardContentMobile } from "../../globalstyles/CardContentMobile";
 
 const SignIn = () => {
   const [userData, setUserData] = useState({

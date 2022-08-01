@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import FaqContent from "../FaqContent";
 
 const FaqRewardsContent = () => {

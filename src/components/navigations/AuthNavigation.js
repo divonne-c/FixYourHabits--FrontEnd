@@ -1,5 +1,5 @@
 import React from "react";
-import { Mobile } from "../../styles - global/global/MediaQueryDisplay";
+import { Mobile } from "../../globalstyles/MediaQueryDisplay";
 import { NavLinkThird } from "./NavLink.styles";
 import { NavLink } from "react-router-dom";
 

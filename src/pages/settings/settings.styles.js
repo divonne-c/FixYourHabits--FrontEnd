@@ -29,7 +29,7 @@ export const Content = styled.div`
     margin-top: 0;
 
     .card-container {
-      border-bottom: 1px solid var(--color-white-background);
+      border-bottom: var(--border-width-xxs) solid var(--color-white-background);
     }
   }
 `;

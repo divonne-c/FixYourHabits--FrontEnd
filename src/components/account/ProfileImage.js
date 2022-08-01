@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
-import { Container, ModalContainer, Preview } from "./ProfileImage.styles";
 import { ProfileContext } from "../../context/ProfileContext";
 import ProfileImageContent from "./ProfileImageContent";
 

@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
 import AddHabitModal from "../habit - add discover/AddHabitModal";
-import {
-  Desktop,
-  Mobile,
-} from "../../../styles - global/global/MediaQueryDisplay";
+import { Desktop, Mobile } from "../../../globalstyles/MediaQueryDisplay";
 import { HabitColorStyle } from "./GetHabits.styles";
 import { ElementMobile } from "../habit - filter/HabitTypeFilter.styles";
 import { AuthContext } from "../../../context/AuthContext";

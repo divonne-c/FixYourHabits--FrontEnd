@@ -5,15 +5,12 @@ import Modal from "../../modals/modal - normal/Modal";
 import HabitForm from "../../forms/HabitForm";
 import TotalUserHabitsButton from "../habit - total habits user/TotalUserHabitsButton";
 import CreateAdminElementButton from "../../habit - reward/create/CreateAdminElementButton";
-import {
-  ButtonFourth,
-  ButtonThird,
-} from "../../../styles - global/global/ButtonStyles";
+import { ButtonFourth, ButtonThird } from "../../../globalstyles/ButtonStyles";
 import { CreateHabitButton } from "./CreateHabit.styles";
 import {
   Desktop,
   MobileWHeight,
-} from "../../../styles - global/global/MediaQueryDisplay";
+} from "../../../globalstyles/MediaQueryDisplay";
 import { Container } from "../../modals/modal - buttons/ModalButtons.styles";
 
 const CreateHabit = ({ role, profile }) => {

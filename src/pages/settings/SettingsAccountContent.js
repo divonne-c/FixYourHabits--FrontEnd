@@ -6,9 +6,9 @@ import ProfileImage from "../../components/account/ProfileImage";
 import EditAccount from "../../components/account/EditAccount";
 import ResetAccount from "../../components/account/ResetAccount";
 import DeleteAccount from "../../components/account/DeleteAccount";
-import { Card } from "../../styles - global/cards/CardHome";
+import { Card } from "../../globalstyles/CardHome";
 import { Content, Div, PersonalInfo } from "./settings.styles";
-import { ButtonFourth } from "../../styles - global/global/ButtonStyles";
+import { ButtonFourth } from "../../globalstyles/ButtonStyles";
 
 const SettingsAccountContent = () => {
   const { auth, logout, user } = useContext(AuthContext);

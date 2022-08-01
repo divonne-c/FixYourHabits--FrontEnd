@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ButtonPrimary } from "../../../styles - global/global/ButtonStyles";
+import { ButtonPrimary } from "../../../globalstyles/ButtonStyles";
 
 export const CompleteButton = styled(ButtonPrimary)`
   border-radius: var(--border-radius-s);

@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  ButtonFourth,
-  ButtonThird,
-} from "../../../styles - global/global/ButtonStyles";
+import { ButtonFourth, ButtonThird } from "../../../globalstyles/ButtonStyles";
 import { Container } from "./ModalButtons.styles";
 
 const ModalButtons = ({ show, handler, buttonText }) => {

@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import ModalSmall from "../../modals/modal - small/ModalSmall";
+import AddAdminHabit from "./AddAdminHabit";
 import {
   ButtonFourth,
   ButtonSecondary,
-} from "../../../styles - global/global/ButtonStyles";
-import AddAdminHabit from "./AddAdminHabit";
+} from "../../../globalstyles/ButtonStyles";
 import { Container } from "./AddHabitModal.styles";
-import {
-  Desktop,
-  Mobile,
-} from "../../../styles - global/global/MediaQueryDisplay";
+import { Desktop, Mobile } from "../../../globalstyles/MediaQueryDisplay";
 
 const AddHabitModal = ({ habit, habitColor }) => {
   const [showModal, toggleShowModal] = useState(false);

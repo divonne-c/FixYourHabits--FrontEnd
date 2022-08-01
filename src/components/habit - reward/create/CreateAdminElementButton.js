@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "./CreateAdminElementButton.styles";
 
 const CreateAdminElementButton = ({ show, name }) => {

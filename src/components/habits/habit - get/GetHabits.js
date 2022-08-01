@@ -4,7 +4,7 @@ import { AuthContext } from "../../../context/AuthContext";
 import habitColorFunction from "../../../helpers/habitcolors";
 import habitLogoFunction from "../../../helpers/habitlogos";
 import GetHabitsTemplate from "./GetHabitsTemplate";
-import { DesktopWHeight } from "../../../styles - global/global/MediaQueryDisplay";
+import { DesktopWHeight } from "../../../globalstyles/MediaQueryDisplay";
 import CreateHabit from "../habit - create/CreateHabit";
 import MenuHabit from "../habit - menu/MenuHabit";
 import { GetContainer } from "../../habit - reward/HabitAndReward.styles";

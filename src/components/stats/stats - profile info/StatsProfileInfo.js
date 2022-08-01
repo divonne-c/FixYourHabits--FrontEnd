@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Card } from "../../../styles - global/cards/CardHome";
+import { Card } from "../../../globalstyles/CardHome";
 import { Profile } from "./StatsProfileInfo.styles";
 import { ProfileContext } from "../../../context/ProfileContext";
 import { AuthContext } from "../../../context/AuthContext";

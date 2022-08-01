@@ -1,4 +1,3 @@
-import React from "react";
 import InputTemplate from "./InputTemplate";
 import { Form, RadioContainer } from "./Form.styles";
 

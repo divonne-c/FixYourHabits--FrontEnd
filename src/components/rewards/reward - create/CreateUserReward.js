@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
 import Modal from "../../modals/modal - normal/Modal";
-import { ButtonFourth } from "../../../styles - global/global/ButtonStyles";
+import { ButtonFourth } from "../../../globalstyles/ButtonStyles";
 import { ProfileContext } from "../../../context/ProfileContext";
 import rewards from "../../../helpers/rewards";
 
@@ -48,21 +48,18 @@ const CreateUserReward = () => {
 
       async function makeReward() {
         try {
-          await axios
-            .post(`http://localhost:8080/userrewards/`, data, {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-            })
-            .then((response) => console.log(response));
+          await axios.post(`http://localhost:8080/userrewards/`, data, {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          });
 
           setRenderData(!renderData);
           toggleShowReward(true);
           getReward = {};
         } catch (e) {
           console.error(e);
-          console.log("make reward error");
         }
       }
 

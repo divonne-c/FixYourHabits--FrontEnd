@@ -1,9 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import {
-  Desktop,
-  Mobile,
-} from "../../styles - global/global/MediaQueryDisplay";
+import { Desktop, Mobile } from "../../globalstyles/MediaQueryDisplay";
 import { NavLinkPrimary, NavLinkThird } from "./NavLink.styles";
 
 const HelpNavigation = () => {

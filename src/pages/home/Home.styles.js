@@ -28,7 +28,7 @@ export const HabitsMobile = styled.div`
   .habit-container {
     background: var(--color-white-background);
     border-radius: var(--border-radius-s);
-    padding: 2em;
+    padding: var(--padding-sm);
   }
 
   .button-container {

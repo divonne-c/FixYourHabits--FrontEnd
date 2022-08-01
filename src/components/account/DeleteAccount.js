@@ -3,7 +3,7 @@ import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import ModalSmall from "../modals/modal - small/ModalSmall";
 import ModalButtons from "../modals/modal - buttons/ModalButtons";
-import { ButtonThird } from "../../styles - global/global/ButtonStyles";
+import { ButtonThird } from "../../globalstyles/ButtonStyles";
 
 const DeleteAccount = () => {
   const [showModal, toggleShowModal] = useState(false);

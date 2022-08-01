@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import StatsAdminAccount from "../stats - account stats/StatsAdminAccount";
 import StatsProfileInfo from "../stats - profile info/StatsProfileInfo";
-import { Desktop } from "../../../styles - global/global/MediaQueryDisplay";
+import { Desktop } from "../../../globalstyles/MediaQueryDisplay";
 import { AuthContext } from "../../../context/AuthContext";
 import { ProfileContext } from "../../../context/ProfileContext";
 import { Container } from "./Stats.styles";

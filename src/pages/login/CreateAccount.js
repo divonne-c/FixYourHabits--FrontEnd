@@ -4,18 +4,15 @@ import { useNavigate } from "react-router-dom";
 import CreateAccountForm from "../../components/forms/CreateAccountForm";
 import bcrypt from "bcryptjs";
 import AuthNavigation from "../../components/navigations/AuthNavigation";
-import { ContentLayout } from "../../styles - global/global/LayoutStyles";
+import { ContentLayout } from "../../globalstyles/LayoutStyles";
 import { AuthContext } from "../../context/AuthContext";
 import {
   DesktopWHeight,
   MobileWHeight,
-} from "../../styles - global/global/MediaQueryDisplay";
+} from "../../globalstyles/MediaQueryDisplay";
 import { Container, MobileContainer } from "./Auth.styles";
-import {
-  ButtonPrimary,
-  ButtonThird,
-} from "../../styles - global/global/ButtonStyles";
-import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
+import { ButtonPrimary, ButtonThird } from "../../globalstyles/ButtonStyles";
+import { CardContentMobile } from "../../globalstyles/CardContentMobile";
 
 const CreateAccount = () => {
   const [userData, setUserData] = useState({

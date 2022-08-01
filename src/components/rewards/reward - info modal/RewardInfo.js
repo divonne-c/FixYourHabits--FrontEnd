@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ModalSmall from "../../modals/modal - small/ModalSmall";
 import { Container, Info } from "./RewardInfo.styles";
-import { ButtonFourth } from "../../../styles - global/global/ButtonStyles";
+import { ButtonFourth } from "../../../globalstyles/ButtonStyles";
 import { RewardIconColor } from "../reward - get/GetReward.styles";
 
 const RewardInfo = ({ reward }) => {

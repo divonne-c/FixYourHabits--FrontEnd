@@ -1,5 +1,5 @@
 import React from "react";
-import { MobileWHeight } from "../../../styles - global/global/MediaQueryDisplay";
+import { MobileWHeight } from "../../../globalstyles/MediaQueryDisplay";
 import { MenuButtonContainer } from "./MenuButton.styles";
 
 const MenuButton = ({ handler, name }) => {

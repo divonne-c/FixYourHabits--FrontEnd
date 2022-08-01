@@ -4,7 +4,7 @@ import { AuthContext } from "../../../context/AuthContext";
 import {
   DesktopWHeight,
   MobileWHeight,
-} from "../../../styles - global/global/MediaQueryDisplay";
+} from "../../../globalstyles/MediaQueryDisplay";
 import { CompleteButton } from "./CompleteHabit.styles";
 
 const CompleteHabit = ({ habit }) => {

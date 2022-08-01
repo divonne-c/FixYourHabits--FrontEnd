@@ -23,7 +23,7 @@ export const ModalContainer = styled.div`
     flex-direction: column;
     gap: var(--gap-m);
     min-height: var(--height-50vh);
-    min-width: var(--width-35vw);
+    min-width: 35vw;
     background: var(--color-white);
     padding: var(--padding-l);
     border-radius: var(--border-radius-m);
@@ -57,6 +57,11 @@ export const ModalContainer = styled.div`
       min-height: var(--height-50vh);
       width: var(--width-modal-mobile);
       padding: var(--padding-m);
+    }
+
+    .cancel-button {
+      display: flex;
+      justify-content: center;
     }
   }
 `;

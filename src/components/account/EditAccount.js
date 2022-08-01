@@ -42,14 +42,16 @@ const EditAccount = () => {
     const token = localStorage.getItem("token");
 
     try {
-      await axios
-        .put(`http://localhost:8080/users/${auth.user.username}`, data, {
+      await axios.put(
+        `http://localhost:8080/users/${auth.user.username}`,
+        data,
+        {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-        })
-        .then((response) => console.log(response));
+        }
+      );
 
       setRenderData(!renderData);
       setNotifications([

@@ -1,10 +1,6 @@
-import React, { useContext } from "react";
 import FaqContent from "../FaqContent";
-import { AuthContext } from "../../../context/AuthContext";
 
 const FaqHabitsContent = () => {
-  const { auth } = useContext(AuthContext);
-
   return (
     <>
       <FaqContent

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import Home from "../pages/home/home - user/Home";
 import HomeHabits from "../pages/home/home - user/mobile/HomeHabits";
@@ -20,10 +20,10 @@ import CreateAccount from "../pages/login/CreateAccount";
 
 const AppRoutes = () => {
   const { auth } = useContext(AuthContext);
-  // const navigate = useNavigate();
 
   return (
     <Routes>
+      {/*HOME*/}
       <Route path="/home/:userId">
         <Route
           path=""
@@ -44,7 +44,7 @@ const AppRoutes = () => {
         <Route path="scores" element={<HomeAdminScores />} />
       </Route>
 
-      {/*Discover*/}
+      {/*DISCOVER*/}
       <Route path="/discover">
         <Route
           path=""
@@ -60,7 +60,7 @@ const AppRoutes = () => {
         <Route path="all" element={<DiscoverAll />} />
       </Route>
 
-      {/*Settings*/}
+      {/*SETTINGS*/}
       <Route path="/settings">
         <Route
           path=""
@@ -76,7 +76,7 @@ const AppRoutes = () => {
         <Route path="security" element={<SettingsSecurity />} />
       </Route>
 
-      {/*Help*/}
+      {/*HELP*/}
       <Route path="/help">
         <Route path="" element={<Navigate to="faq" />} />
         <Route path="faq">
@@ -88,7 +88,7 @@ const AppRoutes = () => {
         <Route path="contact" element={<HelpContact />} />
       </Route>
 
-      {/*Sign in*/}
+      {/*AUTH*/}
       <Route path="/auth">
         <Route path="" element={<Navigate to="sign-in" />} />
         <Route path="sign-in" element={<SignIn />} />

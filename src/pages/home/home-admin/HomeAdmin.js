@@ -9,9 +9,9 @@ import StatsAdmin from "../../../components/stats/stats/StatsAdmin";
 import {
   ContentLayout,
   InnerContentLayout3,
-} from "../../../styles - global/global/LayoutStyles";
+} from "../../../globalstyles/LayoutStyles";
 import { Main, Sidebar } from "../Home.styles";
-import { Card } from "../../../styles - global/cards/CardHome";
+import { Card } from "../../../globalstyles/CardHome";
 
 const HomeAdmin = () => {
   let { userId } = useParams();

@@ -8,10 +8,10 @@ import Stats from "../../../components/stats/stats/Stats";
 import {
   ContentLayout,
   InnerContentLayout3,
-} from "../../../styles - global/global/LayoutStyles";
+} from "../../../globalstyles/LayoutStyles";
 import { ButtonContainer, Container, Main, Sidebar } from "../Home.styles";
-import { DesktopWHeight } from "../../../styles - global/global/MediaQueryDisplay";
-import { Card } from "../../../styles - global/cards/CardHome";
+import { DesktopWHeight } from "../../../globalstyles/MediaQueryDisplay";
+import { Card } from "../../../globalstyles/CardHome";
 
 const Home = () => {
   const [sortHabits, setSortHabits] = useState({

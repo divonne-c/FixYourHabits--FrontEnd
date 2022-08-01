@@ -1,9 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {
-  Desktop,
-  Mobile,
-} from "../../styles - global/global/MediaQueryDisplay";
+import { Desktop, Mobile } from "../../globalstyles/MediaQueryDisplay";
 import { DiscoverNavStyles } from "../../pages/discover/Discover.styles";
 import { NavLinkSecondary, NavLinkThird } from "./NavLink.styles";
 

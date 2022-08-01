@@ -4,7 +4,7 @@ import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import ModalSmall from "../modals/modal - small/ModalSmall";
 import ModalButtons from "../modals/modal - buttons/ModalButtons";
-import { ButtonSecondary } from "../../styles - global/global/ButtonStyles";
+import { ButtonSecondary } from "../../globalstyles/ButtonStyles";
 
 const ResetAccount = ({ role }) => {
   const [showModal, toggleShowModal] = useState(false);
@@ -77,12 +77,18 @@ const ResetAccount = ({ role }) => {
         ...notifications,
         {
           type: "success",
-          message: "You successfully updated your personal information",
+          message: "You successfully reset your profile.",
         },
       ]);
     } catch (error) {
       console.log(error);
-      setNotifications([...notifications, { type: "error", message: error }]);
+      setNotifications([
+        ...notifications,
+        {
+          type: "error",
+          message: "Something went wrong with your request. Please try again.",
+        },
+      ]);
     }
   };
 

@@ -2,7 +2,7 @@ import React from "react";
 import {
   DesktopWHeight,
   MobileWHeight,
-} from "../../../styles - global/global/MediaQueryDisplay";
+} from "../../../globalstyles/MediaQueryDisplay";
 import { ContainerMobile } from "../../habits/habit - get/GetHabits.styles";
 import {
   Element,

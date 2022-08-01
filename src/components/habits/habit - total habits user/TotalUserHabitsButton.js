@@ -2,11 +2,10 @@ import React, { useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext";
 import { ProfileContext } from "../../../context/ProfileContext";
-import { ButtonThird } from "../../../styles - global/global/ButtonStyles";
+import { ButtonThird } from "../../../globalstyles/ButtonStyles";
 
 const TotalUserHabitsButton = () => {
-  const { auth, renderData, setRenderData, setNotifications, notifications } =
-    useContext(AuthContext);
+  const { auth, renderData, setRenderData } = useContext(AuthContext);
   const { userProfile } = useContext(ProfileContext);
 
   const totalHabits = async () => {

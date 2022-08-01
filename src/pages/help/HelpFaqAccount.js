@@ -6,13 +6,13 @@ import FaqAccountContent from "./faq - questions and answers/FaqAccountContent";
 import {
   ContentLayout,
   InnerContentLayout,
-} from "../../styles - global/global/LayoutStyles";
+} from "../../globalstyles/LayoutStyles";
 import { HelpFaqStyles, HelpStylesMobile } from "./Help.styles";
-import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
+import { CardContentMobile } from "../../globalstyles/CardContentMobile";
 import {
   DesktopWHeight,
   MobileWHeight,
-} from "../../styles - global/global/MediaQueryDisplay";
+} from "../../globalstyles/MediaQueryDisplay";
 
 const HelpFaqAccount = () => {
   return (

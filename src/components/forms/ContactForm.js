@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import { Form } from "./Form.styles";
-import { ButtonThird } from "../../styles - global/global/ButtonStyles";
-import { AuthContext } from "../../context/AuthContext";
 import InputTemplate from "./InputTemplate";
+import { Form } from "./Form.styles";
+import { ButtonThird } from "../../globalstyles/ButtonStyles";
+import { AuthContext } from "../../context/AuthContext";
 
 const ContactForm = () => {
   const [userData, setUserData] = useState({

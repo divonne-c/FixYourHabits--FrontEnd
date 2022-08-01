@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../modals/modal - normal/Modal";
-import { Container, ModalContainer, Preview } from "./ProfileImage.styles";
-import {
-  ButtonFourth,
-  ButtonThird,
-} from "../../styles - global/global/ButtonStyles";
 import ModalButtons from "../modals/modal - buttons/ModalButtons";
+import { Container, ModalContainer, Preview } from "./ProfileImage.styles";
 
 const ProfileImageContent = ({
   profile,

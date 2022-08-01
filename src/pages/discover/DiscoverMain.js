@@ -3,12 +3,12 @@ import DiscoverMainContent from "./DiscoverMainContent";
 import {
   ContentLayout,
   InnerContentLayout2,
-} from "../../styles - global/global/LayoutStyles";
-import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
+} from "../../globalstyles/LayoutStyles";
+import { CardContentMobile } from "../../globalstyles/CardContentMobile";
 import {
   DesktopWHeight,
   MobileWHeight,
-} from "../../styles - global/global/MediaQueryDisplay";
+} from "../../globalstyles/MediaQueryDisplay";
 
 const DiscoverMain = () => {
   return (

@@ -2,8 +2,8 @@ import ModalSmall from "../../modals/modal - small/ModalSmall";
 import {
   Desktop,
   MobileWHeight,
-} from "../../../styles - global/global/MediaQueryDisplay";
-import { ButtonFourth } from "../../../styles - global/global/ButtonStyles";
+} from "../../../globalstyles/MediaQueryDisplay";
+import { ButtonFourth } from "../../../globalstyles/ButtonStyles";
 import { Container } from "./Menu.styles";
 
 const Menu = ({ children, show, reward }) => {

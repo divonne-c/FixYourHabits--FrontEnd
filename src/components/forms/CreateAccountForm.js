@@ -1,6 +1,5 @@
-import React from "react";
-import { Form } from "./Form.styles";
 import InputTemplate from "./InputTemplate";
+import { Form } from "./Form.styles";
 
 const CreateAccountForm = ({ userData, handler }) => {
   return (

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ProfileContext } from "../../../context/ProfileContext";
 import RewardInfo from "../reward - info modal/RewardInfo";
-import { Card } from "../../../styles - global/cards/CardHome";
+import { Card } from "../../../globalstyles/CardHome";
 import { Container } from "./GetReward.styles";
 
 const GetUserRewards = () => {

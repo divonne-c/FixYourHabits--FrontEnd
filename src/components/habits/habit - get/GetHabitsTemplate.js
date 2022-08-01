@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
+import CompleteHabit from "../habit - complete button/CompleteHabit";
 import {
   ContainerMobile,
   HabitColorStyle,
   HabitMobile,
 } from "./GetHabits.styles";
-import CompleteHabit from "../habit - complete button/CompleteHabit";
 import { AuthContext } from "../../../context/AuthContext";
 import {
   DesktopWHeight,
   MobileWHeight,
-} from "../../../styles - global/global/MediaQueryDisplay";
+} from "../../../globalstyles/MediaQueryDisplay";
 import { Element } from "../../habit - reward/HabitAndReward.styles";
 
 const GetHabitsTemplate = ({ habitColor, habitLogo, habit }) => {

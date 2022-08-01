@@ -7,9 +7,9 @@ import Calender from "../../../../components/calender/Calender";
 import {
   ContentLayout,
   InnerContentLayout2,
-} from "../../../../styles - global/global/LayoutStyles";
-import { MobileWHeight } from "../../../../styles - global/global/MediaQueryDisplay";
-import { CardContentMobile } from "../../../../styles - global/cards/CardContentMobile";
+} from "../../../../globalstyles/LayoutStyles";
+import { MobileWHeight } from "../../../../globalstyles/MediaQueryDisplay";
+import { CardContentMobile } from "../../../../globalstyles/CardContentMobile";
 import { ButtonContainer, HabitsMobile } from "../../Home.styles";
 
 const HomeHabits = () => {

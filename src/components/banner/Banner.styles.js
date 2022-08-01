@@ -31,6 +31,12 @@ export const Container = styled.div`
     }
   }
 
+  @media (max-width: 1300px) {
+    .banner-text {
+      width: 30%;
+    }
+  }
+
   @media (max-width: 1024px) {
     min-height: 30vh;
     margin-top: 0;

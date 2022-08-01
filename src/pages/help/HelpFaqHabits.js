@@ -2,18 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import HelpNavigation from "../../components/navigations/HelpNavigation";
 import FaqNavigation from "../../components/navigations/FaqNavigation";
-import FaqContent from "./FaqContent";
 import {
   ContentLayout,
   InnerContentLayout,
-} from "../../styles - global/global/LayoutStyles";
+} from "../../globalstyles/LayoutStyles";
 import { HelpFaqStyles, HelpStylesMobile } from "./Help.styles";
-import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
+import { CardContentMobile } from "../../globalstyles/CardContentMobile";
 import {
   DesktopWHeight,
   MobileWHeight,
-} from "../../styles - global/global/MediaQueryDisplay";
-import FaqRewardsContent from "./faq - questions and answers/FaqRewardsContent";
+} from "../../globalstyles/MediaQueryDisplay";
 import FaqHabitsContent from "./faq - questions and answers/FaqHabitsContent";
 
 const HelpFaqHabits = () => {

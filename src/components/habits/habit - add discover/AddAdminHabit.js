@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import axios from "axios";
-import { ButtonThird } from "../../../styles - global/global/ButtonStyles";
+import { ButtonThird } from "../../../globalstyles/ButtonStyles";
 
 const AddAdminHabit = ({ habit, toggleShowModal, showModal }) => {
   const { auth, notifications, setNotifications } = useContext(AuthContext);

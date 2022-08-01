@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Circle = styled.div`
   .svg {
     display: inline-block;
-    max-width: 100%;
+    max-width: var(--width-100);
   }
 
   .svg-circle-bg {

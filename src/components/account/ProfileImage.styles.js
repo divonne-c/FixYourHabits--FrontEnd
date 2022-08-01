@@ -46,13 +46,10 @@ export const Container = styled.div`
     }
   }
 
-  .error {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-s);
-    color: var(--color-error);
-    text-align: center;
-    margin-top: var(--margin-l);
+  @media (max-width: 1024px) {
+    .profile-image {
+      margin-top: var(--margin-m);
+    }
   }
 `;
 
@@ -64,6 +61,21 @@ export const ModalContainer = styled.div`
 
     button {
       padding: var(--padding-s) var(--padding-m);
+    }
+  }
+
+  .error {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-s);
+    color: var(--color-error);
+    text-align: center;
+    margin-top: var(--margin-l);
+  }
+
+  @media (max-width: 1024px) {
+    .error {
+      text-align: left;
     }
   }
 `;

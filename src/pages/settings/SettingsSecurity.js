@@ -3,18 +3,18 @@ import EditPassword from "../../components/account/EditPassword";
 import {
   ContentLayout,
   InnerContentLayout,
-} from "../../styles - global/global/LayoutStyles";
+} from "../../globalstyles/LayoutStyles";
 import {
   SecurityForm,
   SettingStyles,
   SettingStylesMobile,
 } from "./settings.styles";
-import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
+import { CardContentMobile } from "../../globalstyles/CardContentMobile";
 import {
   DesktopWHeight,
   MobileWHeight,
-} from "../../styles - global/global/MediaQueryDisplay";
-import { Card } from "../../styles - global/cards/CardHome";
+} from "../../globalstyles/MediaQueryDisplay";
+import { Card } from "../../globalstyles/CardHome";
 
 const SettingsSecurity = () => {
   return (

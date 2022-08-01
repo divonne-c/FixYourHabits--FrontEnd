@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
+import InputTemplate from "./InputTemplate";
 import { Form, RadioContainer } from "./Form.styles";
 import { AuthContext } from "../../context/AuthContext";
-import InputTemplate from "./InputTemplate";
 
 const HabitForm = ({ habit, handler }) => {
   const { auth } = useContext(AuthContext);

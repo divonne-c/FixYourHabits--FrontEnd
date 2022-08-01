@@ -8,17 +8,14 @@ import {
   ContentLayout,
   InnerContentLayout2,
   InnerContentLayout3,
-} from "../../styles - global/global/LayoutStyles";
-import { CardContentMobile } from "../../styles - global/cards/CardContentMobile";
+} from "../../globalstyles/LayoutStyles";
+import { CardContentMobile } from "../../globalstyles/CardContentMobile";
 import {
   DesktopWHeight,
   MobileWHeight,
-} from "../../styles - global/global/MediaQueryDisplay";
+} from "../../globalstyles/MediaQueryDisplay";
 import { DiscoverStyles, Filter } from "./Discover.styles";
-import {
-  ButtonFourth,
-  ButtonSecondary,
-} from "../../styles - global/global/ButtonStyles";
+import { ButtonFourth, ButtonSecondary } from "../../globalstyles/ButtonStyles";
 
 const DiscoverAll = () => {
   const [filteredHabits, setFilteredHabits] = useState([]);

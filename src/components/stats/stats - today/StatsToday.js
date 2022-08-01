@@ -4,11 +4,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
 import StatsCircle from "./StatsCircle";
 import { Container } from "./StatsToday.styles";
-import { Card } from "../../../styles - global/cards/CardHome";
+import { Card } from "../../../globalstyles/CardHome";
 import {
   DesktopWHeight,
   MobileWHeight,
-} from "../../../styles - global/global/MediaQueryDisplay";
+} from "../../../globalstyles/MediaQueryDisplay";
 
 const StatsToday = () => {
   const [userHabits, setUserHabits] = useState([]);

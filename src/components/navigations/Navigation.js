@@ -12,10 +12,7 @@ import {
   NavigationLogo,
   NavigationMobile,
 } from "./Navigation.styles";
-import {
-  Desktop,
-  Mobile,
-} from "../../styles - global/global/MediaQueryDisplay";
+import { Desktop, Mobile } from "../../globalstyles/MediaQueryDisplay";
 
 const Navigation = () => {
   const [showMenu, toggleShowMenu] = useState(false);
@@ -112,8 +109,8 @@ const Navigation = () => {
           <NavLink
             to={
               auth.isAuth && auth.user.role === "ROLE_USER"
-                ? `/home/${auth.user.username}`
-                : auth.isAuth && `/admin/home/${auth.user.username}`
+                ? `/home/${auth.user.username}/habits`
+                : auth.isAuth && `/admin/home/${auth.user.username}/habits`
             }
           >
             <span className="material-symbols-outlined">home</span>

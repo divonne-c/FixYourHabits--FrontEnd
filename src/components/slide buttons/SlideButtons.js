@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "./SlideButtons.styles";
-import { Desktop } from "../../styles - global/global/MediaQueryDisplay";
+import { Desktop } from "../../globalstyles/MediaQueryDisplay";
 
 const SlideButtons = ({ classname }) => {
   return (

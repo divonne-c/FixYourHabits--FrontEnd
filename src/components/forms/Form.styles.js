@@ -35,7 +35,7 @@ export const Form = styled.div`
   .input-title {
     margin-bottom: var(--margin-s);
     padding: var(--padding-xs) 0;
-    border-bottom: 1px solid var(--color-white-input);
+    border-bottom: var(--border-width-xxs) solid var(--color-white-input);
   }
 
   input[value] {

@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  ButtonSecondary,
-  ButtonThird,
-} from "../../styles - global/global/ButtonStyles";
+import { ButtonSecondary, ButtonThird } from "../../globalstyles/ButtonStyles";
 import { Buttons } from "./Form.styles";
 
 const FormButtons = ({ handler }) => {

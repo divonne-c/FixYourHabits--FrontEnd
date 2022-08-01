@@ -12,7 +12,7 @@ export const Container = styled.div`
   }
 
   .today {
-    border-left: 1px solid var(--color-white-input);
+    border-left: var(--border-width-xxs) solid var(--color-white-input);
   }
 
   .today-content {

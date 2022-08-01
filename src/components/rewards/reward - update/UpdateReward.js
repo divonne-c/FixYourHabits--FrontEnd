@@ -49,7 +49,7 @@ const UpdateReward = ({ reward, toggleShowMenu, showMenu, show }) => {
       setRenderData(!renderData);
       setNotifications([
         ...notifications,
-        { type: "success", message: "You successfully updated the habit" },
+        { type: "success", message: "You successfully updated the reward" },
       ]);
     } catch (error) {
       console.log(error);

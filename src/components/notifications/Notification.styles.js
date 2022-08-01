@@ -7,7 +7,7 @@ export const Message = styled.div`
   width: 50%;
   display: flex;
   justify-content: flex-end;
-  margin-top: 2em;
+  margin-top: var(--margin-m);
   animation: slideIn 2s;
   color: var(--color-text-grey);
   z-index: 3;
@@ -33,7 +33,7 @@ export const Message = styled.div`
     margin-right: var(--margin-m);
 
     span {
-      color: #98bd98;
+      color: var(--color-success);
     }
   }
 
@@ -44,7 +44,7 @@ export const Message = styled.div`
     margin-right: var(--margin-m);
 
     span {
-      color: #d58d8d;
+      color: var(--color-error);
     }
   }
 
@@ -60,6 +60,6 @@ export const Message = styled.div`
   }
 
   @media (max-width: 1024px) {
-    display: none;
+    width: 90%;
   }
 `;
